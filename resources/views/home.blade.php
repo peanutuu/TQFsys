@@ -2,7 +2,8 @@
 @section('title','หน้าหลัก')
 @section('content')
     <h1>หน้า Homepage</h1>
-    <div class="container"><br><br>
+    
+    {{-- <div class="container"><br><br>
       <div class="row">
         <div class="col">
           <table class="table table-striped">
@@ -47,7 +48,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> --}}
 
         <div class="col col-lg-2">
           <h4>เลือกทำรายการ</h4><br>
