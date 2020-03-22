@@ -2,7 +2,8 @@
 @section('title','หน้าหลัก')
 @section('content')
     <h1>หน้า Homepage</h1>
-    
+
+    Activity Table
     {{-- <div class="container"><br><br>
       <div class="row">
         <div class="col">
