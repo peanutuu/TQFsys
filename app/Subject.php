@@ -22,7 +22,7 @@ class Subject extends Model
         return $this->hasMany(Tqf5::class);
     }
 
-    public function SIC(){
+    public function SICs(){
         return $this->hasMany(SIC::class);
     }
 

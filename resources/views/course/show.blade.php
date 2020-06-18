@@ -50,7 +50,6 @@
                     @method('DELETE')
                     <input type="submit" value="Delete" class="btn btn-primary"/>
                 </form>
-
             </h3>
             {{-- <a href="{{ route('subject.show', ['subject' => $subject->id]) }}">{{$subject->subjectid}}</a> --}}
         @endforeach

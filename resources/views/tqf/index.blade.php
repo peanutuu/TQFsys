@@ -51,6 +51,7 @@
                 <th scope="col">แก้ไข</th>
                 <th scope="col">ลบ</th>
                 <th scope="col">คัดลอก</th>
+                <th scope="col">PDF</th>
               </tr>
             </thead>
         <tbody>
@@ -60,7 +61,7 @@
             <td><a href="{{ route('tqf3.show', ['tqf3' => $tqf3->id]) }}"> {{ $tqf3->name }} </a></td>
             <td><a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}"> {{$tqf3->subject->subjectid}} </a></td>
             <td> {{ $tqf3->year }}/{{ $tqf3->term }} </td>
-            <td><a href="{{ route('tqf3.edit', ['tqf3' => $tqf3->id]) }}" class="btn btn-primary"> edit </a></td>
+            <td><a href="{{ route('tqf3.edit', ['tqf3' => $tqf3->id]) }}" class="btn btn-warning"> edit </a></td>
             <td>
                 <form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
                     @csrf
@@ -69,6 +70,7 @@
                 </form>
             </td>
             <td><a href="{{ route('tqf3.copy', ['tqf3' => $tqf3->id]) }}" class="btn btn-primary"> copy </a></td>
+            <td><a href="{{ route('tqf3.pdf', ['tqf3' => $tqf3->id]) }}" class="btn btn-primary"> PDF </a></td>
         </tr>
 
         {{-- <a href="{{ route('subject.edit', ['subject' => $subject->id]) }}" class="btn btn-primary"> edit </a> --}}

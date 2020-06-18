@@ -24,6 +24,14 @@ Route::get('/tqf/tqf5/{tqf5}/copy','TQF5Controller@copy')->name('tqf5.copy');
 
 Route::resource('/subava', 'SubavaController')->only('index');
 
+// Route::get('/tqf/tqf3/select', 'TQF3Controller@select')->name('tqf3.select');
+
+Route::get('/tqf/tqf3/{tqf3}/create2', 'TQF3Controller@create2')->name('tqf3.create2');
+
+Route::get('/tqf/tqf3/pdf/{tqf3}', 'TQF3Controller@downloadPDF')->name('tqf3.pdf');
+
+// Route::get('/tqf/tqf3/{tqf3}/create2', 'TQF3Controller@storeTwo')->name('tqf3.storeTwo');
+
 // Route::get('/course/subincourse/{course}/add','SICController@add')->name('sic.add');
 
 // Route::get('/products/details/{id}','ProductController@details');

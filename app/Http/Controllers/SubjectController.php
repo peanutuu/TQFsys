@@ -6,6 +6,7 @@ use App\Tqf3;
 use App\Tqf5;
 use App\Course;
 use App\Subject;
+use App\SIC;
 use App\Http\Requests\StoreSubject;
 use Illuminate\Http\Request;
 
@@ -60,10 +61,11 @@ class SubjectController extends Controller
     {
         $subject = Subject::findOrFail($id);
         $course = Course::all();
+        $sics = SIC::all();
         $tqf3s = Tqf3::all();
         $tqf5s = Tqf5::all();
         // return view('subject.show',['subject' => Subject::findOrFail($id)]);
-        return view('subject.show', compact('course','subject','tqf3s','tqf5s'));
+        return view('subject.show', compact('course','subject','sics','tqf3s','tqf5s'));
     }
 
     /**

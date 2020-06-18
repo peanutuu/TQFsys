@@ -2,39 +2,93 @@
 @section('title','เพิ่มเอกสารมคอ3')
 @section('content')
 
+<br><br><a href="{{ route('tqf.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
+
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
-     <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data">
+     {{-- <form method="POST" action="{{ route('tqf3.create2')}}" enctype="multipart/form-data">
         @csrf
         
+        เสร็จสิ้น
 
-        {{-- @include('posts._form') --}}
+        {{ $name }}
+
+        <button type="submit" class="btn btn-primary btn-block">Create!</button>
+    </form> --}}
+
+    {{-- <p>
+        <label>ชื่อเอกสาร</label>
+        <input name='name' type="text" value="{{ old('name', $tqf3->name) }}"  />
+    </p> --}}
+
+    <form method="POST" action="{{ route('tqf3.update',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
         
-        {{-- <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
-        <div class="form-group">
-            <label>รายวิชา</label>
-            {{ $subject }}
-        </div> --}}
-
-        {{-- <div class="form-group">
-            <label>รายวิชา</label>
-            <select class="form-control" name="id">
-                <option value="" disabled selected>เลือกรายวิชา</option>
-                    @foreach($subjects as $subject)
-                        <option value="{{$subject->id}}">{{$subject->subjectid}}</option>
-                    @endforeach
-            </select>
-        </div> --}}
-
         {{-- <p>
-            <label>1. รหัสวิชาและชื่อรายวิชา</label>
-            <input type="text" value="{{ $subject }}" />
-            <input type="text" value="{{ $subject }}" />
-            <input type="text" value="{{ $subject }}" />
+            <label>ชื่อเอกสาร</label>
+            <input name='name' type="text" value="{{ old('name', $tqf3->name) }}" />
         </p> --}}
 
         {{-- <p>
+            <label>ปีการศึกษา</label>
+            <select name="year">
+                <option value="{{ old('year', $tqf3->year) }}">{{ old('year', $tqf3->year) }}</option>
+                <option value="2563">2563</option>
+                <option value="2564">2564</option>
+                <option value="2565">2565</option>
+                <option value="2566">2566</option>
+                <option value="2567">2567</option>
+                <option value="2568">2568</option>
+                <option value="2569">2569</option>
+                <option value="2570">2570</option>
+            </select>
+        </p>
+
+        <p>
+            <label>ภาคเรียนการศึกษา</label>
+            <select name="term" >
+                <option value="{{ old('term', $tqf3->term) }}">{{ old('term', $tqf3->term) }}</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="ซัมเมอร์">ซัมเมอร์</option>
+            </select>
+        </p>
+
+        <p>
+            <label>รายวิชา</label>
+            <select class="form-control" name="subject_id">
+                    @foreach($subjects as $subject)
+                        <option value="{{ old('subject_id', $subject->id) }}"
+                            @if($subject->id == $tqf3->subject_id)
+                            selected
+                            @endif
+                            >{{ old('subject_id', $subject->subjectid) }}</option>
+                    @endforeach
+            </select>
+        </p>
+
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif --}}
+
+        
+        <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
+        <p>
+            <label>1. รหัสวิชาและชื่อรายวิชา</label>
+            <input type="text" value="{{ old('name', $tqf3->subject->subjectid) }}"  readonly/>
+            <input type="text" value="{{ old('name', $tqf3->subject->subjectnameth) }}"  readonly/>
+            <input type="text" value="{{ old('name', $tqf3->subject->subjectnameen) }}" readonly/>
+        </p>
+
+        <p>
             <label>2. จำนวนหน่วยกิต</label>
-            <input type="text" />
+            <input type="text" value="{{ old('name', $tqf3->subject->credit)}}" readonly/>
         </p>
 
         <p>
@@ -43,9 +97,9 @@
             <label>หลักสูตร</label>
             <input type="text" />
             <label>สาขาวิชา</label>
-            <input type="text" />
+            <input type="text" /><br>
             <label>ประเภทกลุ่มรายวิชา</label>
-            <input type="text" />
+            <input type="text" value="{{ old('name', $tqf3->subject->id)}}"  readonly/>
         </p>
 
         <p>
@@ -59,7 +113,7 @@
 
         <p>
             <label>5. ภาคการศึกษาที่</label>
-            <input type="text" />
+            <input type="text" value="{{ old('year', $tqf3->year) }} / {{ old('term', $tqf3->term) }}" readonly/>
             <label>ชั้นปีที่</label>
             <input type="text" />
         </p>
@@ -90,7 +144,7 @@
             <input type="text" />
         </p>
 
-        <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
+        {{-- <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
             <label>1.จุดมุ่งหมายของรายวิชา</label>
             <label>1.1</label>
@@ -107,9 +161,9 @@
             <input type="text" /><br>
             <label>2.2</label>
             <input type="text" />
-        </p>
+        </p> --}}
 
-        <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
+        {{-- <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
             <input type="text" />
@@ -137,19 +191,30 @@
         <p>
             <label>4.การบูรณาการเรียนการสอนกับงานวิจัย / งานบริการวิชาการ / ทำนุบำรุงศิลปะ (ถ้ามี)</label>
             <input type="text" />
-        </p>
+        </p> --}}
 
         <h1>หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต</h1>
         <p>
             <label>1.คุณธรรม จริยธรรม</label><br>
             <label>1.1 คุณธรรม จริยธรรมที่ต้องพัฒนา</label><br>
+
+            <label> 
+
+                
+                {{ $tqf3->subject->subjectid}} 
+            
+            
+            
+            </label><br>
+
+
             <label>1.2 วิธีการสอน</label><br>
             <input type="text" /><br>
             <label>1.3 วิธีการประเมินผล</label><br>
             <input type="text" />
         </p>
 
-        <p>
+        {{-- <p>
             <label>2.ความรู้</label><br>
             <label>2.1 ความรู้ต้องพัฒนา </label><br>
             <label>2.2 วิธีการสอน</label><br>
@@ -183,9 +248,9 @@
             <input type="text" /><br>
             <label>5.3 วิธีการประเมินผล</label><br>
             <input type="text" />
-        </p>
+        </p> --}}
 
-        <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
+        {{-- <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
         <p>
             <label>1.แผนการสอน</label><br>
             <input type="text" />
@@ -198,9 +263,9 @@
             <input type="text" /><br>
             <label>2.3 เกณฑ์ค่าระดับคะแนน</label><br>
             <input type="text" />
-        </p>
+        </p> --}}
 
-        <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
+        {{-- <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
         <p>
             <label>1.เอกสารและตำราหลัก</label><br>
             <input type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/>
@@ -214,9 +279,9 @@
         <p>
             <label>3.เอกสารและข้อมูลแนะนำ</label><br>
             <input type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/>
-        </p>
+        </p> --}}
 
-        <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
+        {{-- <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
         <p>
             <label>1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต</label><br>
             <input type="text" />
@@ -241,56 +306,6 @@
             <label>5.การดำเนินการทบทวนและการวางแผนปรับปรุงประสิทธิผลของรายวิชา</label><br>
             <input type="text" placeholder="อธิบายกระบวนการในการนำข้อมูลที่ได้จากการประเมินจากข้อ 1 และ 2 มาวางแผนเพื่อปรับปรุงคุณภาพ" size="100"/>
         </p> --}}
-
-        <p>
-            <label>ชื่อเอกสาร</label>
-            <input name='name' type="text" />
-        </p>
-
-        <p>
-            <label>ปีการศึกษา</label>
-            <select name="year">
-                <option value="" disabled selected>เลือกปีการศึกษา</option>
-                <option value="2563">2563</option>
-                <option value="2564">2564</option>
-                <option value="2565">2565</option>
-                <option value="2566">2566</option>
-                <option value="2567">2567</option>
-                <option value="2568">2568</option>
-                <option value="2569">2569</option>
-                <option value="2570">2570</option>
-            </select>
-        </p>
-
-        <p>
-            <label>ภาคเรียนการศึกษา</label>
-            <select name="term" >
-                <option value="" disabled selected>เลือกภาคเรียนการศึกษา</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="ซัมเมอร์">ซัมเมอร์</option>
-            </select>
-        </p>
-
-        <div class="form-group">
-            <label>รายวิชา</label>
-            <select class="form-control" name="subject_id">
-                <option value="" disabled selected>เลือกรายวิชา</option>
-                    @foreach($subjects as $subject)
-                        <option value="{{$subject->id}}">{{$subject->subjectid}}</option>
-                    @endforeach
-            </select>
-        </div>
-        
-         @if ($errors->any())
-            <div> 
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif 
 
         <button type="submit" class="btn btn-primary btn-block">Create!</button>
     </form>

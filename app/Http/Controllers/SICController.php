@@ -25,12 +25,10 @@ class SICController extends Controller
 
     public function store(StoreSIC $request)
     {
-
         $validatedData = $request->validated();
         $sic = SIC::create($validatedData);
         $request->session()->flash('status','Subject was created!');
         return redirect()->route('course.show',['course'=> $sic->course_id]);
-
     }
 
     public function edit($id)
