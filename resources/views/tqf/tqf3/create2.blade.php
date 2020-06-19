@@ -199,12 +199,25 @@
             <label>1.1 คุณธรรม จริยธรรมที่ต้องพัฒนา</label><br>
 
             <label> 
+                {{-- {{ $tqf3->subject->subjectid}}  --}}
+                @foreach ($tqf3->subject->sics as $sic)
+                {{-- {{ $sic->resp11 }} --}}
+                    @if ($sic->resp11 == 1)
+                        1) คระหนักในคุณค่าและคุณธรรม จริยธรรม เสียสละ และซื่อสัตย์สุจริต              
+                    @elseif ($sic->resp11 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี
+                    @endif
 
-                
-                {{ $tqf3->subject->subjectid}} 
-            
-            
-            
+                    {{-- @if($player->team_id != $match->players[$key + 1]->team_id)
+                        vs.
+                    @elseif ($player->team_id == $match->players[$key + 1]->team_id)
+                        &
+                    @endif --}}
+
+                @endforeach
+                {{-- {{ $tqf3->subject->sics as sic}} --}}
             </label><br>
 
 

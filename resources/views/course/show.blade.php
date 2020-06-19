@@ -53,6 +53,7 @@
             </h3>
             {{-- <a href="{{ route('subject.show', ['subject' => $subject->id]) }}">{{$subject->subjectid}}</a> --}}
         @endforeach
+        
     </div>
 
     <br><p>Added {{ $course->created_at->diffForHumans() }}</p>
