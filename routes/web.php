@@ -35,3 +35,5 @@ Route::get('/tqf/tqf3/pdf/{tqf3}', 'TQF3Controller@downloadPDF')->name('tqf3.pdf
 // Route::get('/course/subincourse/{course}/add','SICController@add')->name('sic.add');
 
 // Route::get('/products/details/{id}','ProductController@details');
+
+// Route::get('/subject/search','SubjectController@search')->name('subject.index');

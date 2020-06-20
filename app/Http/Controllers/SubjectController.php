@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+// use DB;
 use App\Tqf3;
 use App\Tqf5;
 use App\Course;
@@ -9,6 +10,7 @@ use App\Subject;
 use App\SIC;
 use App\Http\Requests\StoreSubject;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
 
 class SubjectController extends Controller
 {
@@ -20,10 +22,14 @@ class SubjectController extends Controller
     public function index()
     {
         $courses = Course::all();
-        $subjects = Subject::all();
+        $subjects = Subject::orderBy('subjectid','asc')->get();
+        
         // $subject = Subject::with(Courses)->orderby('id','desc')->paginate(5);
+
         return view('subject.index',compact('courses','subjects'));
+
         // return view('subject.index',['subjects' => Subject::all()]);
+
     }
 
     /**
@@ -112,5 +118,16 @@ class SubjectController extends Controller
         $request->session()->flash('status','Blog post was deleted!');
         return redirect()->route('subject.index');
     }
+
+    // public function search(Request $request)
+    // {
+    //     $search = $request->get('search');
+
+    //     $subjects = DB::table('subjects')->where('subjectid' , 'like' , '%'.$search.'%' );
+
+    //     // $subjects = Subject::orderBy('subjectid','asc')->get();
+
+    //     return view('subject.index',['subjects' => $subjects]);
+    // }
 
 }

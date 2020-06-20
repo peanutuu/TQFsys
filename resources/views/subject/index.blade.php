@@ -21,6 +21,17 @@
             </form>
         </p> --}}
 
+        {{-- <div class="col-md-4">
+            <form action="/search" method="get">
+                <div class="form-group">
+                    <input type="search" name="search" class="form-control">
+                    <span class="form-group-btn">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </span>
+                </div>
+            </form>
+        </div> --}}
+
         <div>
             <br><table class="table table-striped">
                 <thead class="thead-dark">
@@ -30,7 +41,7 @@
                     <th scope="col">อาจารย์ผู้สอน</th>
                     <th scope="col">หน่วยกิต</th>
                     <th scope="col">สถานะรายวิชา</th>
-                    {{-- <th scope="col">รหัสหลักสูตร</th> --}}
+                        {{-- <th scope="col">รหัสหลักสูตร</th> --}}
                     <th scope="col">แก้ไข</th>
                     <th scope="col">ลบ</th>
                   </tr>
@@ -43,7 +54,7 @@
                     <th scope="row">admin</th>
                     <td>{{$subject->credit}}</td>
                     <td>{{$subject->avalible }}</td>
-                    {{-- <td><a href="{{ route('course.show', ['course' => $subject->course->id]) }}" >{{$subject->course->coursename}}</a></td> --}}
+                        {{-- <td><a href="{{ route('course.show', ['course' => $subject->course->id]) }}" >{{$subject->course->coursename}}</a></td> --}}
                     <td><a href="{{ route('subject.edit', ['subject' => $subject->id]) }}" class="btn btn-primary"> edit </a></td>
                     <td>
                         <form method="POST" class="fm-inline" action="{{ route('subject.destroy',['subject' => $subject->id])}}">
