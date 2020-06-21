@@ -13,6 +13,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/tqf3/{tqf3}/copy','TQF3Controller@copy')->name('tqf3.copy');
     Route::get('/tqf3/{tqf3}/create2', 'TQF3Controller@create2')->name('tqf3.create2');
     Route::get('/tqf3/pdf/{tqf3}', 'TQF3Controller@downloadPDF')->name('tqf3.pdf');
+    Route::put('/tqf3/{tqf3}','TQF3Controller@update2')->name('tqf3.update2');
+    Route::get('/tqf3/{tqf3}/edit2', 'TQF3Controller@edit2')->name('tqf3.edit2');
+
     Route::resource('/tqf5', 'TQF5Controller')->only('index','create','store','edit','update','destroy','show');    
     Route::get('/tqf5/{tqf5}/copy','TQF5Controller@copy')->name('tqf5.copy');
 

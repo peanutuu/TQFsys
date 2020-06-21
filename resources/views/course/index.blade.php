@@ -2,33 +2,20 @@
 @section('title','หลักสูตร')
 @section('content')
 
-    <h1>หลักสูตรในระบบ</h1><br>
-
+<div class="card card-default">
+    <div class="card-header">
+        <h3>หลักสูตรในระบบ</h3> 
+    </div>
+    <div class="card-body">
+      
     @if(auth()->user()->isAdmin())    
         <a href="{{ route('course.create') }}" class="btn btn-primary"> เพิ่่มหลักสูตร </a>
         <a href="{{ route('subincourse.create') }}" class="btn btn-primary"> เพิ่มรายวิชาลงในหลักสูตร </a>
     @endif
 
-    {{-- <a href="{{ route('courseopen.index') }}" class="btn btn-primary"> เพิ่มรายวิชา </a> --}}
-    
-    {{-- @forelse ($courses as $course)
-
-        <p>
-            <h3><a href="{{ route('course.show', ['course' => $course->id]) }}"> {{ $course->coursename }} </a></h3>
-            <a href="{{ route('course.edit', ['course' => $course->id]) }}" class="btn btn-primary"> edit </a>
-            <form method="POST" class="fm-inline" action="{{ route('course.destroy',['course' => $course->id])}}">
-                @csrf
-                @method('DELETE')
-                <input type="submit" value="Delete" class="btn btn-primary"/>
-            </form>
-        </p> --}}
-
     <br><br>
     <form class="input-group" action="{{route('course.index')}}" method="GET">
         <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
-        {{-- <div class="input-group-addon">
-            <span class="input-group-text">test<i class="ti-search"></i></span>
-        </div> --}}
         <button class="btn btn-primary"> ค้นหา </button>
     </form>    
 
@@ -36,7 +23,7 @@
     <div>
         <br><table class="table table-striped">
             <thead class="thead-dark">
-              <tr>
+            <tr>
                 {{-- <th scope="col">เลขที่</th> --}}
                 <th scope="col">รหัสหลักสูตร</th>
                 <th scope="col">ผู้จัดทำ</th>
@@ -45,11 +32,11 @@
                     <th scope="col">แก้ไข</th>
                     <th scope="col">ลบ</th>
                 @endif
-              </tr>
+            </tr>
             </thead>
             <tbody>
-              @foreach($courses as $course)
-              <tr>
+            @foreach($courses as $course)
+            <tr>
                 {{-- <th scope="row"><a href="{{ route('course.show', ['course' => $course->id]) }}">{{$course->id}}</a></th> --}}
                 <td scope="row"><a href="{{ route('course.show', ['course' => $course->id]) }}">{{$course->coursename}}</a></td>
                 <td scope="row">{{ $course->user->name  }}</td>
@@ -68,10 +55,10 @@
                     </td>
                 @endif
                 
-              </tr>
-              @endforeach
+            </tr>
+            @endforeach
             </tbody>
-          </table>
+        </table>
     </div>
     @else
         <br><br><h3 class="text text-center"> ไม่มีเอกสารหลักสูตรในระบบตอนนี้ </h3>
@@ -79,17 +66,19 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript">
             $(document).ready(function(){
-                  $('.fm-inline').on('submit',function(){
+                $('.fm-inline').on('submit',function(){
                         if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
-                              return true;
+                            return true;
                         }else{
-                              return false;
+                            return false;
                         }
 
-                  });
+                });
             });
     </script>
-
+    </div>
+  </div>
+      
     {{-- @empty
         ไม่มีหลักสูตรในระบบตอนนี้
     @endforelse  --}}

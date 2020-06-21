@@ -79,8 +79,11 @@
             <div class="container">
                   <div class="row">
                           <div class="col-md-4">
-                              <h1>เมนู</h1>
+                              {{-- <h1>เมนู</h1> --}}
                             <ul class="list-group">
+                                <div class="card-header">
+                                    <h4>เมนู</h4>
+                                </div>
                                 <li class="list-group-item">
                                     <a href="{{ route('home') }}">หน้าแรก</a>
                                 </li>

@@ -60,7 +60,48 @@ class TQF3Controller extends Controller
             'year'=>$request->year,
             'term'=>$request->term,
             'subject_id'=>$request->subject_id,
-            'user_id'=>auth()->user()->id
+            'user_id'=>auth()->user()->id,
+            'tqf3121' => $request->tqf3121,
+            'tqf3131' => $request->tqf3131,
+            'tqf3132' => $request->tqf3132,
+            'tqf3133' => $request->tqf3133,
+            'tqf3141' => $request->tqf3141,
+            'tqf3151' => $request->tqf3151,
+            'tqf3152' => $request->tqf3152,
+            'tqf3161' => $request->tqf3161,
+            'tqf3171' => $request->tqf3171,
+            'tqf3181' => $request->tqf3181,
+            'tqf3182' => $request->tqf3182,
+            'tqf3183' => $request->tqf3183,
+            'tqf3191' => $request->tqf3191,
+            'tqf3211' => $request->tqf3211,
+            'tqf3221' => $request->tqf3221,
+            'tqf3311' => $request->tqf3311,
+            'tqf3321' => $request->tqf3321,
+            'tqf3322' => $request->tqf3322,
+            'tqf3323' => $request->tqf3323,
+            'tqf3324' => $request->tqf3324,
+            'tqf3331' => $request->tqf3331,
+            'tqf3341' => $request->tqf3341,
+            'tqf3412' => $request->tqf3412,
+            'tqf3413' => $request->tqf3413,
+            'tqf3422' => $request->tqf3422,
+            'tqf3423' => $request->tqf3423,
+            'tqf3432' => $request->tqf3432,
+            'tqf3433' => $request->tqf3433,
+            'tqf3442' => $request->tqf3442,
+            'tqf3443' => $request->tqf3443,
+            'tqf3452' => $request->tqf3452,
+            'tqf3453' => $request->tqf3453,
+            'tqf3521' => $request->tqf3521,
+            'tqf3522' => $request->tqf3522,
+            'tqf3610' => $request->tqf3610,
+            'tqf3620' => $request->tqf3620,
+            'tqf3710' => $request->tqf3710,
+            'tqf3720' => $request->tqf3720,
+            'tqf3730' => $request->tqf3730,
+            'tqf3740' => $request->tqf3740,
+            'tqf3750' => $request->tqf3750, 
         ]);
 
 
@@ -69,16 +110,16 @@ class TQF3Controller extends Controller
         return redirect()->route('tqf3.create2', compact('tqf3'));
     }
 
-    public function storeTwo(Store2Tqf3 $request, $id)
-    {
-        $tqf3 = Tqf3::findOrFail($id);
-        $validatedData = $request->validated();
-        $tqf3->fill($validatedData);
-        $tqf3->save();
+    // public function storeTwo(Store2Tqf3 $request, $id)
+    // {
+    //     $tqf3 = Tqf3::findOrFail($id);
+    //     $validatedData = $request->validated();
+    //     $tqf3->fill($validatedData);
+    //     $tqf3->save();
 
-        $request->session()->flash('status','TQF3 was updated!');
-        return redirect()->route('tqf3.index');
-    }
+    //     $request->session()->flash('status','TQF3 was updated!');
+    //     return redirect()->route('tqf3.index');
+    // }
 
     public function show($id)
     {
@@ -98,7 +139,27 @@ class TQF3Controller extends Controller
         return view('tqf3.edit', compact('subjects','tqf3'));
     }
 
+    // public function edit2($id)
+    // {
+    //     $subjects = Subject::all();
+    //     $tqf3 = Tqf3::findOrFail($id);
+
+    //     // return view('subject.edit',['subject' => $subject]);
+    //     return view('tqf3.edit2', compact('subjects','tqf3'));
+    // }
+
     public function update(StoreTqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        return redirect()->route('tqf3.index');
+    }
+
+    public function update2(Store2Tqf3 $request, $id)
     {
         $tqf3 = Tqf3::findOrFail($id);
         $validatedData = $request->validated();

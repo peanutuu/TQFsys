@@ -1,128 +1,148 @@
 @extends('layout')
 @section('title','เพิ่มเอกสารมคอ3')
 @section('content')
-
+   
 <br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
 
-    <form method="POST" action="{{ route('tqf3.update',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('tqf3.update2',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
+    {{-- <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data"> --}}
         @csrf
         @method('PUT')
  
+        <input type="hidden" name="name" value="{{$tqf3->name}}"/>
+        <input type="hidden" name="year" value="{{$tqf3->year}}"/>
+        <input type="hidden" name="term" value="{{$tqf3->term}}"/>
+        <input type="hidden" name="subject_id" value="{{$tqf3->subject_id}}"/>
+
         <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
         <p>
             <label>1. รหัสวิชาและชื่อรายวิชา</label>
-            <input type="text" value="{{ old('name', $tqf3->subject->subjectid) }}"  readonly/>
-            <input type="text" value="{{ old('name', $tqf3->subject->subjectnameth) }}"  readonly/>
-            <input type="text" value="{{ old('name', $tqf3->subject->subjectnameen) }}" readonly/>
+            <input type="text" value=" {{ old('name', $tqf3->subject->subjectid) }}"      />
+            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameth) }}"  />
+            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameen) }}"  />
         </p>
 
         <p>
             <label>2. จำนวนหน่วยกิต</label>
-            <input type="text" value="{{ old('name', $tqf3->subject->credit)}}" readonly/>
+            <input name='tqf3121' type="text" value=" {{ old('name', $tqf3->subject->credit) }}" />
         </p>
 
         <p>
-            <label>3. หลักสูตรและประเภทวิชา</label>
-            <input type="text" />
+            <label>3. หลักสูตรและประเภทวิชา</label><br>
             <label>หลักสูตร</label>
-            <input type="text" />
+            <input name='tqf3131' type="text" value="{{ old('tqf3131', $tqf3->tqf3131 ?? null) }}"/><br>
+
             <label>สาขาวิชา</label>
-            <input type="text" /><br>
+            <input name='tqf3132' type="text" value="{{ old('tqf3132', $tqf3->tqf3132 ?? null) }}"/><br>
+
             <label>ประเภทกลุ่มรายวิชา</label>
-            <input type="text" value="{{ old('name', $tqf3->subject->id)}}"  readonly/>
+            <input name='tqf3133' type="text" value="{{ old('tqf3133', $tqf3->tqf3133 ?? null) }}"/>
         </p>
 
         <p>
             <label>4. อาจารย์ผู้ประสานรายวิชา</label>
-            <input type="text" />
-            <label>สถานที่ติดต่ออาจารย์ ห้อง IT-302 โทร</label>
-            <input type="text" />
+            {{-- <input name='tqf3141' type="text" /> --}}
+            <textarea name='tqf3141' rows="5" cols="4" class="form-control">{{ old('tqf3141', $tqf3->tqf3141 ?? null) }}</textarea><br>
+
+            {{-- <label>สถานที่ติดต่ออาจารย์ ห้อง IT-302 โทร</label>
+            <input name='tqf3142' type="text" />
+            
             <label>E-mail</label>
-            <input type="text" />
+            <input name='tqf3143' type="text" /> --}}
         </p>
 
         <p>
             <label>5. ภาคการศึกษาที่</label>
-            <input type="text" value="{{ old('year', $tqf3->year) }} / {{ old('term', $tqf3->term) }}" readonly/>
+            <input name='tqf3151' type="text" value="{{ old('term', $tqf3->term) }}/{{ old('year', $tqf3->year) }}" readonly/>
+
             <label>ชั้นปีที่</label>
-            <input type="text" />
+            <input name='tqf3152' type="text" value="{{ old('tqf3152', $tqf3->tqf3152 ?? null) }}"/>
         </p>
 
         <p>
             <label>6. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisite) (ถ้ามี) ไม่มี</label>
-            <input type="text" />
+            <input name='tqf3161' type="text" value="{{ old('tqf3161', $tqf3->tqf3161 ?? null) }}"/>
         </p>
 
         <p>
             <label>7. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisite) (ถ้ามี) ไม่มี</label>
-            <input type="text" />
+            <input name='tqf3171' type="text" value="{{ old('tqf3171', $tqf3->tqf3171 ?? null) }}"/>
         </p>
 
         <p>
             <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label>
+
             <label>ห้อง</label>
-            <input type="text" />
+            <input name='tqf3181' type="text" value="{{ old('tqf3181', $tqf3->tqf3181 ?? null) }}"/>
+
             <label>วัน</label>
-            <input type="text" />
+            <input name='tqf3182' type="text" value="{{ old('tqf3182', $tqf3->tqf3182 ?? null) }}"/>
+
             <label>เวลา</label>
-            <input type="text" />
+            <input name='tqf3183' type="text" value="{{ old('tqf3183', $tqf3->tqf3183 ?? null) }}"/>
         </p>
 
         <p>
             <label>9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด</label>
             <label>วันที่</label>
-            <input type="text" />
+            <input name='tqf3191' type="text" value="{{ old('tqf3191', $tqf3->tqf3191 ?? null) }}"/>
         </p>
 
         <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
-            <label>1.จุดมุ่งหมายของรายวิชา</label>
-            <label>1.1</label>
-            <input type="text" />
-            <label>1.2</label>
-            <input type="text" />
+            <label>1.จุดมุ่งหมายของรายวิชา</label><br>
+            <textarea name='tqf3211' rows="5" cols="4" class="form-control">{{ old('tqf3211', $tqf3->tqf3211 ?? null) }}</textarea><br>
+
+            {{-- <label>1.2</label>
+            <input name='tqf3212' type="text" /> --}}
         </p>
 
         <p>
             <label>2.วัตถุประสงค์ในการพัฒนาปรับปรุงรายวิชา</label><br>
-            <label>อธิบายโดยย่อเกี่ยวกับวัตถุประสงค์ในการพัฒนารายวิชานี้หรือการเปลี่ยนแปลงสำคัญๆที่เกิดขึ้น 
-                <br>เช่น เพิ่มการใช้เทคโนโลยีสารสนเทศ หรือ web based การเปลี่ยนแปลงเนื้อหาของรายวิชาซึ่งเป็นผลจากงานวิจัย ใหม่ๆ ในสาขา</label><br>
-            <label>2.1</label>
-            <input type="text" /><br>
+            <label>อธิบายโดยย่อเกี่ยวกับวัตถุประสงค์ในการพัฒนารายวิชานี้หรือการเปลี่ยนแปลงสำคัญๆที่เกิดขึ้น เช่น เพิ่มการใช้เทคโนโลยีสารสนเทศ หรือ web based การเปลี่ยนแปลงเนื้อหาของรายวิชาซึ่งเป็นผลจากงานวิจัย ใหม่ๆ ในสาขา</label><br>
+            {{-- <label>2.1</label> --}}
+            <textarea name='tqf3221' rows="5" cols="4" class="form-control">{{ old('tqf3221', $tqf3->tqf3221 ?? null) }}</textarea><br>
+            {{-- <input name='tqf3221' type="text" /><br>
+
             <label>2.2</label>
-            <input type="text" />
+            <input name='tqf3222' type="text" /> --}}
         </p>
 
         <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
-            <input type="text" />
+            <textarea name='tqf3311' rows="5" cols="4" class="form-control">{{ old('tqf3311', $tqf3->tqf3311 ?? null) }}</textarea><br>
         </p>
 
         <p>
-            <label>2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา</label>
+            <label>2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา</label><br>
             <label>บรรยาย</label>
-            <input type="text" />
+            <input name='tqf3321' type="text" value="{{ old('tqf3321', $tqf3->tqf3321 ?? null) }}"/>
+
             <label>สอนเสริม</label>
-            <input type="text" />
+            <input name='tqf3322' type="text" value="{{ old('tqf3322', $tqf3->tqf3322 ?? null) }}"/>
+
             <label>การฝึกปฏิบัติ</label>
-            <input type="text" />
+            <input name='tqf3323' type="text" value="{{ old('tqf3323', $tqf3->tqf3323 ?? null) }}"/>
+
             <label>การศึกษาด้วยตนเอง</label>
-            <input type="text" />
+            <input name='tqf3324' type="text" value="{{ old('tqf3324', $tqf3->tqf3324 ?? null) }}"/>
         </p>
 
         <p>
             <label>3.จำนวนชั่วโมงต่อสัปดาร์ที่อาจารย์ให้คำปรึกษาแนะนำทางวิชาการแก่นิสิตเป็นรายงานบุคคล</label>
-
-            <input type="tex" placeholder="ระบุจำนวนชั่วโมงต่อสัปดาห์ที่จะให้คำปรึกษาและแนะนำทางวิชาการแก่นักศึกษานอกชั้นเรียนและระบุวิธีการสื่อสารให้นักศึกษาได้ทราบกำหนดเวลาล่วงหน้า"  
-            size="150"/>
+            {{-- <input name='tqf3331' type="text" placeholder="ระบุจำนวนชั่วโมงต่อสัปดาห์ที่จะให้คำปรึกษาและแนะนำทางวิชาการแก่นักศึกษานอกชั้นเรียนและระบุวิธีการสื่อสารให้นักศึกษาได้ทราบกำหนดเวลาล่วงหน้า"  
+            size="150"/> --}}
+            <textarea name='tqf3331' rows="5" cols="4" class="form-control" >{{ old('tqf3331', $tqf3->tqf3331 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>4.การบูรณาการเรียนการสอนกับงานวิจัย / งานบริการวิชาการ / ทำนุบำรุงศิลปะ (ถ้ามี)</label>
-            <input type="text" />
+            {{-- <input name='tqf3341' type="text" /> --}}
+            <textarea name='tqf3341' rows="5" cols="4" class="form-control">{{ old('tqf3341', $tqf3->tqf3341 ?? null) }}</textarea><br>
+
         </p>
 
         <h1>หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต</h1>
@@ -194,10 +214,10 @@
 
 
             <label>1.2 วิธีการสอน</label><br>
-            <textarea name="description12" rows="5" cols="4" class="form-control"></textarea><br>
+            <textarea name='tqf3412' rows="5" cols="4" class="form-control">{{ old('tqf3412', $tqf3->tqf3412 ?? null) }}</textarea><br>
 
             <label>1.3 วิธีการประเมินผล</label><br>
-            <textarea name="description13" rows="5" cols="4" class="form-control"></textarea><br>
+            <textarea name='tqf3413' rows="5" cols="4" class="form-control">{{ old('tqf3413', $tqf3->tqf3413 ?? null) }}</textarea><br>
         </p>
 
         <p>
@@ -273,10 +293,12 @@
             </label><br>
 
             <label>2.2 วิธีการสอน</label><br>
-            <input type="text" /><br>
+            {{-- <input name='tqf3422' type="text" /><br> --}}
+            <textarea name='tqf3422' rows="5" cols="4" class="form-control">{{ old('tqf3422', $tqf3->tqf3422 ?? null) }}</textarea><br>
 
             <label>2.3 วิธีการประเมินผล</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3423' type="text" /> --}}
+            <textarea name='tqf3423' rows="5" cols="4" class="form-control">{{ old('tqf3423', $tqf3->tqf3423 ?? null) }}</textarea><br>
         </p>
 
         <p>
@@ -322,10 +344,12 @@
 
 
             <label>3.2 วิธีการสอน</label><br>
-            <input type="text" /><br>
+            {{-- <input name='tqf3432' type="text" /><br> --}}
+            <textarea name='tqf3432' rows="5" cols="4" class="form-control">{{ old('tqf3432', $tqf3->tqf3432 ?? null) }}</textarea><br>
 
             <label>3.3 วิธีการประเมินผล</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3433' type="text" /> --}}
+            <textarea name='tqf3433' rows="5" cols="4" class="form-control">{{ old('tqf3433', $tqf3->tqf3433 ?? null) }}</textarea><br>
         </p>
 
         <p>
@@ -387,10 +411,12 @@
 
 
             <label>4.2 วิธีการสอน</label><br>
-            <input type="text" /><br>
+            {{-- <input name='tqf3442' type="text" /><br> --}}
+            <textarea name='tqf3442' rows="5" cols="4" class="form-control">{{ old('tqf3442', $tqf3->tqf3442 ?? null) }}</textarea><br>
 
             <label>4.3 วิธีการประเมินผล</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3443' type="text" /> --}}
+            <textarea name='tqf3443' rows="5" cols="4" class="form-control">{{ old('tqf3443', $tqf3->tqf3443 ?? null) }}</textarea><br>
         </p>
 
         <p>
@@ -435,67 +461,81 @@
             </label><br>
 
             <label>5.2 วิธีการสอน</label><br>
-            <input type="text" /><br>
+            {{-- <input name='tqf3452' type="text" /><br> --}}
+            <textarea name='tqf3452' rows="5" cols="4" class="form-control">{{ old('tqf3452', $tqf3->tqf3452 ?? null) }}</textarea><br>
 
             <label>5.3 วิธีการประเมินผล</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3453' type="text" /> --}}
+            <textarea name='tqf3453' rows="5" cols="4" class="form-control">{{ old('tqf3453', $tqf3->tqf3453 ?? null) }}</textarea><br>
         </p>
 
         <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
         <p>
             <label>1.แผนการสอน</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3511' type="text" /> --}}
         </p>
 
         <p>
             <label>2.แผนการประเมินผลการเรียนรู้</label><br>
             <label>2.1 วิธีการ</label><br>
+
             <label>2.2 เกณฑ์ผ่านรายวิชา ผู้ที่จะผ่านรายวิชานี้จะต้อง</label><br>
-            <input type="text" /><br>
+            {{-- <input name='tqf3521' type="text" /><br> --}}
+            <textarea name='tqf3521' rows="5" cols="4" class="form-control">{{ old('tqf3521', $tqf3->tqf3521 ?? null) }}</textarea><br>
+
             <label>2.3 เกณฑ์ค่าระดับคะแนน</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3522' type="text" /> --}}
+            <textarea name='tqf3522' rows="5" cols="4" class="form-control">{{ old('tqf3522', $tqf3->tqf3522 ?? null) }}</textarea><br>
         </p>
 
         <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
         <p>
             <label>1.เอกสารและตำราหลัก</label><br>
-            <input type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/>
+            {{-- <input name='tqf3610' type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/> --}}
+            <textarea name='tqf3610' rows="5" cols="4" class="form-control" >{{ old('tqf3610', $tqf3->tqf3610 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>2.เอกสารและข้อมูลสำคัญ</label><br>
-            <input type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาจำเป็นต้องศึกษาเพิ่มเติม" size="150"/>
+            {{-- <input name='tqf3620' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาจำเป็นต้องศึกษาเพิ่มเติม" size="150"/> --}}
+            <textarea name='tqf3620' rows="5" cols="4" class="form-control" >{{ old('tqf3620', $tqf3->tqf3620 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>3.เอกสารและข้อมูลแนะนำ</label><br>
-            <input type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/>
+            {{-- <input name='tqf3630' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/> --}}
+            <textarea name='tqf3630' rows="5" cols="4" class="form-control" >{{ old('tqf3630', $tqf3->tqf3630 ?? null) }}</textarea><br>
         </p>
 
         <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
         <p>
             <label>1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต</label><br>
-            <input type="text" />
+            {{-- <input name='tqf3710' type="text" /> --}}
+            <textarea name='tqf3710' rows="5" cols="4" class="form-control">{{ old('tqf3710', $tqf3->tqf3710 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>2.กลยุทธ์การประเมินการสอน</label><br>
-            <input type="text" placeholder="ระบุวิธีการประเมินที่จะได้ข้อมูลการสอน เช่น จากผู้สังเกตการณ์ หรือทีมผู้สอน หรือผลการเรียนของนักศึกษา เป็นต้น" size="150" />
+            {{-- <input name='tqf3720' type="text" placeholder="ระบุวิธีการประเมินที่จะได้ข้อมูลการสอน เช่น จากผู้สังเกตการณ์ หรือทีมผู้สอน หรือผลการเรียนของนักศึกษา เป็นต้น" size="150" /> --}}
+            <textarea name='tqf3720' rows="5" cols="4" class="form-control" >{{ old('tqf3720', $tqf3->tqf3720 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>3.การปรับปรุงการสอน</label><br>
-            <input type="text" placeholder="อธิบายการปรับปรุงการสอน เช่น การวิจัยในชั้นเรียน การประชุมเชิงปฏิบัติการเพื่อพัฒนาการเรียนการสอน เป็นต้น" size="150" />
+            {{-- <input name='tqf3730' type="text" placeholder="อธิบายการปรับปรุงการสอน เช่น การวิจัยในชั้นเรียน การประชุมเชิงปฏิบัติการเพื่อพัฒนาการเรียนการสอน เป็นต้น" size="150" /> --}}
+            <textarea name='tqf3730' rows="5" cols="4" class="form-control" >{{ old('tqf3730', $tqf3->tqf3730 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>4.การทวนสอบมาตรฐานผลสัมฤทธิ์ของนิสิตในรายวิชา</label><br>
-            <input type="text" placeholder="อธิบายกระบวนการที่ใช้ในการทวนสอบมาตรฐานผลสัมฤทธิ์ของนักศึกษาตามมาตรฐานผลการเรียนรู้ของรายวิชา เช่น ทวนสอบจากคะแนนข้อสอบ หรืองานที่มอบหมาย กระบวนการอาจแตกต่างกันไปสำหรับรายวิชาที่แตกต่างกัน หรือสำหรับมาตรฐานผลการเรียนรู้แต่ละด้าน" size="200" />
+            {{-- <input name='tqf3740' type="text" placeholder="อธิบายกระบวนการที่ใช้ในการทวนสอบมาตรฐานผลสัมฤทธิ์ของนักศึกษาตามมาตรฐานผลการเรียนรู้ของรายวิชา เช่น ทวนสอบจากคะแนนข้อสอบ หรืองานที่มอบหมาย กระบวนการอาจแตกต่างกันไปสำหรับรายวิชาที่แตกต่างกัน หรือสำหรับมาตรฐานผลการเรียนรู้แต่ละด้าน" size="200" /> --}}
+            <textarea name='tqf3740' rows="5" cols="4" class="form-control" >{{ old('tqf3740', $tqf3->tqf3740 ?? null) }}</textarea><br>
         </p>
 
         <p>
             <label>5.การดำเนินการทบทวนและการวางแผนปรับปรุงประสิทธิผลของรายวิชา</label><br>
-            <input type="text" placeholder="อธิบายกระบวนการในการนำข้อมูลที่ได้จากการประเมินจากข้อ 1 และ 2 มาวางแผนเพื่อปรับปรุงคุณภาพ" size="100"/>
+            {{-- <input name='tqf3750' type="text" placeholder="อธิบายกระบวนการในการนำข้อมูลที่ได้จากการประเมินจากข้อ 1 และ 2 มาวางแผนเพื่อปรับปรุงคุณภาพ" size="100"/> --}}
+            <textarea name='tqf3750' rows="5" cols="4" class="form-control" >{{ old('tqf3750', $tqf3->tqf3750 ?? null) }}</textarea><br>
         </p>
 
         @if ($errors->any())

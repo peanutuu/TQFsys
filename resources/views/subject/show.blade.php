@@ -32,7 +32,7 @@
     </div>
 
     <div>
-    <br> เอกสารที่เกี่ยวข้อง
+    <br>เอกสารที่เกี่ยวข้อง
         <div>
             <br><h3>มคอ3</h3>
             @foreach ($subject->tqf3s as $tqf3)
