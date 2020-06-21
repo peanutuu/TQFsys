@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title','มคอ')
 @section('content')
 
@@ -7,7 +7,7 @@
     <a href="{{ route('home') }}" class="btn btn-danger"> ย้อนกลับ </a>
     {{-- <a href="#" class="btn btn-primary"> เพิ่มมคอ.2 </a> --}}
     <a href="{{ route('tqf3.create') }}" class="btn btn-primary"> เพิ่มมคอ.3 </a>
-    <a href="{{ route('tqf5.create') }}" class="btn btn-primary"> เพิ่มมคอ.5 </a>
+    <a href="{{ route('tqf5.create') }}" class="btn btn-primary"> เพิ่มมคอ.5 </a><br>
     
     {{-- <div>
         <table class="table table-striped">
@@ -38,6 +38,15 @@
             <td><a href="#" class="btn btn-primary"> copy </a></td>
         </tr>   
     </div> --}}
+    
+    <br>
+    <form class="input-group" action="{{route('tqf.index')}}" method="GET">
+        <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
+        {{-- <div class="input-group-addon">
+            <span class="input-group-text">test<i class="ti-search"></i></span>
+        </div> --}}
+        <button class="btn btn-primary"> ค้นหา </button>
+    </form>
 
     <div>
         <table class="table table-striped">
@@ -87,7 +96,7 @@
         @endforeach --}}  
     @endforeach
     </div>
-
+    
     <div>
         <table class="table table-striped">
             <thead class="thead-dark">
@@ -121,6 +130,7 @@
         </tr>   
     @endforeach
     </div>
+    
     {{-- @forelse ($tqf5s as $tqf5)
     <p>
         <h3>

@@ -2,7 +2,7 @@
 @section('title','แสดงข้อมูลรายวิชา')
 @section('content')
 
-    <a href="{{ route('subject.index') }}" class="btn btn-primary"> back </a>
+    <a href="{{ route('subject.index') }}" class="btn btn-danger"> back </a>
 
     <div>
         <h1>รหัสรายวิชา = {{ $subject->subjectid }} </h1>
@@ -11,6 +11,9 @@
         <h1>คณะ = {{ $subject->subjectfac }} </h1>
         <h1>หน่วยกิต = {{ $subject->credit }} หน่วย </h1>
         <h1>สถานะรายวิชา = {{ $subject->avalible }} </h1>
+
+        <h1>สร้างโดย = {{ $subject->user->name }}</h1>
+
         {{-- <h1>อยู่ในหลักสูตร = </h1><br> --}}
         {{-- <h1> {{ $subject->course->coursename }} </h1> --}}
         <div>

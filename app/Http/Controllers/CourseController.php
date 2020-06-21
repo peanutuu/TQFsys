@@ -20,6 +20,15 @@ class CourseController extends Controller
         // return view('course.index',['courses' => Course::all()]);
         $subjects = Subject::all();
         $courses = Course::all();
+
+        $search=request()->query('search');
+        //กระบวนการค้นหา
+        if($search){
+            $courses = Course::where('coursename','LIKE',"%{$search}%")->get();
+        }else{
+            $courses = Course::orderBy('coursefac','asc')->get();
+        }
+
         return view('course.index', compact('courses','subjects'));
     }
 
@@ -41,8 +50,24 @@ class CourseController extends Controller
      */
     public function store(StoreCourse $request)
     {
-        $validatedData = $request->validated();
-        $course = Course::create($validatedData);
+        // $validatedData = $request->validated();
+        // $course = Course::create($validatedData);
+        $course = Course::create([
+            'coursename'=>$request->coursename,
+            'coursefac'=>$request->coursefac,
+            'course1_1'=>$request->course1_1,
+            'course1_2'=>$request->course1_2,
+            'course1_3'=>$request->course1_3,
+            'course1_4'=>$request->course1_4,
+            'course1_5'=>$request->course1_5,
+            'course2_1'=>$request->course2_1,
+            'course2_2'=>$request->course2_2,
+            'course2_3'=>$request->course2_3,
+            'course2_4'=>$request->course2_4,
+            'course2_5'=>$request->course2_5,
+            'user_id'=>auth()->user()->id
+        ]);
+
         $request->session()->flash('status','Course was created!');
         return redirect()->route('course.index');
  

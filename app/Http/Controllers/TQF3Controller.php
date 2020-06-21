@@ -15,11 +15,27 @@ use PDF;
 
 class TQF3Controller extends Controller
 {
-    
+    public function index()
+    {
+        $subjects = Subject::all();
+        // $catagorytqfs = Catagorytqf::all();
+
+        $search=request()->query('search');
+        if($search){
+            $tqf3s = Tqf3::where('name','LIKE',"%{$search}%")->get();
+        }else{
+            $tqf3s = Tqf3::orderBy('year','asc')->get();
+        }
+        
+        // $subject = Subject::with(Courses)->orderby('id','desc')->paginate(5);
+        return view('tqf3.index',compact('tqf3s','subjects'));
+        // return view('subject.index',['subjects' => Subject::all()]);
+    }
+
     // public function create(Request $request)
     public function create()
     {
-        return view('tqf.tqf3.create')->with('subjects',Subject::all());
+        return view('tqf3.create')->with('subjects',Subject::all());
 
         // $subjects = Subject::all();
         // $subjects = Subject::findOrFail($id);
@@ -36,9 +52,19 @@ class TQF3Controller extends Controller
 
     public function store(StoreTqf3 $request)
     {
-        $validatedData = $request->validated();
-        $tqf3 = Tqf3::create($validatedData);
-        // $request->session()->flash('status','Tqf3 was created!');
+        // $validatedData = $request->validated();
+        // $tqf3 = Tqf3::create($validatedData);
+
+        $tqf3 = Tqf3::create([
+            'name'=>$request->name,
+            'year'=>$request->year,
+            'term'=>$request->term,
+            'subject_id'=>$request->subject_id,
+            'user_id'=>auth()->user()->id
+        ]);
+
+
+        // session()->flash('status','Tqf3 was created!');
         // return redirect()->route('tqf.index');
         return redirect()->route('tqf3.create2', compact('tqf3'));
     }
@@ -49,24 +75,27 @@ class TQF3Controller extends Controller
         $validatedData = $request->validated();
         $tqf3->fill($validatedData);
         $tqf3->save();
+
         $request->session()->flash('status','TQF3 was updated!');
-        return redirect()->route('tqf.index');
+        return redirect()->route('tqf3.index');
     }
 
     public function show($id)
     {
         $subjects = Subject::all();
         $tqf3 = Tqf3::findOrFail($id);
+
         // return view('subject.show',['subject' => Subject::findOrFail($id)]);
-        return view('tqf.tqf3.show', compact('subjects','tqf3'));
+        return view('tqf3.show', compact('subjects','tqf3'));
     }
 
     public function edit($id)
     {
         $subjects = Subject::all();
         $tqf3 = Tqf3::findOrFail($id);
+
         // return view('subject.edit',['subject' => $subject]);
-        return view('tqf.tqf3.edit', compact('subjects','tqf3'));
+        return view('tqf3.edit', compact('subjects','tqf3'));
     }
 
     public function update(StoreTqf3 $request, $id)
@@ -75,16 +104,18 @@ class TQF3Controller extends Controller
         $validatedData = $request->validated();
         $tqf3->fill($validatedData);
         $tqf3->save();
+
         // $request->session()->flash('status','TQF3 was updated!');
-        return redirect()->route('tqf.index');
+        return redirect()->route('tqf3.index');
     }
 
     public function destroy(Request $request, $id)
     {
         $tqf3 = Tqf3::findOrFail($id);
         $tqf3->delete();
-        $request->session()->flash('status','TQF3 was deleted!');
-        return redirect()->route('tqf.index');
+
+        session()->flash('success','TQF3 was deleted!');
+        return redirect()->route('tqf3.index');
     }
 
     public function copy($id)
@@ -92,7 +123,7 @@ class TQF3Controller extends Controller
         $subjects = Subject::all();
         $tqf3 = Tqf3::findOrFail($id);
         // return view('subject.edit',['subject' => $subject]);
-        return view('tqf.tqf3.copy', compact('subjects','tqf3'));
+        return view('tqf3.copy', compact('subjects','tqf3'));
     }
 
     // public function select()
@@ -106,7 +137,7 @@ class TQF3Controller extends Controller
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
-        return view('tqf.tqf3.create2', compact('subjects','sics','tqf3'));
+        return view('tqf3.create2', compact('subjects','sics','tqf3'));
         
         // ->with('subjects',Subject::all());
 
@@ -126,7 +157,7 @@ class TQF3Controller extends Controller
     public function downloadPDF($id)
     {
         $tqf3 = Tqf3::findOrFail($id);
-        $view = \View::make('tqf.tqf3.pdf', \compact('tqf3'));
+        $view = \View::make('tqf3.pdf', \compact('tqf3'));
         $html = $view->render();
         $pdf = new PDF();
         $pdf::SetTitle('Testreport');

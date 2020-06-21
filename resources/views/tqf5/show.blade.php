@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <br><br><a href="{{ route('tqf5.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
     {{-- <h1> {{ $tqf5->id }} </h1> --}}
     <h1>ชื่อเอกสาร {{ $tqf5->name }} </h1>
     <h1>เอกสารเป็นของรายวิชา <a href="{{ route('subject.show', ['subject' => $tqf5->subject->id]) }}">{{ $tqf5->subject->subjectid }}</a></h1>

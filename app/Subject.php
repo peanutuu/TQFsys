@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    
-    protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible'];
+    // protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible'];
+
+    protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible','user_id'];
+
     // protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible','course_id'];
 
     public function Course(){
@@ -24,6 +26,10 @@ class Subject extends Model
 
     public function SICs(){
         return $this->hasMany(SIC::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }

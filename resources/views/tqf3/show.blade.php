@@ -1,7 +1,7 @@
 @extends('layout')
-
 @section('content')
 
+    <br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
     {{-- <h1> {{ $tqf3->id }} </h1> --}}
     <h1>ชื่อเอกสาร {{ $tqf3->name }} </h1>
     <h1>เอกสารเป็นของรายวิชา <a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}">{{ $tqf3->subject->subjectid }}</a></h1>

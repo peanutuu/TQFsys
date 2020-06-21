@@ -18,9 +18,24 @@ class TQFController extends Controller
         $tqf3s = Tqf3::all();
         $tqf5s = Tqf5::all();
         $subjects = Subject::all();
-        $catagorytqfs = Catagorytqf::all();
+        // $catagorytqfs = Catagorytqf::all();
+
+        $search=request()->query('search');
+        //กระบวนการค้นหา
+        if($search){
+            $tqf3s = Tqf3::where('name','LIKE',"%{$search}%")->get();
+        }else{
+            $tqf3s = Tqf3::orderBy('year','asc')->get();
+        }
+
+        if($search){
+            $tqf5s = Tqf5::where('name','LIKE',"%{$search}%")->get();
+        }else{
+            $tqf5s = Tqf5::orderBy('year','asc')->get();
+        }
+        
         // $subject = Subject::with(Courses)->orderby('id','desc')->paginate(5);
-        return view('tqf.index',compact('tqfs','tqf3s','tqf5s','catagorytqfs','subjects'));
+        return view('tqf.index',compact('tqfs','tqf3s','tqf5s','subjects'));
         // return view('subject.index',['subjects' => Subject::all()]);
     }
 

@@ -2,7 +2,7 @@
 @section('title','เพิ่มเอกสารมคอ3')
 @section('content')
 
-<br><br><a href="{{ route('tqf.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
+<br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
      {{-- <form method="POST" action="{{ route('tqf3.create2')}}" enctype="multipart/form-data">
@@ -222,9 +222,10 @@
 
 
             <label>1.2 วิธีการสอน</label><br>
-            <input type="text" /><br>
+            <textarea name="description" rows="5" cols="4" class="form-control"></textarea><br>
+
             <label>1.3 วิธีการประเมินผล</label><br>
-            <input type="text" />
+            <textarea name="description" rows="5" cols="4" class="form-control"></textarea><br>
         </p>
 
         {{-- <p>

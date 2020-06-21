@@ -8,6 +8,7 @@ use App\Tqf5;
 use App\Course;
 use App\Subject;
 use App\SIC;
+use App\User;
 use App\Http\Requests\StoreSubject;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
@@ -22,14 +23,30 @@ class SubjectController extends Controller
     public function index()
     {
         $courses = Course::all();
-        $subjects = Subject::orderBy('subjectid','asc')->get();
+        $users = User::all();
+
+        // $subjects = Subject::orderBy('subjectid','asc')->get();
         
+        // $search=request()->query('search');
+        // //กระบวนการค้นหา
+        // if($search){
+        //     $subjects = Subject::where('subjectid','LIKE',"%{$search}%")->get();
+        // }else{
+        //     $subjects = Subject::orderBy('subjectid','asc')->get();
+        // }
+
+        $search=request()->query('search');
+        if($search){
+            $subjects=Subject::where('subjectid','LIKE',"%{$search}%")->paginate(10);
+        }else{
+            $subjects=Subject::orderBy('subjectid','asc')->paginate(10);
+        }
+
         // $subject = Subject::with(Courses)->orderby('id','desc')->paginate(5);
 
-        return view('subject.index',compact('courses','subjects'));
+        return view('subject.index',compact('courses','subjects','users'));
 
         // return view('subject.index',['subjects' => Subject::all()]);
-
     }
 
     /**
@@ -51,8 +68,18 @@ class SubjectController extends Controller
      */
     public function store(StoreSubject $request)
     {
-        $validatedData = $request->validated();
-        $subject = Subject::create($validatedData);
+        // $validatedData = $request->validated();
+        // $subject = Subject::create($validatedData);
+        $subject = Subject::create([
+            'subjectid'=>$request->subjectid,
+            'subjectnameen'=>$request->subjectnameen,
+            'subjectnameth'=>$request->subjectnameth,
+            'subjectfac'=>$request->subjectfac,
+            'credit'=>$request->credit,
+            'avalible'=>$request->avalible,
+            'user_id'=>auth()->user()->id
+        ]);
+
         $request->session()->flash('status','Subject was created!');
         return redirect()->route('subject.show',['subject'=> $subject->id]);
     }
@@ -70,8 +97,9 @@ class SubjectController extends Controller
         $sics = SIC::all();
         $tqf3s = Tqf3::all();
         $tqf5s = Tqf5::all();
+        $users = User::all();
         // return view('subject.show',['subject' => Subject::findOrFail($id)]);
-        return view('subject.show', compact('course','subject','sics','tqf3s','tqf5s'));
+        return view('subject.show', compact('course','subject','sics','tqf3s','tqf5s','users'));
     }
 
     /**

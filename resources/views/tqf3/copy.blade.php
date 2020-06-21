@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <form method="POST" action="{{ route('tqf3.store')}}">
         @csrf

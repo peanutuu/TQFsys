@@ -36,4 +36,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin(){
+        return $this->role=='admin';
+    }
+
+    public function subjects(){
+        return $this->hasMany(Subject::class);
+    }
+
+    public function Course(){
+        return $this->hasMany(Course::class);
+    }
+
+    public function Tqf3s(){
+        return $this->hasMany(Tqf3::class);
+    }
+
+    public function Tqf5s(){
+        return $this->hasMany(Tqf5::class);
+    }
 }
