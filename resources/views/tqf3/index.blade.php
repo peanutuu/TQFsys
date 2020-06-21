@@ -72,16 +72,20 @@
             <td> {{ $tqf3->year }}/{{ $tqf3->term }} </td>
 
             @if (Auth::user()->id == $tqf3->user_id)
-            <td><a href="{{ route('tqf3.edit', ['tqf3' => $tqf3->id]) }}" class="btn btn-warning"> edit </a></td>
-            <td>
-                <form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="Delete" class="btn btn-danger"/>
-                </form>
-            </td>
+                <td><a href="{{ route('tqf3.edit', ['tqf3' => $tqf3->id]) }}" class="btn btn-warning"> edit </a></td>
+                <td>
+                    <form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="Delete" class="btn btn-danger"/>
+                    </form>
+                </td>
             @else
-                
+                <td><a href=""></a></td>
+                <td>
+                    <form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
+                    </form>
+                </td>
             @endif
             
 

@@ -4,9 +4,6 @@
 
     <form method="POST" action="{{ route('subincourse.store')}}" enctype="multipart/form-data" >
         @csrf
-
-        {{-- @include('posts._form') --}}
-
         <div class="form-group">
             <label>หลักสูตร</label>
             <select class="form-control" name="course_id">

@@ -5,79 +5,11 @@
 <br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
-     {{-- <form method="POST" action="{{ route('tqf3.create2')}}" enctype="multipart/form-data">
-        @csrf
-        
-        เสร็จสิ้น
-
-        {{ $name }}
-
-        <button type="submit" class="btn btn-primary btn-block">Create!</button>
-    </form> --}}
-
-    {{-- <p>
-        <label>ชื่อเอกสาร</label>
-        <input name='name' type="text" value="{{ old('name', $tqf3->name) }}"  />
-    </p> --}}
 
     <form method="POST" action="{{ route('tqf3.update',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        
-        {{-- <p>
-            <label>ชื่อเอกสาร</label>
-            <input name='name' type="text" value="{{ old('name', $tqf3->name) }}" />
-        </p> --}}
-
-        {{-- <p>
-            <label>ปีการศึกษา</label>
-            <select name="year">
-                <option value="{{ old('year', $tqf3->year) }}">{{ old('year', $tqf3->year) }}</option>
-                <option value="2563">2563</option>
-                <option value="2564">2564</option>
-                <option value="2565">2565</option>
-                <option value="2566">2566</option>
-                <option value="2567">2567</option>
-                <option value="2568">2568</option>
-                <option value="2569">2569</option>
-                <option value="2570">2570</option>
-            </select>
-        </p>
-
-        <p>
-            <label>ภาคเรียนการศึกษา</label>
-            <select name="term" >
-                <option value="{{ old('term', $tqf3->term) }}">{{ old('term', $tqf3->term) }}</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="ซัมเมอร์">ซัมเมอร์</option>
-            </select>
-        </p>
-
-        <p>
-            <label>รายวิชา</label>
-            <select class="form-control" name="subject_id">
-                    @foreach($subjects as $subject)
-                        <option value="{{ old('subject_id', $subject->id) }}"
-                            @if($subject->id == $tqf3->subject_id)
-                            selected
-                            @endif
-                            >{{ old('subject_id', $subject->subjectid) }}</option>
-                    @endforeach
-            </select>
-        </p>
-
-        @if ($errors->any())
-            <div>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif --}}
-
-        
+ 
         <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
         <p>
             <label>1. รหัสวิชาและชื่อรายวิชา</label>
@@ -144,7 +76,7 @@
             <input type="text" />
         </p>
 
-        {{-- <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
+        <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
             <label>1.จุดมุ่งหมายของรายวิชา</label>
             <label>1.1</label>
@@ -161,9 +93,9 @@
             <input type="text" /><br>
             <label>2.2</label>
             <input type="text" />
-        </p> --}}
+        </p>
 
-        {{-- <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
+        <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
             <input type="text" />
@@ -191,7 +123,7 @@
         <p>
             <label>4.การบูรณาการเรียนการสอนกับงานวิจัย / งานบริการวิชาการ / ทำนุบำรุงศิลปะ (ถ้ามี)</label>
             <input type="text" />
-        </p> --}}
+        </p>
 
         <h1>หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต</h1>
         <p>
@@ -199,22 +131,62 @@
             <label>1.1 คุณธรรม จริยธรรมที่ต้องพัฒนา</label><br>
 
             <label> 
-                {{-- {{ $tqf3->subject->subjectid}}  --}}
                 @foreach ($tqf3->subject->sics as $sic)
-                {{-- {{ $sic->resp11 }} --}}
                     @if ($sic->resp11 == 1)
-                        1) คระหนักในคุณค่าและคุณธรรม จริยธรรม เสียสละ และซื่อสัตย์สุจริต              
-                    @elseif ($sic->resp11 == 2)
+                    1.1) คระหนักในคุณค่าและคุณธรรม จริยธรรม เสียสละ และซื่อสัตย์สุจริต <br>  
+                    {{-- @elseif ($sic->resp11 == 2)
                         ความรับผิดชอบรอง
                     @else
-                        ไม่มี
+                        ไม่มี --}}
                     @endif
 
-                    {{-- @if($player->team_id != $match->players[$key + 1]->team_id)
-                        vs.
-                    @elseif ($player->team_id == $match->players[$key + 1]->team_id)
-                        &
-                    @endif --}}
+                    @if ($sic->resp12 == 1)
+                    1.2) มีวินัย ตรงต่อเวลา และความรับผิดชอบต่อตนเองและสังคม <br>
+                    {{-- @elseif ($sic->resp12 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp13 == 1)
+                    1.3) มีภาวะความเป็นผู้นำและผู้ตาม สามารถทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญ<br>
+                    {{-- @elseif ($sic->resp13 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp14 == 1)
+                    1.4) เคารพสิทธิและรับฟังความคิดเห็นของผู้อื่น รวมทั้งเคารพในคุณค่าและศักดิ์ศรีของความเป็นมนุษย์<br>
+                    {{-- @elseif ($sic->resp14 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp15 == 1)
+                    1.5) เคารพกฎระเบียบและข้อบังคับต่าง ๆ ขององค์กรและสังคม<br>
+                    {{-- @elseif ($sic->resp15 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp16 == 1)
+                    1.6) สามารถวิเคราะห์ผลกระทบจากการใช้คอมพิวเตอร์ต่อบุคคลองค์กรและสังคม<br>
+                    {{-- @elseif ($sic->resp16 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp17 == 1)
+                    1.7) มีจรรยาบรรณทางวิชาการและวิชาชีพ<br>
+                    {{-- @elseif ($sic->resp17 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
 
                 @endforeach
                 {{-- {{ $tqf3->subject->sics as sic}} --}}
@@ -222,17 +194,87 @@
 
 
             <label>1.2 วิธีการสอน</label><br>
-            <textarea name="description" rows="5" cols="4" class="form-control"></textarea><br>
+            <textarea name="description12" rows="5" cols="4" class="form-control"></textarea><br>
 
             <label>1.3 วิธีการประเมินผล</label><br>
-            <textarea name="description" rows="5" cols="4" class="form-control"></textarea><br>
+            <textarea name="description13" rows="5" cols="4" class="form-control"></textarea><br>
         </p>
 
-        {{-- <p>
+        <p>
             <label>2.ความรู้</label><br>
             <label>2.1 ความรู้ต้องพัฒนา </label><br>
+            <label> 
+                @foreach ($tqf3->subject->sics as $sic)
+                    @if ($sic->resp21 == 1)
+                    2.1) มีความรู้และความเช้าใจเกี่ยวกับหลักการและทฤษฏีที่สำคัญในเนื้อหาที่สาขาวิชาเทคโนโลยีสารสนเทศ<br>
+                    {{-- @elseif ($sic->resp21 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp22 == 1)
+                    2.2) สามารถวิเคราะห์ปัญหา เข้าใจและอธิบายความต้องการทางคอมพิวเตอร์ รวมทั้งประยุกต์ความรู้ ทักษะ และการใช้เครื่องมือที่เหมาะสมกับการแก้ไขปัญหา<br>
+                    {{-- @elseif ($sic->resp22 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp23 == 1)
+                    2.3) สามารถวิเคราะห์ ออกแบบ ติดตั้ง ปรับปรุงและ/หรือประเมินระบบองค์ประกอบต่างๆของระบบเทคโนโลยีสารสนเทศให้ตรงตามข้อกำหนด<br>
+                    {{-- @elseif ($sic->resp23 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp24 == 1)
+                    2.4) สามารถติดตามความก้าวหน้าทางวิชาการและวิวัฒนาการคอมพิวเตอร์<br>
+                    {{-- @elseif ($sic->resp24 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp25 == 1)
+                    2.5) รู้ เข้าใจและสนใจพัฒนาความรู้ ความชำนาญทางคอมพิวเคอร์อย่างต่อเนื่อง<br>
+                    {{-- @elseif ($sic->resp25 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp26 == 1)
+                    2.6) มีความรู้ในแนวกว้างของสาขาวิชาที่ศึกษาเพื่อให้เล็งเห็นการเปลี่ยนแปลง และเข้าใจผลกระทบของเทคโนโลยีใหม่ๆ<br>
+                    {{-- @elseif ($sic->resp26 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp27 == 1)
+                    2.7) มีประสบการณ์ในการพัฒนาและ/หรือประยุกต์ซอฟด์แวร์ที่ใช้งานได้จริง<br>
+                    {{-- @elseif ($sic->resp27 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp28 == 1)
+                    2.8) สามารภบูรณาการความรู้ในสาขาวิชาเทคโนโลยีสารสนเทศกับความรู้ในศาสตร์อื่น ๆ ที่เกี่ยวข้อง<br>
+                    {{-- @elseif ($sic->resp28 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+                    
+                @endforeach
+            </label><br>
+
             <label>2.2 วิธีการสอน</label><br>
             <input type="text" /><br>
+
             <label>2.3 วิธีการประเมินผล</label><br>
             <input type="text" />
         </p>
@@ -240,8 +282,48 @@
         <p>
             <label>3.ทักษะทางปัญญา</label><br>
             <label>3.1 ทักษะทางปัญญาที่ต้องพัฒนา</label><br>
+
+            <label> 
+                @foreach ($tqf3->subject->sics as $sic)
+                    @if ($sic->resp31 == 1)
+                    3.1) คิดอย่างมีวิจารณญาณและอย่างเป็นระบบ<br>
+                    {{-- @elseif ($sic->resp31 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp32 == 1)
+                    3.2) สามารถสือค้น ตีความ และประเมินสารสนเทศ เพื่อใช้ในการแก้ไขปัญหาอย่างสร้างสรรค์<br>
+                    {{-- @elseif ($sic->resp32 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp33 == 1)
+                    3.3) สามารถรวบรวม ศึกษา วิเตาระห์ และสรุปประเด็นปัญหาและความต้องการ<br>
+                    {{-- @elseif ($sic->resp33 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp34 == 1)
+                    3.4) สามารถประยุกต์ความรู้และทักษาะกับการแก้ไขทางคอมพิวเตอร์ได้อย่างเหมาะสม<br>
+                    {{-- @elseif ($sic->resp34 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+                    
+                @endforeach
+            </label><br>
+
+
             <label>3.2 วิธีการสอน</label><br>
             <input type="text" /><br>
+
             <label>3.3 วิธีการประเมินผล</label><br>
             <input type="text" />
         </p>
@@ -249,8 +331,64 @@
         <p>
             <label>4.ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบ</label><br>
             <label>4.1 ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบที่ต้องพัฒนา</label><br>
+            <label> 
+                @foreach ($tqf3->subject->sics as $sic)
+                    @if ($sic->resp41 == 1)
+                    4.1) สามาถสื่อสารทั้งภาษาไทยและภาษาต่างประเทศกับกลุ่มคนหลากหลายได้อย่างมีประสิทธิภาพ<br>
+                    {{-- @elseif ($sic->resp41 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp42 == 1)
+                    4.2) สามารถให้ความช่วยเหลือและอำนวยความสะดวกในการแก้ปัญหาสภานการณ์ต่าง ๆ ทั้งในบทบาทผู้นำ หรือในบทบาทของผู้ร่วมทีมทำงาน<br>
+                    {{-- @elseif ($sic->resp42 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp43 == 1)
+                    4.3) สามารถใช้ความรู้ในศาสตร์มาชี้นำสังคมในประเด็นที่เหมาะสม<br>
+                    {{-- @elseif ($sic->resp43 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp44 == 1)
+                    4.4) มีความรับผิดชอบในการกระทำของตนเองและรับผิดชอบงานในกลุ่ม<br>
+                    {{-- @elseif ($sic->resp44 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp45 == 1)
+                    4.5) สามารถเป็นผู้ริเริ่มแสดงประเด็นในการแก้ไขสถานการณ์ทั้งส่วนตัวและส่วนรวม พร้อมทั้งแสดงจุดยืนอย่างพอเหมาะทั้งของตนเองและของกลุ่ม<br>
+                    {{-- @elseif ($sic->resp45 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp46 == 1)
+                    4.6) มีความรับผิดชอบการพัฒนาการเรียนรู้ทั้งของตนเองและทางวิชาชีพอย่างต่อเนื่อง<br>
+                    {{-- @elseif ($sic->resp46 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+                    
+                @endforeach
+            </label><br>
+            
+
+
             <label>4.2 วิธีการสอน</label><br>
             <input type="text" /><br>
+
             <label>4.3 วิธีการประเมินผล</label><br>
             <input type="text" />
         </p>
@@ -258,13 +396,52 @@
         <p>
             <label>5.ทักษะการวิเคราะห์เชิงตัวเลข การสื่อสาร และการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา</label><br>
             <label>5.1 ทักษะการสื่อสารและการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา</label><br>
+
+            <label> 
+                @foreach ($tqf3->subject->sics as $sic)
+                    @if ($sic->resp51 == 1)
+                    5.1) มีทักษะในการใช้เครื่องมือที่จำเป็นที่มีอยู่ในปัจจุบันต่อการทำงานที่เกี่ยวกับคอมพิวเตอร์<br>
+                    {{-- @elseif ($sic->resp51 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp52 == 1)
+                    5.2) สามารถแนะนำประเด็นการแก้ไขโดยใช้สารสนเทศทางคณิตศาสตร์หรือการแสดงสถิติประยุกต์ต่อปัญหาที่เกี่ยวข้องอย่างสร้างสรรค์<br>
+                    {{-- @elseif ($sic->resp52 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp53 == 1)
+                    5.3) สามารถสื่อสารอย่างมีประสิทธิภาพทั้งปากเปล่าและการเขียน พร้อมทั้งลือกใช้รูปแบบของสื่อการนำเสนอได้อย่างเหมาะสม<br>
+                    {{-- @elseif ($sic->resp53 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+
+                    @if ($sic->resp54 == 1)
+                    5.4) สามารภใช้เทคโนโลยีสารสนเทศได้อย่างเหมาะสม<br>
+                    {{-- @elseif ($sic->resp54 == 2)
+                        ความรับผิดชอบรอง
+                    @else
+                        ไม่มี --}}
+                    @endif
+                    
+                @endforeach
+            </label><br>
+
             <label>5.2 วิธีการสอน</label><br>
             <input type="text" /><br>
+
             <label>5.3 วิธีการประเมินผล</label><br>
             <input type="text" />
-        </p> --}}
+        </p>
 
-        {{-- <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
+        <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
         <p>
             <label>1.แผนการสอน</label><br>
             <input type="text" />
@@ -277,9 +454,9 @@
             <input type="text" /><br>
             <label>2.3 เกณฑ์ค่าระดับคะแนน</label><br>
             <input type="text" />
-        </p> --}}
+        </p>
 
-        {{-- <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
+        <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
         <p>
             <label>1.เอกสารและตำราหลัก</label><br>
             <input type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/>
@@ -293,9 +470,9 @@
         <p>
             <label>3.เอกสารและข้อมูลแนะนำ</label><br>
             <input type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/>
-        </p> --}}
+        </p>
 
-        {{-- <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
+        <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
         <p>
             <label>1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต</label><br>
             <input type="text" />
@@ -319,7 +496,17 @@
         <p>
             <label>5.การดำเนินการทบทวนและการวางแผนปรับปรุงประสิทธิผลของรายวิชา</label><br>
             <input type="text" placeholder="อธิบายกระบวนการในการนำข้อมูลที่ได้จากการประเมินจากข้อ 1 และ 2 มาวางแผนเพื่อปรับปรุงคุณภาพ" size="100"/>
-        </p> --}}
+        </p>
+
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif 
 
         <button type="submit" class="btn btn-primary btn-block">Create!</button>
     </form>
