@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $fillable = ['coursename','coursefac','course1_1','course1_2'
-                            ,'course1_3','course1_4','course1_5','course2_1'
-                            ,'course2_2','course2_3','course2_4','course2_5'
-                            ,'user_id'];
+    protected $fillable = [  'courseid','coursename','coursefac'
+                            ,'coursefac2','courselv','coursecredit','courseyear'
+                            ,'courselowcredit','course1'
+                            ,'course2','course21','course22','course221','course222'
+                            ,'course223','course224','course225','course3','course4','course5','coursesum'
+                            ,'user_id'
+                        ];
 
     public function subjects(){
         return $this->hasMany(Subject::class);

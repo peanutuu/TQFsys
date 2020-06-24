@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseopensTable extends Migration
+class CreateDynamic2FieldsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateCourseopensTable extends Migration
      */
     public function up()
     {
-        Schema::create('courseopens', function (Blueprint $table) {
+        Schema::create('dynamic2_fields', function (Blueprint $table) {
             $table->id();
+            $table->text('tqf3521');
+            $table->text('tqf3522');
+            $table->text('tqf3523');
+            $table->text('tqf3524');
+            $table->unsignedInteger('tqf3_id');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateCourseopensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('courseopens');
+        Schema::dropIfExists('dynamic2_fields');
     }
 }

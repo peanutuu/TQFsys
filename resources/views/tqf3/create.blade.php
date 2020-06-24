@@ -3,6 +3,7 @@
 @section('content')
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
+
      <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data">
         @csrf
 

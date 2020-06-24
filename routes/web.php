@@ -9,8 +9,8 @@ Route::resource('/', 'HomeController')->only('index');
 // Route::resource('/tqf3', 'TQF3Controller')->only('index','create','store','edit','update','destroy','show');  
 // Route::get('/tqf3/{tqf3}/create2', 'TQF3Controller@create2')->name('tqf3.create2');
 
-Route::get('dynamic-field', 'DynamicFieldController@index');
-Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
+// Route::get('dynamic-field', 'DynamicFieldController@index');
+// Route::post('dynamic-field/insert', 'DynamicFieldController@insert')->name('dynamic-field.insert');
 
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
@@ -28,14 +28,16 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/tqf3/{tqf3}/create6', 'TQF3Controller@create6')->name('tqf3.create6');
     Route::get('/tqf3/{tqf3}/create7', 'TQF3Controller@create7')->name('tqf3.create7');
 
-<<<<<<< HEAD
-=======
     Route::get('/tqf3/{tqf3}/lessonplan', 'DynamicFieldController@index')->name('tqf3.lessonplan');
-    Route::get('/tqf3/{tqf3}/editlessonplan', 'DynamicFieldController@edit')->name('tqf3.editlessonplan');
+    Route::post('/tqf351/insert', 'DynamicFieldController@insert')->name('lessonplan.insert');
+
+    Route::get('/tqf3/{tqf3}/createtqf352', 'Dynamic2FieldController@index')->name('tqf3.createtqf352');
+    Route::post('/tqf352/insert', 'Dynamic2FieldController@insert')->name('createtqf352.insert');
+
+    // Route::put('/tqf3/update', 'DynamicFieldController@update')->name('tqf3.updatelessonplan');
 
     // Route::post('/tqf3/{tqf3}/lessonplan/insert', 'DynamicFieldController@insert')->name('lessonplan.insert');
 
->>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
     Route::put('/tqf3/1/{tqf3}','TQF3Controller@update1')->name('tqf3.update1');
     Route::put('/tqf3/2/{tqf3}','TQF3Controller@update2')->name('tqf3.update2');
     Route::put('/tqf3/3/{tqf3}','TQF3Controller@update3')->name('tqf3.update3');

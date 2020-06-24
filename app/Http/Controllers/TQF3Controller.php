@@ -6,6 +6,8 @@ use App\Tqf3;
 use App\Subject;
 use App\Course;
 use App\SIC;
+use App\DynamicField;
+use App\Dynamic2Field;
 use App\Http\Requests\StoreSubject;
 use App\Http\Requests\StoreSIC;
 use App\Http\Requests\StoreTqf3;
@@ -360,8 +362,11 @@ class TQF3Controller extends Controller
     {
         $subjects = Subject::all();
         $sics = SIC::all();
+        $dynamicfields = DynamicField::all();
+        $dynamic2fields = Dynamic2Field::all();
         $tqf3 = Tqf3::findOrFail($id);
-        return view('tqf3.create5', compact('subjects','sics','tqf3'));
+
+        return view('tqf3.create5', compact('subjects','sics','dynamicfields','dynamic2fields','tqf3'));
         
         // ->with('subjects',Subject::all());
 

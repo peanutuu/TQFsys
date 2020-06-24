@@ -53,18 +53,27 @@ class CourseController extends Controller
         // $validatedData = $request->validated();
         // $course = Course::create($validatedData);
         $course = Course::create([
+            'courseid'=>$request->courseid,
             'coursename'=>$request->coursename,
             'coursefac'=>$request->coursefac,
-            'course1_1'=>$request->course1_1,
-            'course1_2'=>$request->course1_2,
-            'course1_3'=>$request->course1_3,
-            'course1_4'=>$request->course1_4,
-            'course1_5'=>$request->course1_5,
-            'course2_1'=>$request->course2_1,
-            'course2_2'=>$request->course2_2,
-            'course2_3'=>$request->course2_3,
-            'course2_4'=>$request->course2_4,
-            'course2_5'=>$request->course2_5,
+            'coursefac2'=>$request->coursefac2,
+            'courselv'=>$request->courselv,
+            'coursecredit'=>$request->coursecredit,
+            'courseyear'=>$request->courseyear,
+            'courselowcredit'=>$request->courselowcredit,
+            'course1'=>$request->course1,
+            'course2'=>$request->course2,
+            'course21'=>$request->course21,
+            'course22'=>$request->course22,
+            'course221'=>$request->course221,
+            'course222'=>$request->course222,
+            'course223'=>$request->course223,
+            'course224'=>$request->course224,
+            'course225'=>$request->course225,
+            'course3'=>$request->course3,
+            'course4'=>$request->course4,
+            'course5'=>$request->course5,
+            'coursesum'=>$request->coursesum,
             'user_id'=>auth()->user()->id
         ]);
 

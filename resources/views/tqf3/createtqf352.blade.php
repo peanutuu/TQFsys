@@ -1,55 +1,52 @@
 <html>
- <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laravel 5.8 - DataTables Server Side Processing using Ajax</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
- </head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Laravel 5.8 - DataTables Server Side Processing using Ajax</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
  <body>
-     
-            {{-- <div class="table-responsive">
-                        @if($tqf3->dynamicfields->count()>0)
+  <div class="container">    
+
+    {{-- <div class="table-responsive">
+                        @if($tqf3->dynamic2fields->count()>0)
                             <table class="table table-bordered table-striped" id="user_table">
                                 <thead>
                                     <tr>
-                                        <th width="5%"  rowspan="2"> สัปดาห์ที่ </th>
-                                        <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
-                                        <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
-                                        <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
-                                        <th width="10%" rowspan="2"> สื่อการสอน </th>
-                                        <th width="10%" rowspan="2"> อาจารย์ผู้สอน </th>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <td >ทฤษฎี</td>
-                                        <td >ปฏิบัติ</td>
-                                        
+                                        <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
+                                        <th width="25%" rowspan="2"> วิธีการประเมิน </th>
+                                        <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
+                                        <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
                                     </tr>
                                 </thead>
                                     <tbody>
-                                            @foreach ($tqf3->dynamicfields as $dynamicfield)
+                                            @foreach ($tqf3->dynamic2fields as $dynamic2field)
                                             <tr>
-                                            <td>{{ $dynamicfield->tqf3511 }} </td>
-                                            <td>{{ $dynamicfield->tqf3512 }}</td>
-                                            <td>{{ $dynamicfield->tqf3513 }}</td>
-                                            <td>{{ $dynamicfield->tqf3514 }}</td>
-                                            <td>{{ $dynamicfield->tqf3515 }}</td>
-                                            <td>{{ $dynamicfield->tqf3516 }}</td>
-                                            <td>{{ $dynamicfield->tqf3517 }}</td>
+                                            <td>{{ $dynamic2field->tqf3521 }} </td>
+                                            <td>{{ $dynamic2field->tqf3522 }}</td>
+                                            <td>{{ $dynamic2field->tqf3523 }}</td>
+                                            <td>{{ $dynamic2field->tqf3524 }}</td>
                                             </tr>
                                             @endforeach
                                     </tbody>
+                                <tfoot>
+                                    <tr>
+                                        
+                                    </tr>
+                                    <tr>
+                                        
+                                    </tr>
+                                </tfoot>
                             </table> 
-                        @else
-                            <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
-                        @endif
-                
+                    @else
+                        <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการประเมินการเรียนรู้</h3>
+                    @endif
+                </form>
             </div> --}}
 
-  <div >
      <br />
-     <h3 align="center">Dynamically Add / Remove tqf3 ของ {{$tqf3->id}} in Laravel 5.8 using Ajax jQuery</h3>
+     <h3 align="center">Dynamically Add / Remove tqf3 ของ {{$tqf3->id}}</h3>
      <br />
      <div class="table-responsive">
         <form method="post" id="dynamic_form">
@@ -57,23 +54,10 @@
                 <table class="table table-bordered table-striped" id="user_table">
                     <thead>
                         <tr>
-                            <th width="5%"  rowspan="2"> สัปดาห์ที่ </th>
-                            <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
-                            <th width="15%" colspan="2"> จำนวนชั่วโมง </th>
-                            <th width="20%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
-                            <th width="20%" rowspan="2"> สื่อการสอน </th>
-                            <th width="25%" rowspan="2"> อาจารย์ผู้สอน </th>
-                            {{-- <th width="5%"  colspan="2"> เพื่มจำนวนเแถว 
-                                <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
-                                <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button>
-                            </th> --}}
-    
-                        </tr>
-                        <tr>
-                            <td >ทฤษฎี</td>
-                            <td >ปฏิบัติ</td>
-                            {{-- <td width="10%" rowspan="2"><button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
-                                <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button></td> --}}
+                            <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
+                            <th width="25%" rowspan="2"> วิธีการประเมิน </th>
+                            <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
+                            <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
                         </tr>
                     </thead>
                         <tbody id="t1">
@@ -81,8 +65,7 @@
                         </tbody>
                     <tfoot>
                         <tr>
-                            <td><a href="{{ route('tqf3.create5',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a></td>
-                            <td colspan="6" align="right">&nbsp;</td>
+                            <td colspan="4" align="right">&nbsp;</td>
                             <td>
                                 @csrf
                                 <input type="submit" name="save" id="save" class="btn btn-primary" value="Save" />
@@ -97,7 +80,7 @@
     </div>
   </div>
 
-  {{-- <a href="{{ route('tqf3.create5',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a><br><br> --}}
+  <a href="{{ route('tqf3.create5',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a><br><br>
 
   
 
@@ -114,27 +97,24 @@ $(document).ready(function()
 
         function dynamic_field(number)
         {
-        html = '<tr>';
-            html += '<td><input type="text" name="tqf3511[]" class="form-control" /></td>';
-            html += '<td><textarea name="tqf3512[]" rows="5" cols="7" class="form-control" ></textarea></td>';
-            html += '<td><input type="text" name="tqf3513[]" class="form-control" /></td>';
-            html += '<td><input type="text" name="tqf3514[]" class="form-control" /></td>';
-            html += '<td><textarea name="tqf3515[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><textarea name="tqf3516[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><input type="text" name="tqf3517[]" class="form-control" /></td>';
-            html += '<input type="hidden" name="tqf3_id[]" value="{{$tqf3->id}}"/>';
+            html = '<tr>';
+            html += '<td><textarea name="tqf3521[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><textarea name="tqf3522[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><textarea name="tqf3523[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><textarea name="tqf3524[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><input type="hidden" name="tqf3_id[]" value="{{$tqf3->id}}"/></td>';
             // html += '<td><input type="text" name="tqf3_id[]" class="form-control" value="{{$tqf3->id}}"/></td>';
             if(number > 1)
             {
-                html += '<td width="2%"><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
+                html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
                 $( document.getElementById('t1')).append(html);
             }
             else
             {   
                 html += '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
                 $(document.getElementById('t1')).html(html);
+            }
         }
-    }
     
     $(document).on('click', '#add', function(){
         count++;
@@ -149,7 +129,7 @@ $(document).ready(function()
     $('#dynamic_form').on('submit', function(event){
         event.preventDefault();
         $.ajax({
-            url:'{{ route("lessonplan.insert") }}',
+            url:'{{ route("createtqf352.insert") }}',
             method:'post',
             data:$(this).serialize(),
             dataType:'json',

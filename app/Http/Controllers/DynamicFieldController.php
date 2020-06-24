@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tqf3;
 use App\DynamicField;
+// use App\Http\Requests\StoreDynamic;
 use Validator;
-use TQF3Controller;
+// use TQF3Controller;
 
 class DynamicFieldController extends Controller
 {
     function index($id)
     {
         $tqf3 = Tqf3::findOrFail($id);
+
         return view('tqf3.lessonplan', compact('tqf3'));
     }
 
@@ -21,14 +23,14 @@ class DynamicFieldController extends Controller
         if($request->ajax())
         {
         $rules = array(
-        'tqf3511.*'  => 'required',
-        'tqf3512.*'  => 'required',
-        'tqf3513.*'  => 'required',
-        'tqf3514.*'  => 'required',
-        'tqf3515.*'  => 'required',
-        'tqf3516.*'  => 'required',
-        'tqf3517.*'  => 'required',
-        'tqf3_id'    => 'required'
+            'tqf3511.*'  => 'required',
+            'tqf3512.*'  => 'required',
+            'tqf3513.*'  => 'required',
+            'tqf3514.*'  => 'required',
+            'tqf3515.*'  => 'required',
+            'tqf3516.*'  => 'required',
+            'tqf3517.*'  => 'required',
+            'tqf3_id'    => 'required'
         );
 
         $error = Validator::make($request->all(), $rules);
@@ -68,17 +70,9 @@ class DynamicFieldController extends Controller
 
         DynamicField::insert($insert_data);
 
-         return response()->json(['success'  => 'Data Added successfully.']);
+        return response()->json(['success'  => 'Data Added successfully.']);
 
-        // return view('tqf3.index');
-
-        // return redirect()->route('tqf3.create5', compact('tqf3'));
-        
         }
     }
 
-    function edit($id){
-        $tqf3 = Tqf3::findOrFail($id);
-        return view('tqf3.editlessonplan', compact('tqf3'));
-    }
 }
