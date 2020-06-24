@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+
     <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data">
         @csrf
 
@@ -82,6 +83,7 @@
         <input type="hidden" name="tqf3522" value="{{$tqf3->tqf3522}}"/>
         <input type="hidden" name="tqf3610" value="{{$tqf3->tqf3610}}"/>
         <input type="hidden" name="tqf3620" value="{{$tqf3->tqf3620}}"/>
+        <input type="hidden" name="tqf3630" value="{{$tqf3->tqf3630}}"/>
         <input type="hidden" name="tqf3710" value="{{$tqf3->tqf3710}}"/>
         <input type="hidden" name="tqf3720" value="{{$tqf3->tqf3720}}"/>
         <input type="hidden" name="tqf3730" value="{{$tqf3->tqf3730}}"/>

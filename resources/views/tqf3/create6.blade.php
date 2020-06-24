@@ -6,7 +6,7 @@
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
 
-    <form method="POST" action="{{ route('tqf3.update2',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('tqf3.update6',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
     {{-- <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data"> --}}
         @csrf
         @method('PUT')
@@ -16,24 +16,23 @@
         <input type="hidden" name="term" value="{{$tqf3->term}}"/>
         <input type="hidden" name="subject_id" value="{{$tqf3->subject_id}}"/>
 
-        <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
+        <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
         <p>
-            <label>1.จุดมุ่งหมายของรายวิชา</label><br>
-            <textarea name='tqf3211' rows="5" cols="4" class="form-control">{{ old('tqf3211', $tqf3->tqf3211 ?? null) }}</textarea><br>
-
-            {{-- <label>1.2</label>
-            <input name='tqf3212' type="text" /> --}}
+            <label>1.เอกสารและตำราหลัก</label><br>
+            {{-- <input name='tqf3610' type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/> --}}
+            <textarea name='tqf3610' rows="5" cols="4" class="form-control" >{{ old('tqf3610', $tqf3->tqf3610 ?? null) }}</textarea><br>
         </p>
 
         <p>
-            <label>2.วัตถุประสงค์ในการพัฒนาปรับปรุงรายวิชา</label><br>
-            <label>อธิบายโดยย่อเกี่ยวกับวัตถุประสงค์ในการพัฒนารายวิชานี้หรือการเปลี่ยนแปลงสำคัญๆที่เกิดขึ้น เช่น เพิ่มการใช้เทคโนโลยีสารสนเทศ หรือ web based การเปลี่ยนแปลงเนื้อหาของรายวิชาซึ่งเป็นผลจากงานวิจัย ใหม่ๆ ในสาขา</label><br>
-            {{-- <label>2.1</label> --}}
-            <textarea name='tqf3221' rows="5" cols="4" class="form-control">{{ old('tqf3221', $tqf3->tqf3221 ?? null) }}</textarea><br>
-            {{-- <input name='tqf3221' type="text" /><br>
+            <label>2.เอกสารและข้อมูลสำคัญ</label><br>
+            {{-- <input name='tqf3620' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาจำเป็นต้องศึกษาเพิ่มเติม" size="150"/> --}}
+            <textarea name='tqf3620' rows="5" cols="4" class="form-control" >{{ old('tqf3620', $tqf3->tqf3620 ?? null) }}</textarea><br>
+        </p>
 
-            <label>2.2</label>
-            <input name='tqf3222' type="text" /> --}}
+        <p>
+            <label>3.เอกสารและข้อมูลแนะนำ</label><br>
+            {{-- <input name='tqf3630' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/> --}}
+            <textarea name='tqf3630' rows="5" cols="4" class="form-control" >{{ old('tqf3630', $tqf3->tqf3630 ?? null) }}</textarea><br>
         </p>
 
         <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
@@ -49,7 +48,8 @@
         <input type="hidden" name="tqf3182" value="{{$tqf3->tqf3182}}"/>
         <input type="hidden" name="tqf3183" value="{{$tqf3->tqf3183}}"/>
         <input type="hidden" name="tqf3191" value="{{$tqf3->tqf3191}}"/>
-
+        <input type="hidden" name="tqf3211" value="{{$tqf3->tqf3211}}"/>
+        <input type="hidden" name="tqf3221" value="{{$tqf3->tqf3221}}"/>
         <input type="hidden" name="tqf3311" value="{{$tqf3->tqf3311}}"/>
         <input type="hidden" name="tqf3321" value="{{$tqf3->tqf3321}}"/>
         <input type="hidden" name="tqf3322" value="{{$tqf3->tqf3322}}"/>
@@ -69,14 +69,12 @@
         <input type="hidden" name="tqf3453" value="{{$tqf3->tqf3453}}"/>
         <input type="hidden" name="tqf3521" value="{{$tqf3->tqf3521}}"/>
         <input type="hidden" name="tqf3522" value="{{$tqf3->tqf3522}}"/>
-        <input type="hidden" name="tqf3610" value="{{$tqf3->tqf3610}}"/>
-        <input type="hidden" name="tqf3620" value="{{$tqf3->tqf3620}}"/>
-        <input type="hidden" name="tqf3630" value="{{$tqf3->tqf3630}}"/>
+
         <input type="hidden" name="tqf3710" value="{{$tqf3->tqf3710}}"/>
         <input type="hidden" name="tqf3720" value="{{$tqf3->tqf3720}}"/>
         <input type="hidden" name="tqf3730" value="{{$tqf3->tqf3730}}"/>
         <input type="hidden" name="tqf3740" value="{{$tqf3->tqf3740}}"/>
-        <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>  
+        <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
         
 
         @if ($errors->any())
@@ -91,5 +89,6 @@
 
         <button type="submit" class="btn btn-primary btn-block">Create!</button>
     </form>
+
 
 @endsection

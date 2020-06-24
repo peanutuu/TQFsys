@@ -64,6 +64,7 @@ class Store2Tqf3 extends FormRequest
             'tqf3522' => 'required',
             'tqf3610' => 'required',
             'tqf3620' => 'required',
+            'tqf3630' => 'required',
             'tqf3710' => 'required',
             'tqf3720' => 'required',
             'tqf3730' => 'required',

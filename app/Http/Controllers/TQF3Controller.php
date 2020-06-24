@@ -97,6 +97,7 @@ class TQF3Controller extends Controller
             'tqf3522' => $request->tqf3522,
             'tqf3610' => $request->tqf3610,
             'tqf3620' => $request->tqf3620,
+            'tqf3630' => $request->tqf3630,
             'tqf3710' => $request->tqf3710,
             'tqf3720' => $request->tqf3720,
             'tqf3730' => $request->tqf3730,
@@ -107,7 +108,7 @@ class TQF3Controller extends Controller
 
         // session()->flash('status','Tqf3 was created!');
         // return redirect()->route('tqf.index');
-        return redirect()->route('tqf3.create2', compact('tqf3'));
+        return redirect()->route('tqf3.create1', compact('tqf3'));
     }
 
     // public function storeTwo(Store2Tqf3 $request, $id)
@@ -159,6 +160,18 @@ class TQF3Controller extends Controller
         return redirect()->route('tqf3.index');
     }
 
+    public function update1(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        // return redirect()->route('tqf3.create2');
+        return redirect()->route('tqf3.create2', compact('tqf3'));
+    }
+
     public function update2(Store2Tqf3 $request, $id)
     {
         $tqf3 = Tqf3::findOrFail($id);
@@ -167,7 +180,68 @@ class TQF3Controller extends Controller
         $tqf3->save();
 
         // $request->session()->flash('status','TQF3 was updated!');
-        return redirect()->route('tqf3.index');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.create3', compact('tqf3'));
+    }
+
+    public function update3(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        session()->flash('status','TQF3 was สร้าง!');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.create4', compact('tqf3'));
+    }
+
+    public function update4(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.create5', compact('tqf3'));
+    }
+
+    public function update5(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.create6', compact('tqf3'));
+    }
+
+    public function update6(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.create7', compact('tqf3'));
+    }
+
+    public function update7(Store2Tqf3 $request, $id)
+    {
+        $tqf3 = Tqf3::findOrFail($id);
+        $validatedData = $request->validated();
+        $tqf3->fill($validatedData);
+        $tqf3->save();
+
+        // $request->session()->flash('status','TQF3 was updated!');
+        // return redirect()->route('tqf3.index');
+        return redirect()->route('tqf3.show', compact('tqf3'));
     }
 
     public function destroy(Request $request, $id)
@@ -193,6 +267,29 @@ class TQF3Controller extends Controller
     //     return view('tqf.tqf3.select', compact('subjects'));
     // }
 
+    public function create1($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create1', compact('subjects','sics','tqf3'));
+        
+        // ->with('subjects',Subject::all());
+
+        // $subjects = Subject::all();
+        // $subjects = Subject::findOrFail($id);
+        
+        // return $request->all();
+        // $req = $request->all();
+
+        // $col = $request->all();
+        // $cool = '{{ subject_id }}';
+
+        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
+        // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+
     public function create2($id)
     {
         $subjects = Subject::all();
@@ -213,6 +310,102 @@ class TQF3Controller extends Controller
 
         // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
         // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+    public function create3($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create3', compact('subjects','sics','tqf3'));
+        
+        // ->with('subjects',Subject::all());
+
+        // $subjects = Subject::all();
+        // $subjects = Subject::findOrFail($id);
+        
+        // return $request->all();
+        // $req = $request->all();
+
+        // $col = $request->all();
+        // $cool = '{{ subject_id }}';
+
+        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
+        // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+    public function create4($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create4', compact('subjects','sics','tqf3'));
+        
+        // ->with('subjects',Subject::all());
+
+        // $subjects = Subject::all();
+        // $subjects = Subject::findOrFail($id);
+        
+        // return $request->all();
+        // $req = $request->all();
+
+        // $col = $request->all();
+        // $cool = '{{ subject_id }}';
+
+        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
+        // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+    public function create5($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create5', compact('subjects','sics','tqf3'));
+        
+        // ->with('subjects',Subject::all());
+
+        // $subjects = Subject::all();
+        // $subjects = Subject::findOrFail($id);
+        
+        // return $request->all();
+        // $req = $request->all();
+
+        // $col = $request->all();
+        // $cool = '{{ subject_id }}';
+
+        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
+        // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+    public function create6($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create6', compact('subjects','sics','tqf3'));
+        
+        // ->with('subjects',Subject::all());
+
+        // $subjects = Subject::all();
+        // $subjects = Subject::findOrFail($id);
+        
+        // return $request->all();
+        // $req = $request->all();
+
+        // $col = $request->all();
+        // $cool = '{{ subject_id }}';
+
+        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
+        // return view('tqf.tqf3.create', compact('subjects','req'));
+    }
+
+    public function create7($id)
+    {
+        $subjects = Subject::all();
+        $sics = SIC::all();
+        $tqf3 = Tqf3::findOrFail($id);
+        return view('tqf3.create7', compact('subjects','sics','tqf3'));
     }
 
     public function downloadPDF($id)
