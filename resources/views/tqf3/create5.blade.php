@@ -32,6 +32,7 @@
         <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
         <p>
             <label>1.แผนการสอน</label><br>
+<<<<<<< HEAD
             {{-- <input name='tqf3511' type="text" /> --}}
             <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
             <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button>
@@ -76,6 +77,83 @@
                                 </tr>
                             </tfoot> --}}
                         </table>
+=======
+
+            <a href="{{ route('tqf3.lessonplan',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> สร้างแผนการสอน </a><br><br>
+
+            {{-- @foreach ($tqf3->dynamicfields as $dynamicfield)
+
+            {{ $dynamicfield->tqf3511 }} {{ $dynamicfield->tqf3512 }} {{ $dynamicfield->tqf3513 }} 
+            {{ $dynamicfield->tqf3514 }} {{ $dynamicfield->tqf3515 }} {{ $dynamicfield->tqf3516 }} {{ $dynamicfield->tqf3517 }} <br>
+
+            @endforeach --}}
+
+            {{-- <input name='tqf3511' type="text" /> --}}
+            {{-- <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
+            <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button> --}}
+            
+            <div class="table-responsive">
+                <form method="post" id="dynamic_form">
+                    <span id="result"></span>
+                        @if($tqf3->dynamicfields->count()>0)
+                            <table class="table table-bordered table-striped" id="user_table">
+                                <thead>
+                                    <tr>
+                                        <th width="5%"  rowspan="2"> สัปดาห์ที่ </th>
+                                        <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
+                                        <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
+                                        <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
+                                        <th width="10%" rowspan="2"> สื่อการสอน </th>
+                                        <th width="10%" rowspan="2"> อาจารย์ผู้สอน </th>
+                                        {{-- <th width="5%"  colspan="2"> เพื่มจำนวนเแถว
+                                            <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
+                                            <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button>
+                                        </th> --}}
+                
+                                    </tr>
+                                    <tr>
+                                        <td >ทฤษฎี</td>
+                                        <td >ปฏิบัติ</td>
+                                        {{-- <td width="10%" rowspan="2"><button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
+                                            <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button></td> --}}
+                                    </tr>
+                                </thead>
+                                    <tbody id="t1">
+                                        
+                                            @foreach ($tqf3->dynamicfields as $dynamicfield)
+                                            <tr>
+                                            <td>{{ $dynamicfield->tqf3511 }} </td>
+                                            <td>{{ $dynamicfield->tqf3512 }}</td>
+                                            <td>{{ $dynamicfield->tqf3513 }}</td>
+                                            <td>{{ $dynamicfield->tqf3514 }}</td>
+                                            <td>{{ $dynamicfield->tqf3515 }}</td>
+                                            <td>{{ $dynamicfield->tqf3516 }}</td>
+                                            <td>{{ $dynamicfield->tqf3517 }}</td>
+
+                                            {{-- {{ $dynamicfield->tqf3511 }} {{ $dynamicfield->tqf3512 }} {{ $dynamicfield->tqf3513 }} 
+                                            {{ $dynamicfield->tqf3514 }} {{ $dynamicfield->tqf3515 }} {{ $dynamicfield->tqf3516 }} {{ $dynamicfield->tqf3517 }} <br> --}}
+                        
+                                            </tr>
+                                            @endforeach
+        
+                                    </tbody>
+                                {{-- <tfoot>
+                                    <tr>
+                                        <td colspan="2" align="right">&nbsp;</td>
+                                        <td>
+                                            @csrf
+                                            <input type="submit" name="save" id="save" class="btn btn-primary" value="Save" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        
+                                    </tr>
+                                </tfoot> --}}
+                            </table> 
+                    @else
+                        <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
+                    @endif
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
                 </form>
             </div>
 
@@ -92,9 +170,15 @@
             <label>2.1 วิธีการ</label><br>
             <label>1.แผนการสอน</label><br>
 
+<<<<<<< HEAD
             <button type="button" name="add2" id="add2" class="btn btn-success">Add</button>
             {{-- <input name='tqf3511' type="text" /> --}}
             <div class="table-responsive">
+=======
+            {{-- <button type="button" name="add2" id="add2" class="btn btn-success">Add</button> --}}
+            {{-- <input name='tqf3511' type="text" /> --}}
+            {{-- <div class="table-responsive">
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
                 <form method="post" id="dynamic_form2">
                     <span id="result"></span>
                         <table class="table table-bordered table-striped" id="user_table2">
@@ -104,14 +188,22 @@
                                     <th width="25%" > วิธีการประเมิน </th>
                                     <th width="25%" > สัปดารห์ที่ประเมิน</th>
                                     <th width="25%" > สัดส่วนของการประเมิน </th>
+<<<<<<< HEAD
                                     {{-- <th width="10%" rowspan="2"><button type="button" name="add2" id="add2" class="btn btn-success">Add</button></td> --}}
+=======
+                                    <th width="10%" rowspan="2"><button type="button" name="add2" id="add2" class="btn btn-success">Add</button></td>
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
                                 </tr>
                             </thead>
                             <tbody id="t2">
                                 
                             </tbody>
                             
+<<<<<<< HEAD
                             {{-- <tfoot>
+=======
+                            <tfoot>
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
                                 <tr>
                                     <td colspan="2" align="right">&nbsp;</td>
                                     <td>
@@ -122,10 +214,17 @@
                                 <tr>
                                     
                                 </tr>
+<<<<<<< HEAD
                             </tfoot> --}}
                         </table>
                 </form>
             </div>
+=======
+                            </tfoot>
+                        </table>
+                </form>
+            </div> --}}
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
 
             <label>2.2 เกณฑ์ผ่านรายวิชา ผู้ที่จะผ่านรายวิชานี้จะต้อง</label><br>
             {{-- <input name='tqf3521' type="text" /><br> --}}
@@ -195,6 +294,7 @@
 
 
 
+<<<<<<< HEAD
 <script>
     // function createTable() {
     // var a = document.getElementById('tb1').value;
@@ -372,5 +472,8 @@ $(document).ready(function()
 
 
 </script>
+=======
+
+>>>>>>> 53231cfb3704072b2118d67fc0d0964b7f506bfe
 
 @endsection
