@@ -50,6 +50,7 @@ class AddDatailToTqf3sTable extends Migration
             $table->text('tqf3522')->default('null');
             $table->text('tqf3610')->default('null');
             $table->text('tqf3620')->default('null');
+            $table->text('tqf3630')->default('null');
             $table->text('tqf3710')->default('null');
             $table->text('tqf3720')->default('null');
             $table->text('tqf3730')->default('null');
