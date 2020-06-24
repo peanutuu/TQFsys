@@ -30,4 +30,9 @@ class tqf3 extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function DynamicFields()
+    {
+        return $this->hasMany(DynamicField::class);
+    }
+
 }

@@ -28,6 +28,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/tqf3/{tqf3}/create6', 'TQF3Controller@create6')->name('tqf3.create6');
     Route::get('/tqf3/{tqf3}/create7', 'TQF3Controller@create7')->name('tqf3.create7');
 
+    Route::get('/tqf3/{tqf3}/lessonplan', 'DynamicFieldController@index')->name('tqf3.lessonplan');
+    Route::get('/tqf3/{tqf3}/editlessonplan', 'DynamicFieldController@edit')->name('tqf3.editlessonplan');
+
+    // Route::post('/tqf3/{tqf3}/lessonplan/insert', 'DynamicFieldController@insert')->name('lessonplan.insert');
+
     Route::put('/tqf3/1/{tqf3}','TQF3Controller@update1')->name('tqf3.update1');
     Route::put('/tqf3/2/{tqf3}','TQF3Controller@update2')->name('tqf3.update2');
     Route::put('/tqf3/3/{tqf3}','TQF3Controller@update3')->name('tqf3.update3');
