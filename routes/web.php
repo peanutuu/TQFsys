@@ -52,6 +52,28 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/tqf5', 'TQF5Controller')->only('index','create','store','edit','update','destroy','show');    
     Route::get('/tqf5/{tqf5}/copy','TQF5Controller@copy')->name('tqf5.copy');
 
+    Route::get('/tqf5/{tqf5}/create1', 'TQF5Controller@create1')->name('tqf5.create1');
+    Route::get('/tqf5/{tqf5}/create2', 'TQF5Controller@create2')->name('tqf5.create2');
+    Route::get('/tqf5/{tqf5}/create3', 'TQF5Controller@create3')->name('tqf5.create3');
+    Route::get('/tqf5/{tqf5}/create4', 'TQF5Controller@create4')->name('tqf5.create4');
+    Route::get('/tqf5/{tqf5}/create5', 'TQF5Controller@create5')->name('tqf5.create5');
+    Route::get('/tqf5/{tqf5}/create6', 'TQF5Controller@create6')->name('tqf5.create6');
+
+    Route::put('/tqf5/1/{tqf5}','TQF5Controller@update1')->name('tqf5.update1');
+    Route::put('/tqf5/2/{tqf5}','TQF5Controller@update2')->name('tqf5.update2');
+    Route::put('/tqf5/3/{tqf5}','TQF5Controller@update3')->name('tqf5.update3');
+    Route::put('/tqf5/4/{tqf5}','TQF5Controller@update4')->name('tqf5.update4');
+    Route::put('/tqf5/5/{tqf5}','TQF5Controller@update5')->name('tqf5.update5');
+    Route::put('/tqf5/6/{tqf5}','TQF5Controller@update6')->name('tqf5.update6');
+
+    Route::get('/tqf5/{tqf5}/createtqf521', 'Dynamic3FieldController@index')->name('tqf5.createtqf521');
+    Route::post('/tqf521/insert', 'Dynamic3FieldController@insert')->name('createtqf521.insert');
+
+    Route::get('/tqf5/{tqf5}/createtqf522', 'Dynamic4FieldController@index')->name('tqf5.createtqf522');
+    Route::post('/tqf522/insert', 'Dynamic4FieldController@insert')->name('createtqf522.insert');
+
+    Route::get('/tqf5/{tqf5}/createtqf523', 'Dynamic5FieldController@index')->name('tqf5.createtqf523');
+    Route::post('/tqf523/insert', 'Dynamic5FieldController@insert')->name('createtqf523.insert');
 });
 
 Route::middleware(['auth','admin'])->group(function(){

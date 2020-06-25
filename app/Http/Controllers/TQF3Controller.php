@@ -27,7 +27,7 @@ class TQF3Controller extends Controller
         if($search){
             $tqf3s = Tqf3::where('name','LIKE',"%{$search}%")->get();
         }else{
-            $tqf3s = Tqf3::orderBy('subject_id','asc')->get();
+            $tqf3s = Tqf3::orderBy('id','desc')->get();
         }
         
         // $subject = Subject::with(Courses)->orderby('id','desc')->paginate(5);
@@ -35,26 +35,16 @@ class TQF3Controller extends Controller
         // return view('subject.index',['subjects' => Subject::all()]);
     }
 
-    // public function create(Request $request)
     public function create()
     {
+
         return view('tqf3.create')->with('subjects',Subject::all());
 
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
     public function create1($id)
     {
+
         $users = User::all();
         $courses = Course::all();
         $subjects = Subject::all();
@@ -62,142 +52,70 @@ class TQF3Controller extends Controller
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create1', compact('users','courses','subjects','sics','tqf3'));
         
-        // ->with('subjects',Subject::all());
-
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
 
     public function create2($id)
     {
+
         $courses = Course::all();
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create2', compact('subjects','sics','tqf3'));
         
-        // ->with('subjects',Subject::all());
-
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
     public function create3($id)
     {
+
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create3', compact('subjects','sics','tqf3'));
         
-        // ->with('subjects',Subject::all());
-
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
     public function create4($id)
     {
+
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create4', compact('subjects','sics','tqf3'));
         
-        // ->with('subjects',Subject::all());
-
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
     public function create5($id)
     {
+
         $subjects = Subject::all();
         $sics = SIC::all();
         $dynamicfields = DynamicField::all();
         $dynamic2fields = Dynamic2Field::all();
         $tqf3 = Tqf3::findOrFail($id);
-
         return view('tqf3.create5', compact('subjects','sics','dynamicfields','dynamic2fields','tqf3'));
-        
-        // ->with('subjects',Subject::all());
 
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
     }
 
     public function create6($id)
     {
+
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create6', compact('subjects','sics','tqf3'));
-        
-        // ->with('subjects',Subject::all());
-
-        // $subjects = Subject::all();
-        // $subjects = Subject::findOrFail($id);
-        
-        // return $request->all();
-        // $req = $request->all();
-
-        // $col = $request->all();
-        // $cool = '{{ subject_id }}';
-
-        // return view('tqf.tqf3.create')->with($request->all(),'subjects',Subject::all());
-        // return view('tqf.tqf3.create', compact('subjects','req'));
+    
     }
 
     public function create7($id)
     {
+
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
         return view('tqf3.create7', compact('subjects','sics','tqf3'));
+    
     }
 
     public function store(StoreTqf3 $request)

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','เพิ่มเอกสารมคอ3')
+@section('title','เพิ่มเอกสารมคอ.3')
 @section('content')
 
 {{-- <br><br><a href="{{ route('tqf3.create') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br> --}}

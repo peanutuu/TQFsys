@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTqf5 extends FormRequest
+class Store2Tqf5 extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,6 @@ class StoreTqf5 extends FormRequest
             'year' => 'required',
             'term' => 'required',
             'subject_id' => 'required',
-            // 'catagorytqf_id' => 'required'
             'tqf5121' => 'required',
             'tqf5131' => 'required',
             'tqf5132' => 'required',

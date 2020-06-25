@@ -1,55 +1,16 @@
 <html>
  <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laravel 5.8 - DataTables Server Side Processing using Ajax</title>
+  <title>สร้างตารางแผนการสอน มคอ.3</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  </head>
  <body>
      
-            {{-- <div class="table-responsive">
-                        @if($tqf3->dynamicfields->count()>0)
-                            <table class="table table-bordered table-striped" id="user_table">
-                                <thead>
-                                    <tr>
-                                        <th width="5%"  rowspan="2"> สัปดาห์ที่ </th>
-                                        <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
-                                        <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
-                                        <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
-                                        <th width="10%" rowspan="2"> สื่อการสอน </th>
-                                        <th width="10%" rowspan="2"> อาจารย์ผู้สอน </th>
-                                      
-                                    </tr>
-                                    <tr>
-                                        <td >ทฤษฎี</td>
-                                        <td >ปฏิบัติ</td>
-                                        
-                                    </tr>
-                                </thead>
-                                    <tbody>
-                                            @foreach ($tqf3->dynamicfields as $dynamicfield)
-                                            <tr>
-                                            <td>{{ $dynamicfield->tqf3511 }} </td>
-                                            <td>{{ $dynamicfield->tqf3512 }}</td>
-                                            <td>{{ $dynamicfield->tqf3513 }}</td>
-                                            <td>{{ $dynamicfield->tqf3514 }}</td>
-                                            <td>{{ $dynamicfield->tqf3515 }}</td>
-                                            <td>{{ $dynamicfield->tqf3516 }}</td>
-                                            <td>{{ $dynamicfield->tqf3517 }}</td>
-                                            </tr>
-                                            @endforeach
-                                    </tbody>
-                            </table> 
-                        @else
-                            <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
-                        @endif
-                
-            </div> --}}
-
   <div >
      <br />
-     <h3 align="center">Dynamically Add / Remove tqf3 ของ {{$tqf3->id}} in Laravel 5.8 using Ajax jQuery</h3>
+     <h3 align="center">สร้างตารางแผนการสอน มคอ.3 ของ {{$tqf3->subject->subjectid}} </h3>
      <br />
      <div class="table-responsive">
         <form method="post" id="dynamic_form">
@@ -85,7 +46,7 @@
                             <td colspan="6" align="right">&nbsp;</td>
                             <td>
                                 @csrf
-                                <input type="submit" name="save" id="save" class="btn btn-primary" value="Save" />
+                                <input type="submit" name="save" id="save" class="btn btn-primary" value="บันทึก" />
                             </td>
                         </tr>
                         <tr>
@@ -130,17 +91,18 @@ $(document).ready(function()
             html += '<td><input type="text" name="tqf3514[]" class="form-control" /></td>';
             html += '<td><textarea name="tqf3515[]" rows="5" cols="4" class="form-control" ></textarea></td>';
             html += '<td><textarea name="tqf3516[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><input type="text" name="tqf3517[]" class="form-control" /></td>';
+            // html += '<td><input type="text" name="tqf3517[]" class="form-control" /></td>';
+            html += '<td><select class="form-control" name="tqf3517[]"><option>เลือกอาจารย์</option>@foreach($users as $user)@if($user->role == "teacher")<option value="{{$user->name}}">{{$user->name}}</option> @endif @endforeach</select></td>';
             html += '<input type="hidden" name="tqf3_id[]" value="{{$tqf3->id}}"/>';
             // html += '<td><input type="text" name="tqf3_id[]" class="form-control" value="{{$tqf3->id}}"/></td>';
             if(number > 1)
             {
-                html += '<td width="2%"><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
+                html += '<td width="2%"><button type="button" name="remove" id="" class="btn btn-danger remove">ลบตาราง</button></td></tr>';
                 $( document.getElementById('t1')).append(html);
             }
             else
             {   
-                html += '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
+                html += '<td><button type="button" name="add" id="add" class="btn btn-success">เพิ่มตาราง</button></td></tr>';
                 $(document.getElementById('t1')).html(html);
         }
     }

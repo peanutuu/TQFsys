@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','พิมพ์มคอ.3')
+@section('title','พิมพ์มคอ.5')
 @section('content')
 
     {{-- <h1>ชื่อเอกสาร {{ $tqf3->name }} </h1>

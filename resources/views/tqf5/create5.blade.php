@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','เพิ่มเอกสารมคอ.3')
+@section('title','เพิ่มเอกสารมคอ3')
 @section('content')
    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -39,7 +39,7 @@
         <p>
             <label>1.แผนการสอน</label><br>
 
-            <a href="{{ route('tqf3.lessonplan',['tqf3' => $tqf3->id]) }}" class="btn btn-primary"> สร้างแผนการสอน </a><br><br>
+            <a href="{{ route('tqf3.lessonplan',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> สร้างแผนการสอน </a><br><br>
 
             {{-- <a href="{{ route('tqf3.editlessonplan',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> แก้ไขแผนการสอน </a><br><br> --}}
 
@@ -49,7 +49,7 @@
                             <table class="table table-bordered table-striped" id="user_table">
                                 <thead>
                                     <tr>
-                                        <th width="10%" rowspan="2"> สัปดาห์ที่ </th>
+                                        <th width="10%"  rowspan="2"> สัปดาห์ที่ </th>
                                         <th width="50%" rowspan="2"> หัวข้อ/รายละเอียด </th>
                                         <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
                                         <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
@@ -82,7 +82,7 @@
                                     </tbody>
                             </table> 
                         @else
-                            <h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
+                            <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
                         @endif
             </div>
 
@@ -92,7 +92,7 @@
         <p>
             <label>2.แผนการประเมินผลการเรียนรู้</label><br>
             <label>2.1 วิธีการ</label><br>
-            <a href="{{ route('tqf3.createtqf352',['tqf3' => $tqf3->id]) }}" class="btn btn-primary"> สร้างแผนการประเมินการเรียนรู้ </a><br><br>
+            <a href="{{ route('tqf3.createtqf352',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> สร้างแผนการประเมินการเรียนรู้ </a><br><br>
 
             <div class="table-responsive">
                     @if($tqf3->dynamic2fields->count()>0)
@@ -125,7 +125,7 @@
                                 </tfoot> --}}
                             </table> 
                     @else
-                        <h3 class="text text-center">ยังไม่ได้สร้างแผนการประเมินการเรียนรู้</h3>
+                        <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการประเมินการเรียนรู้</h3>
                     @endif
             </div>
 

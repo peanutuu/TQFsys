@@ -1,126 +1,32 @@
 @extends('layout')
-@section('title','พิมพ์มคอ.3')
+@section('title','เพิ่มเอกสารมคอ3')
 @section('content')
+   
+<br><a href="{{ route('tqf3.create3',['tqf3' => $tqf3->id])}}" class="btn btn-danger"> ย้อนกลับไปก่อนหน้า </a><br>
+<br><form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="ยกเลิกสร้างเอกสาร" class="btn btn-danger"/>
+</form>
+<br><br>
 
-    {{-- <h1>ชื่อเอกสาร {{ $tqf3->name }} </h1>
-    <h1>เอกสารเป็นของรายวิชา {{ $tqf3->subject->subjectid }}</h1>
-    <h1>ปีการศึกษา {{ $tqf3->year }} / {{ $tqf3->term }}</h1> --}}
+<h1>เพิ่มเอกสารมคอ3.</h1><br>
 
-    <h1 align="center">รายละเอียดของรายวิชา</h1>
-    <table style="width:100%" class="table table-striped">
-        <tr>
-            <th colspan="1"> ชื่อสถาบันอุดมศึกษา</th>
-            <td> มหาวิทยาลัยมหาสารคาม </td>
-        </tr>
-        <tr>
-            <th colspan="1"> คณะ / สาขาวิชา </th>
-            <td> วิทยาการสารสนเทศ คณะวิทยาการสารสนเทศ </td>
-        </tr>
-        <tr>
-            <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 1 ข้อมูลโดยทั่วไป </td>
-        </tr>
-        <tr>
-            <th colspan="4"> 1. รหัสวิชาและชื่อรายวิชา </th>
-        </tr>
-        <tr>
-            <td> {{$tqf3->subject->subjectid}} </td>
-            <td> {{$tqf3->subject->subjectnameth}} <br> {{$tqf3->subject->subjectnameen}} </td>
-        </tr>
-        <tr>
-            <th colspan="1"> 2. จำนวนหน่วยกิต </th>
-            <td colspan="2"> {{$tqf3->subject->credit}} หน่วย </td>
-        </tr>
-        <tr>
-            <th colspan="4"> 3. หลักสูตรและประเภทรายวิชา </th>
-        </tr>
-        <tr>
-            <th colspan="4"> หลักสูตร {{$tqf3->tqf3131}} </th>
-        </tr>
-        <tr>
-            <th colspan="4"> สาขาวิชา {{$tqf3->tqf3132}}</th>
-        </tr>
-        <tr>
-            <th colspan="4"> ประเภทกลุ่มรายวิชา {{$tqf3->tqf3133}} </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 4. อาจารย์ผู้รับผิดชอบรายวิชา <br> {{$tqf3->tqf3141}} </th>
-        </tr>
-        <tr>
-            <th colspan="1"> 5. ภาคการศึกษาที่ {{$tqf3->tqf3151}} </th>
-            <th> ชั้นปีที่ {{$tqf3->tqf3152}} </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 6. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisite) {{$tqf3->tqf3161}} </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 7. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisite) {{$tqf3->tqf3171}} </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม <br> ห้อง {{$tqf3->tqf3171}} วัน {{$tqf3->tqf3182}} เวลา {{$tqf3->tqf3183}}  </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด <br> {{$tqf3->tqf3191}} </th>
-        </tr>
-        <tr>
-          <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์ </td>
-        </tr>
-        <tr>
-          <th colspan="4"> 1.จุดมุ่งหมายของรายวิชา <br> {{$tqf3->tqf3211}}
+    <form method="POST" action="{{ route('tqf3.update4',['tqf3' => $tqf3->id])}}" enctype="multipart/form-data">
+    {{-- <form method="POST" action="{{ route('tqf3.store')}}" enctype="multipart/form-data"> --}}
+        @csrf
+        @method('PUT')
+ 
+        <input type="hidden" name="name" value="{{$tqf3->name}}"/>
+        <input type="hidden" name="year" value="{{$tqf3->year}}"/>
+        <input type="hidden" name="term" value="{{$tqf3->term}}"/>
+        <input type="hidden" name="subject_id" value="{{$tqf3->subject_id}}"/>
 
-          </th>
-        </tr>
-        <tr>
-            <th colspan="4"> 2.วัตถุประสงค์ในการพัฒนาปรับปรุงรายวิชา <br> {{$tqf3->tqf3221}}
+        <h1>หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต</h1>
+        <p>
+            <label>1.คุณธรรม จริยธรรม</label><br>
+            <label>1.1 คุณธรรม จริยธรรมที่ต้องพัฒนา</label><br>
 
-            </th>
-        </tr>
-        <tr>
-          <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 3 ลักษณะและการดำเนินการ </td>
-      </tr>
-      <tr>
-        <th colspan="4"> 1.คำอธิบายรายวิชา <br> {{$tqf3->tqf3311}}
-
-        </th>
-      </tr>
-      
-      {{-- <tr>
-        <th colspan="4"> 2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา <br>
-            <table>
-                <tr>
-                    <th scope="col">บรรยาย</th>
-                    <th scope="col">สอนเสริม</th>
-                    <th scope="col">การฝึกปฏิบัติ</th>
-                    <th scope="col">การศึกษาด้วยตนเอง</th>
-                </tr>
-            <tbody>
-                <tr>
-                    <td> 1</td>
-                    <td> 1</td>
-                    <td> 1</td>
-                    <td> 1</td>
-                </tr>
-            </tbody>
-        </th>
-    </tr> --}}
-      
-      <tr>
-          <th colspan="4"> 3.จำนวนชั่วโมงต่อสัปดาร์ที่อาจารย์ให้คำปรึกษาแนะนำทางวิชาการแก่นิสิตเป็นรายงานบุคคล <br> {{$tqf3->tqf3331}}
-
-          </th>
-      </tr>
-      <tr>
-          <th colspan="4"> 4.การบูรณาการเรียนการสอนกับงานวิจัย / งานบริการวิชาการ / ทำนุบำรุงศิลปะ (ถ้ามี) <br> {{$tqf3->tqf3341}}
-
-          </th>
-      </tr>
-      <tr>
-        <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต </td>
-      </tr>
-      <tr>
-        <td colspan="4"> 1.คุณธรรม จริยธรรม </td>
-    </tr>
-    <tr>
-        <th colspan="4"> 1.1 คุณธรรม จริยธรรมที่ต้องพัฒนา <br>
             <label> 
                 @foreach ($tqf3->subject->sics as $sic)
                     @if ($sic->resp11 == 1)
@@ -178,25 +84,22 @@
                     @else
                         ไม่มี --}}
                     @endif
+
                 @endforeach
+                {{-- {{ $tqf3->subject->sics as sic}} --}}
             </label><br>
-        </th>
-    </tr><br><br>
-    <tr>
-        <th colspan="4"> 1.2 วิธีการสอน <br> {{$tqf3->tqf3412}}
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 1.3 วิธีการประเมินผล <br> {{$tqf3->tqf3413}}
 
-        </th>
-    </tr>
-    <tr>
-        <td colspan="4"> 2.ความรู้ </td>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.1 ความรู้ต้องพัฒนา <br>
+            <label>1.2 วิธีการสอน</label><br>
+            <textarea name='tqf3412' rows="5" cols="4" class="form-control">{{ old('tqf3412', $tqf3->tqf3412 ?? null) }}</textarea><br>
+
+            <label>1.3 วิธีการประเมินผล</label><br>
+            <textarea name='tqf3413' rows="5" cols="4" class="form-control">{{ old('tqf3413', $tqf3->tqf3413 ?? null) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>2.ความรู้</label><br>
+            <label>2.1 ความรู้ต้องพัฒนา </label><br>
             <label> 
                 @foreach ($tqf3->subject->sics as $sic)
                     @if ($sic->resp21 == 1)
@@ -262,25 +165,23 @@
                     @else
                         ไม่มี --}}
                     @endif
+                    
                 @endforeach
             </label><br>
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.2 วิธีการสอน <br> {{$tqf3->tqf3422}}
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.3 วิธีการประเมินผล <br> {{$tqf3->tqf3423}}
+            <label>2.2 วิธีการสอน</label><br>
+            {{-- <input name='tqf3422' type="text" /><br> --}}
+            <textarea name='tqf3422' rows="5" cols="4" class="form-control">{{ old('tqf3422', $tqf3->tqf3422 ?? null) }}</textarea><br>
 
-        </th>
-    </tr>
-    <tr>
-        <td colspan="4"> 3.ทักษะทางปัญญา </td>
-    </tr>
-    <tr>
-        <th colspan="4"> 3.1 ทักษะทางปัญญาที่ต้องพัฒนา <br>
+            <label>2.3 วิธีการประเมินผล</label><br>
+            {{-- <input name='tqf3423' type="text" /> --}}
+            <textarea name='tqf3423' rows="5" cols="4" class="form-control">{{ old('tqf3423', $tqf3->tqf3423 ?? null) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>3.ทักษะทางปัญญา</label><br>
+            <label>3.1 ทักษะทางปัญญาที่ต้องพัฒนา</label><br>
+
             <label> 
                 @foreach ($tqf3->subject->sics as $sic)
                     @if ($sic->resp31 == 1)
@@ -317,23 +218,20 @@
                     
                 @endforeach
             </label><br>
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 3.2 วิธีการสอน <br> {{$tqf3->tqf3432}}
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 3.3 วิธีการประเมินผล <br> {{$tqf3->tqf3433}}
 
-        </th>
-    </tr>
-    <tr>
-        <td colspan="4"> 4.ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบ </td>
-    </tr>
-    <tr>
-        <th colspan="4"> 4.1 ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบที่ต้องพัฒนา <br>
+            <label>3.2 วิธีการสอน</label><br>
+            {{-- <input name='tqf3432' type="text" /><br> --}}
+            <textarea name='tqf3432' rows="5" cols="4" class="form-control">{{ old('tqf3432', $tqf3->tqf3432 ?? null) }}</textarea><br>
+
+            <label>3.3 วิธีการประเมินผล</label><br>
+            {{-- <input name='tqf3433' type="text" /> --}}
+            <textarea name='tqf3433' rows="5" cols="4" class="form-control">{{ old('tqf3433', $tqf3->tqf3433 ?? null) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>4.ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบ</label><br>
+            <label>4.1 ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบที่ต้องพัฒนา</label><br>
             <label> 
                 @foreach ($tqf3->subject->sics as $sic)
                     @if ($sic->resp41 == 1)
@@ -386,23 +284,22 @@
                     
                 @endforeach
             </label><br>
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 4.2 วิธีการสอน <br> {{$tqf3->tqf3442}}
+            
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 4.3 วิธีการประเมินผล <br> {{$tqf3->tqf3443}}
 
-        </th>
-    </tr>
-    <tr>
-        <td colspan="4"> 5.ทักษะการวิเคราะห์เชิงตัวเลข การสื่อสาร และการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา </td>
-    </tr>
-    <tr>
-        <th colspan="4"> 5.1 ทักษะการสื่อสารและการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา <br>
+            <label>4.2 วิธีการสอน</label><br>
+            {{-- <input name='tqf3442' type="text" /><br> --}}
+            <textarea name='tqf3442' rows="5" cols="4" class="form-control">{{ old('tqf3442', $tqf3->tqf3442 ?? null) }}</textarea><br>
+
+            <label>4.3 วิธีการประเมินผล</label><br>
+            {{-- <input name='tqf3443' type="text" /> --}}
+            <textarea name='tqf3443' rows="5" cols="4" class="form-control">{{ old('tqf3443', $tqf3->tqf3443 ?? null) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>5.ทักษะการวิเคราะห์เชิงตัวเลข การสื่อสาร และการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา</label><br>
+            <label>5.1 ทักษะการสื่อสารและการใช้เทคโนโลยีสารสนเทศที่ต้องพัฒนา</label><br>
+
             <label> 
                 @foreach ($tqf3->subject->sics as $sic)
                     @if ($sic->resp51 == 1)
@@ -439,169 +336,76 @@
                     
                 @endforeach
             </label><br>
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 5.2 วิธีการสอน <br> {{$tqf3->tqf3452}}
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 5.3 วิธีการประเมินผล <br> {{$tqf3->tqf3453}}
+            <label>5.2 วิธีการสอน</label><br>
+            {{-- <input name='tqf3452' type="text" /><br> --}}
+            <textarea name='tqf3452' rows="5" cols="4" class="form-control">{{ old('tqf3452', $tqf3->tqf3452 ?? null) }}</textarea><br>
 
-        </th>
-    </tr>
-    <tr>
-      <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 5 แผนการสอนและการประเมินผล </td>
-    </tr>
-    <tr>
-      <th colspan="4"> 1.แผนการสอน <br>
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th width="10%"  rowspan="2"> สัปดาห์ที่ </th>
-                    <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
-                    <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
-                    <th width="20%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
-                    <th width="20%" rowspan="2"> สื่อการสอน </th>
-                    <th width="20%" rowspan="2"> อาจารย์ผู้สอน </th>
-                  
-                </tr>
-                <tr>
-                    <td >ทฤษฎี</td>
-                    <td >ปฏิบัติ</td>
-                </tr>
-            </thead>
-                <tbody>
-                        @foreach ($tqf3->dynamicfields as $dynamicfield)
-                        <tr>
-                        <td>{{ $dynamicfield->tqf3511 }} </td>
-                        <td>{{ $dynamicfield->tqf3512 }}</td>
-                        <td>{{ $dynamicfield->tqf3513 }}</td>
-                        <td>{{ $dynamicfield->tqf3514 }}</td>
-                        <td>{{ $dynamicfield->tqf3515 }}</td>
-                        <td>{{ $dynamicfield->tqf3516 }}</td>
-                        <td>{{ $dynamicfield->tqf3517 }}</td>
-                        </tr>
-                        @endforeach
-                </tbody>
-        </table> 
-      </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.แผนการประเมินผลการเรียนรู้ <br>
+            <label>5.3 วิธีการประเมินผล</label><br>
+            {{-- <input name='tqf3453' type="text" /> --}}
+            <textarea name='tqf3453' rows="5" cols="4" class="form-control">{{ old('tqf3453', $tqf3->tqf3453 ?? null) }}</textarea><br>
+        </p>
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.1 วิธีการ <br>
-            <table class="table table-bordered table-striped" >
-                <thead>
-                    <tr>
-                        <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
-                        <th width="25%" rowspan="2"> วิธีการประเมิน </th>
-                        <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
-                        <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
-                    </tr>
-                </thead>
-                    <tbody>
-                        @foreach ($tqf3->dynamic2fields as $dynamic2field)
-                        <tr>
-                        <td>{{ $dynamic2field->tqf3521 }} </td>
-                        <td>{{ $dynamic2field->tqf3522 }}</td>
-                        <td>{{ $dynamic2field->tqf3523 }}</td>
-                        <td>{{ $dynamic2field->tqf3524 }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-            </table>
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.2 เกณฑ์ผ่านรายวิชา ผู้ที่จะผ่านรายวิชานี้จะต้อง <br> {{$tqf3->tqf3521}}
+        <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
+        <input type="hidden" name="tqf3131" value="{{$tqf3->tqf3131}}"/>
+        <input type="hidden" name="tqf3132" value="{{$tqf3->tqf3132}}"/>
+        <input type="hidden" name="tqf3133" value="{{$tqf3->tqf3133}}"/>
+        <input type="hidden" name="tqf3141" value="{{$tqf3->tqf3141}}"/>
+        <input type="hidden" name="tqf3151" value="{{$tqf3->tqf3151}}"/>
+        <input type="hidden" name="tqf3152" value="{{$tqf3->tqf3152}}"/>
+        <input type="hidden" name="tqf3161" value="{{$tqf3->tqf3161}}"/>
+        <input type="hidden" name="tqf3171" value="{{$tqf3->tqf3171}}"/>
+        <input type="hidden" name="tqf3181" value="{{$tqf3->tqf3181}}"/>
+        <input type="hidden" name="tqf3182" value="{{$tqf3->tqf3182}}"/>
+        <input type="hidden" name="tqf3183" value="{{$tqf3->tqf3183}}"/>
+        <input type="hidden" name="tqf3191" value="{{$tqf3->tqf3191}}"/>
+        <input type="hidden" name="tqf3211" value="{{$tqf3->tqf3211}}"/>
+        <input type="hidden" name="tqf3221" value="{{$tqf3->tqf3221}}"/>
+        <input type="hidden" name="tqf3311" value="{{$tqf3->tqf3311}}"/>
+        <input type="hidden" name="tqf3321" value="{{$tqf3->tqf3321}}"/>
+        <input type="hidden" name="tqf3322" value="{{$tqf3->tqf3322}}"/>
+        <input type="hidden" name="tqf3323" value="{{$tqf3->tqf3323}}"/>
+        <input type="hidden" name="tqf3324" value="{{$tqf3->tqf3324}}"/>
+        <input type="hidden" name="tqf3331" value="{{$tqf3->tqf3331}}"/>
+        <input type="hidden" name="tqf3341" value="{{$tqf3->tqf3341}}"/>
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.3 เกณฑ์ค่าระดับคะแนน <br> {{$tqf3->tqf3522}}
+        <input type="hidden" name="tqf3521" value="{{$tqf3->tqf3521}}"/>
+        <input type="hidden" name="tqf3522" value="{{$tqf3->tqf3522}}"/>
+        <input type="hidden" name="tqf3610" value="{{$tqf3->tqf3610}}"/>
+        <input type="hidden" name="tqf3620" value="{{$tqf3->tqf3620}}"/>
+        <input type="hidden" name="tqf3630" value="{{$tqf3->tqf3630}}"/>
+        <input type="hidden" name="tqf3710" value="{{$tqf3->tqf3710}}"/>
+        <input type="hidden" name="tqf3720" value="{{$tqf3->tqf3720}}"/>
+        <input type="hidden" name="tqf3730" value="{{$tqf3->tqf3730}}"/>
+        <input type="hidden" name="tqf3740" value="{{$tqf3->tqf3740}}"/>
+        <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
+        
 
-        </th>
-    </tr>
-    <tr>
-      <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน </td>
-    </tr>
-    <tr>
-      <th colspan="4"> 1.เอกสารและตำราหลัก <br> {{$tqf3->tqf3610}}
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif 
 
-      </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.เอกสารและข้อมูลสำคัญ <br> {{$tqf3->tqf3620}}
+        <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
+        <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>
+    </form>
 
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 3.เอกสารและข้อมูลแนะนำ <br> {{$tqf3->tqf3630}}
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                  $('.fm-inline').on('submit',function(){
+                        if(confirm("คุณต้องการยกเลิกการสร้างเอกสารหรือไม่")){
+                              return true;
+                        }else{
+                              return false;
+                        }
 
-        </th>
-    </tr>
-    <tr>
-      <td colspan="4" align="center" bgcolor="grey"> หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา </td>
-    </tr>
-    <tr>
-      <th colspan="4"> 1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต <br> {{$tqf3->tqf3710}}
-
-      </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 2.กลยุทธ์การประเมินการสอน <br> {{$tqf3->tqf3720}}
-
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 3.การปรับปรุงการสอน <br> {{$tqf3->tqf3730}}
-
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 4.การทวนสอบมาตรฐานผลสัมฤทธิ์ของนิสิตในรายวิชา <br> {{$tqf3->tqf3740}}
-
-        </th>
-    </tr>
-    <tr>
-        <th colspan="4"> 5.การดำเนินการทบทวนและการวางแผนปรับปรุงประสิทธิผลของรายวิชา <br> {{$tqf3->tqf3750}}
-
-        </th>
-    </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </table>
-      
-
-
-
-
-    
+                  });
+            });
+    </script>
 @endsection

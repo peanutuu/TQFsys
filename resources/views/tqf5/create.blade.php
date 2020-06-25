@@ -31,7 +31,7 @@
         <p>
             <label>ภาคเรียนการศึกษา</label>
             <select name="term" >
-                <option value="" disabled selected>เลือกภาคเรียนการศึกษา</option>
+                <option disabled selected>เลือกภาคเรียนการศึกษา</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="ซัมเมอร์">ซัมเมอร์</option>
@@ -48,15 +48,6 @@
             </select>
         </div>
         
-        {{-- <div class="form-group">
-            <label>มคอ3</label>
-            <select class="form-control" name="catagorytqf_id">
-                    @foreach($catagorytqfs as $catagorytqf)
-                        <option value="{{$catagorytqf->id}}">{{$catagorytqf->name}}</option>
-                    @endforeach
-            </select>
-        </div> --}}
-        
         @if ($errors->any())
             <div> 
                 <ul>
@@ -66,6 +57,15 @@
                 </ul>
             </div>
         @endif 
+
+        <input type="hidden" name="tqf5121" value="ไม่มี"/>
+        <input type="hidden" name="tqf5131" value="ไม่มี"/>
+        <input type="hidden" name="tqf5132" value="ไม่มี"/>
+        <input type="hidden" name="tqf5141" value="ไม่มี"/>
+        <input type="hidden" name="tqf5142" value="ไม่มี"/>
+        <input type="hidden" name="tqf5143" value="ไม่มี"/>
+        <input type="hidden" name="tqf5151" value="ไม่มี"/>
+        <input type="hidden" name="tqf5241" value="ไม่มี"/>
 
         <button type="submit" class="btn btn-primary btn-block">Create!</button>
     </form>

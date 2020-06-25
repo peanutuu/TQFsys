@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Subject;
 use App\Tqf3;
 use App\DynamicField;
 // use App\Http\Requests\StoreDynamic;
@@ -14,8 +16,9 @@ class DynamicFieldController extends Controller
     function index($id)
     {
         $tqf3 = Tqf3::findOrFail($id);
-
-        return view('tqf3.lessonplan', compact('tqf3'));
+        $subject = Subject::all();
+        $users = User::all();
+        return view('tqf3.lessonplan', compact('tqf3','subject','users'));
     }
 
     function insert(Request $request)
@@ -70,7 +73,7 @@ class DynamicFieldController extends Controller
 
         DynamicField::insert($insert_data);
 
-        return response()->json(['success'  => 'Data Added successfully.']);
+        return response()->json(['success'  => 'สร้างตารางเสร็จเรียบร้อยสามารถกลับไปหน้าก่อนเพื่อดูข้อมูลได้']);
 
         }
     }

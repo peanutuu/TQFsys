@@ -54,7 +54,7 @@
             <div>
                 <table class="table table-striped">
                     <thead class="thead-dark">
-                    <br>TQF5
+                    <br>
                     <tr>
                         {{-- <th scope="col">เลขที่</th> --}}
                         <th scope="col">ชื่อเอกสาร</th>

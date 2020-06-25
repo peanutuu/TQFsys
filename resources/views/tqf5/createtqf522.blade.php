@@ -1,15 +1,16 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>สร้างตารางแผนการประเมินกการเรียนรู้</title>
+        <title>สร้างตารางหัวข้อที่สอนไม่ครอบคลุมตามแผน</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
  <body>
   <div >    
+
      <br />
-     <h3 align="center">สร้างตารางแผนการประเมินกการเรียนรู้มคอ.3ของรายวิชา {{$tqf3->subject->subjectid}}</h3>
+     <h3 align="center">สร้างตารางหัวข้อที่สอนไม่ครอบคลุมตามแผน มคอ.5ของรายวิชา {{$tqf5->subject->subjectid}}</h3>
      <br />
      <div class="table-responsive">
         <form method="post" id="dynamic_form">
@@ -17,10 +18,9 @@
                 <table class="table table-bordered table-striped" id="user_table">
                     <thead>
                         <tr>
-                            <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
-                            <th width="25%" rowspan="2"> วิธีการประเมิน </th>
-                            <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
-                            <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
+                            <th width="33%" rowspan="2"> หัวข้อที่สอนไม่ครอบคลุมตามแผน (ถ้ามี) </th>
+                            <th width="34%" rowspan="2"> นัยสำคัญของหัวข้อที่สอนไม่ครอบคลุมตามแผน </th>
+                            <th width="33%" rowspan="2"> แนวทางชดเชย </th>
                         </tr>
                     </thead>
                         <tbody id="t1">
@@ -28,8 +28,8 @@
                         </tbody>
                     <tfoot>
                         <tr>
-                            <td> <a href="{{ route('tqf3.create5',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a></td>
-                            <td colspan="3" align="right">&nbsp;</td>
+                            <td> <a href="{{ route('tqf5.create2',['tqf5' => $tqf5->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a></td>
+                            <td colspan="2" align="right">&nbsp;</td>
                             <td>
                                 @csrf
                                 <input type="submit" name="save" id="save" class="btn btn-primary" value="บันทึก" />
@@ -58,12 +58,11 @@ $(document).ready(function()
         function dynamic_field(number)
         {
             html = '<tr>';
-            html += '<td><textarea name="tqf3521[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><textarea name="tqf3522[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><textarea name="tqf3523[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<td><textarea name="tqf3524[]" rows="5" cols="4" class="form-control" ></textarea></td>';
-            html += '<input type="hidden" name="tqf3_id[]" value="{{$tqf3->id}}"/>';
-            // html += '<td><input type="text" name="tqf3_id[]" class="form-control" value="{{$tqf3->id}}"/></td>';
+            html += '<td><textarea name="tqf5221[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><textarea name="tqf5222[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<td><textarea name="tqf5223[]" rows="5" cols="4" class="form-control" ></textarea></td>';
+            html += '<input type="hidden" name="tqf5_id[]" value="{{$tqf5->id}}"/>';
+            // html += '<td><input type="text" name="tqf5_id[]" class="form-control" value="{{$tqf5->id}}"/></td>';
             if(number > 1)
             {
                 html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">ลบตาราง</button></td></tr>';
@@ -89,7 +88,7 @@ $(document).ready(function()
     $('#dynamic_form').on('submit', function(event){
         event.preventDefault();
         $.ajax({
-            url:'{{ route("createtqf352.insert") }}',
+            url:'{{ route("createtqf522.insert") }}',
             method:'post',
             data:$(this).serialize(),
             dataType:'json',
@@ -132,10 +131,10 @@ $(document).ready(function()
 //         function dynamic_field2(number)
 //         {
 //         html = '<tr>';
-//             html += '<td><input type="text" name="tqf3511[]" class="form-control" /></td>';
-//             html += '<td><textarea name="tqf3512[]" rows="5" cols="4" class="form-control" /></td>';
-//             html += '<td><input type="text" name="tqf3513[]" class="form-control" /></td>';
-//             html += '<td><input type="text" name="tqf3514[]" class="form-control" /></td>';
+//             html += '<td><input type="text" name="tqf5511[]" class="form-control" /></td>';
+//             html += '<td><textarea name="tqf5512[]" rows="5" cols="4" class="form-control" /></td>';
+//             html += '<td><input type="text" name="tqf5513[]" class="form-control" /></td>';
+//             html += '<td><input type="text" name="tqf5514[]" class="form-control" /></td>';
 //             if(number > 1)
 //             {
 //                 html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
@@ -170,8 +169,8 @@ $(document).ready(function()
 //         function dynamic_field(number)
 //         {
 //         html = '<tr>';
-//             html += '<td><input type="text" name="tqf3511[]" class="form-control" /></td>';
-//             html += '<td colspan="6"><input type name="tqf3512[]" rows="5" cols="7" class="form-control" /></td>';
+//             html += '<td><input type="text" name="tqf5511[]" class="form-control" /></td>';
+//             html += '<td colspan="6"><input type name="tqf5512[]" rows="5" cols="7" class="form-control" /></td>';
 //             if(number > 1)
 //             {
 //                 html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
@@ -195,9 +194,5 @@ $(document).ready(function()
 //     });
 
 // });
-
-
-
-
 
 </script>
