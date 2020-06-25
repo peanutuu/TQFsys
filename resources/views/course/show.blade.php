@@ -69,7 +69,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '1')
+                    @if ($sic->tag == 'วิชาแกน')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -112,7 +112,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '2')
+                    @if ($sic->tag == 'กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -153,7 +153,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '3')
+                    @if ($sic->tag == 'กลุ่มเทคโนโลยีเพื่องานประยุกต์')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2" >{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -194,7 +194,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '4')
+                    @if ($sic->tag == 'กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -235,7 +235,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '5')
+                    @if ($sic->tag == 'กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -276,7 +276,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '6')
+                    @if ($sic->tag == 'วิชาเลือก')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -317,7 +317,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '7')
+                    @if ($sic->tag == 'ประสบการณ์วิชาชีพ')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -358,7 +358,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '8')
+                    @if ($sic->tag == 'วิชาเลือกเสรี')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
@@ -399,7 +399,7 @@
             </thead class="thead-dark">
             <tbody>
                 @forelse ($course->sics as $sic)
-                    @if ($sic->tag == '9')
+                    @if ($sic->tag == 'วิชาประสบการณ์วิชาชีพ')
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2">{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>

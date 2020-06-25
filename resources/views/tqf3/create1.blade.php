@@ -19,47 +19,32 @@
         <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
         <p>
             <label>1. รหัสวิชาและชื่อรายวิชา</label>
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectid) }}"      />
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameth) }}"  />
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameen) }}"  />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectid) }}"      />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectnameth) }}"  />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectnameen) }}"  />
         </p>
 
         <p>
             <label>2. จำนวนหน่วยกิต</label>
-            <input name='tqf3121' type="text" value=" {{ old('name', $tqf3->subject->credit) }}" />
+            <input name='tqf3121' type="text" class="form-control" value=" {{ old('name', $tqf3->subject->credit) }}" />
         </p>
 
         <p>
             <label>3. หลักสูตรและประเภทวิชา</label><br>
             <label>หลักสูตร</label>
-            <input name='tqf3131' type="text" value="
-
-            {{ old('tqf3131',  $tqf3->subject->subjectid) }}
-            
-            "/><br>
-
-             {{-- @if ($subject->sics->count() > 0)
-            @foreach ($subject->sics as $sic)
-                ชื่อหลักสูตร = {{ $sic->course->coursename }} <br>
-                ประเภทวิชา = {{$sic->tag}}
-            @endforeach
-            @else
-                ยังไม่ได้อยู่ในหลักสูตรใดๆ
-            @endif --}}
-
-
+            <input name='tqf3131' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{ old('tqf3131',  $sic->course->coursename) }} @endforeach"/><br>
 
             <label>สาขาวิชา</label>
-            <input name='tqf3132' type="text" value="{{ old('tqf3132', $tqf3->tqf3132 ?? null) }}"/><br>
+            <input name='tqf3132' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{ old('tqf3131',  $sic->course->coursename) }} @endforeach"/><br>
 
             <label>ประเภทกลุ่มรายวิชา</label>
-            <input name='tqf3133' type="text" value="{{ old('tqf3133', $tqf3->tqf3133 ?? null) }}"/>
+            <input name='tqf3133' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{ old('tqf3131',  $sic->tag) }} @endforeach"/>
         </p>
 
         <p>
-            <label>4. อาจารย์ผู้ประสานรายวิชา</label>
+            <label>4. อาจารย์ผู้ประสานรายวิชา</label> option
             {{-- <input name='tqf3141' type="text" /> --}}
-            <textarea name='tqf3141' rows="5" cols="4" class="form-control">{{ old('tqf3141', $tqf3->tqf3141 ?? null) }}</textarea><br>
+            <textarea name='tqf3141' rows="5" cols="4" class="form-control" class="form-control">{{ old('tqf3141', $tqf3->tqf3141 ?? null) }}</textarea><br>
 
             {{-- <label>สถานที่ติดต่ออาจารย์ ห้อง IT-302 โทร</label>
             <input name='tqf3142' type="text" />
@@ -73,21 +58,21 @@
             <input name='tqf3151' type="text" value="{{ old('term', $tqf3->term) }}/{{ old('year', $tqf3->year) }}" readonly/>
 
             <label>ชั้นปีที่</label>
-            <input name='tqf3152' type="text" value="{{ old('tqf3152', $tqf3->tqf3152 ?? null) }}"/>
+            <input name='tqf3152' type="text" value=" "/>
         </p>
 
         <p>
             <label>6. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisite) (ถ้ามี) {{$tqf3->tqf3121}}</label>
-            <input name='tqf3161' type="text" value="{{ old('tqf3161', $tqf3->tqf3161 ?? null) }}"/>
+            <input name='tqf3161' type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectbefore) }}"/>
         </p>
 
         <p>
             <label>7. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisite) (ถ้ามี) {{$tqf3->tqf3121}}</label>
-            <input name='tqf3171' type="text" value="{{ old('tqf3171', $tqf3->tqf3171 ?? null) }}"/>
+            <input name='tqf3171' type="text" class="form-control" value="{{ old('tqf3171', $tqf3->tqf3171 ?? null) }}"/>
         </p>
 
         <p>
-            <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label>
+            <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label> option
 
             <label>ห้อง</label>
             <input name='tqf3181' type="text" value="{{ old('tqf3181', $tqf3->tqf3181 ?? null) }}"/>
@@ -102,7 +87,7 @@
         <p>
             <label>9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด</label>
             <label>วันที่</label>
-            <input name='tqf3191' type="text" value="{{ old('tqf3191', $tqf3->tqf3191 ?? null) }}"/>
+            <input name='tqf3191' type="date" value=" "/>
         </p>
 
         <input type="hidden" name="tqf3211" value="{{$tqf3->tqf3211}}"/>

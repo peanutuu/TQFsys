@@ -271,6 +271,7 @@ class TQF3Controller extends Controller
 
     public function create1($id)
     {
+        $courses = Course::all();
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);
@@ -294,6 +295,7 @@ class TQF3Controller extends Controller
 
     public function create2($id)
     {
+        $courses = Course::all();
         $subjects = Subject::all();
         $sics = SIC::all();
         $tqf3 = Tqf3::findOrFail($id);

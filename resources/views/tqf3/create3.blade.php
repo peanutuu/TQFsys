@@ -19,7 +19,7 @@
         <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
-            <textarea name='tqf3311' rows="5" cols="4" class="form-control">{{ old('tqf3311', $tqf3->tqf3311 ?? null) }}</textarea><br>
+            <textarea name='tqf3311' rows="5" cols="4" class="form-control">{{ old('tqf3311', $tqf3->subject->descriptionth) }}</textarea><br>
         </p>
 
         <p>

@@ -19,7 +19,7 @@
         <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
             <label>1.จุดมุ่งหมายของรายวิชา</label><br>
-            <textarea name='tqf3211' rows="5" cols="4" class="form-control">{{ old('tqf3211', $tqf3->tqf3211 ?? null) }}</textarea><br>
+            <textarea name='tqf3211' rows="5" cols="4" class="form-control"></textarea><br>
 
             {{-- <label>1.2</label>
             <input name='tqf3212' type="text" /> --}}
@@ -29,7 +29,7 @@
             <label>2.วัตถุประสงค์ในการพัฒนาปรับปรุงรายวิชา</label><br>
             <label>อธิบายโดยย่อเกี่ยวกับวัตถุประสงค์ในการพัฒนารายวิชานี้หรือการเปลี่ยนแปลงสำคัญๆที่เกิดขึ้น เช่น เพิ่มการใช้เทคโนโลยีสารสนเทศ หรือ web based การเปลี่ยนแปลงเนื้อหาของรายวิชาซึ่งเป็นผลจากงานวิจัย ใหม่ๆ ในสาขา</label><br>
             {{-- <label>2.1</label> --}}
-            <textarea name='tqf3221' rows="5" cols="4" class="form-control">{{ old('tqf3221', $tqf3->tqf3221 ?? null) }}</textarea><br>
+            <textarea name='tqf3221' rows="5" cols="4" class="form-control" ></textarea><br>
             {{-- <input name='tqf3221' type="text" /><br>
 
             <label>2.2</label>

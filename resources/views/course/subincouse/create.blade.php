@@ -49,15 +49,15 @@
         <div class="form-group">
             <label>หมวดหมู่</label>
             <select class="form-control" name="tag">
-                <option value="1">วิชาแกน</option>
-                <option value="2">กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ</option>
-                <option value="3">กลุ่มเทคโนโลยีเพื่องานประยุกต์</option>
-                <option value="4">กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์</option>
-                <option value="5">กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ</option>
-                <option value="6">วิชาเลือก</option>
-                <option value="7">ประสบการณ์วิชาชีพ</option>
-                <option value="8">วิชาเลือกเสรี</option>
-                <option value="9">วิชาประสบการณ์วิชาชีพ</option>
+                <option value="วิชาแกน">วิชาแกน</option>
+                <option value="กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ">กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ</option>
+                <option value="กลุ่มเทคโนโลยีเพื่องานประยุกต์">กลุ่มเทคโนโลยีเพื่องานประยุกต์</option>
+                <option value="กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์">กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์</option>
+                <option value="กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ">กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ</option>
+                <option value="วิชาเลือก">วิชาเลือก</option>
+                <option value="ประสบการณ์วิชาชีพ">ประสบการณ์วิชาชีพ</option>
+                <option value="วิชาเลือกเสรี">วิชาเลือกเสรี</option>
+                <option value="วิชาประสบการณ์วิชาชีพ">วิชาประสบการณ์วิชาชีพ</option>
             </select>
         </div>
 
