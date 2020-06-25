@@ -44,7 +44,7 @@ class StoreCourse extends FormRequest
             'course3' => 'required',
             'course4' => 'required',
             'course5' => 'required',
-            'coursesum' => 'required',
+            // 'coursesum' => 'required',
             // 'user_id' => 'required',
         ];
     }

@@ -10,7 +10,7 @@ class Course extends Model
                             ,'coursefac2','courselv','coursecredit','courseyear'
                             ,'courselowcredit','course1'
                             ,'course2','course21','course22','course221','course222'
-                            ,'course223','course224','course225','course3','course4','course5','coursesum'
+                            ,'course223','course224','course225','course3','course4','course5'
                             ,'user_id'
                         ];
 

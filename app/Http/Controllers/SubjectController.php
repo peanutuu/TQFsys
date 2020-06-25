@@ -77,6 +77,9 @@ class SubjectController extends Controller
             'subjectfac'=>$request->subjectfac,
             'credit'=>$request->credit,
             'avalible'=>$request->avalible,
+            'subjectbefore'=>$request->subjectbefore,
+            'descriptionth'=>$request->descriptionth,
+            'descriptionen'=>$request->descriptionen,
             'user_id'=>auth()->user()->id
         ]);
 

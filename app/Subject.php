@@ -8,7 +8,9 @@ class Subject extends Model
 {
     // protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible'];
 
-    protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible','user_id'];
+    protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac'
+                            ,'credit','avalible','user_id','subjectbefore'
+                            ,'descriptionth','descriptionen'];
 
     // protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible','course_id'];
 

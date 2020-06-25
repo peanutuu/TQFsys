@@ -32,7 +32,22 @@
         <p>
             <label>3. หลักสูตรและประเภทวิชา</label><br>
             <label>หลักสูตร</label>
-            <input name='tqf3131' type="text" value="{{ old('tqf3131', $tqf3->tqf3131 ?? null) }}"/><br>
+            <input name='tqf3131' type="text" value="
+
+            {{ old('tqf3131',  $tqf3->subject->subjectid) }}
+            
+            "/><br>
+
+             {{-- @if ($subject->sics->count() > 0)
+            @foreach ($subject->sics as $sic)
+                ชื่อหลักสูตร = {{ $sic->course->coursename }} <br>
+                ประเภทวิชา = {{$sic->tag}}
+            @endforeach
+            @else
+                ยังไม่ได้อยู่ในหลักสูตรใดๆ
+            @endif --}}
+
+
 
             <label>สาขาวิชา</label>
             <input name='tqf3132' type="text" value="{{ old('tqf3132', $tqf3->tqf3132 ?? null) }}"/><br>

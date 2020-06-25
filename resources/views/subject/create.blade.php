@@ -6,25 +6,47 @@
         @csrf
 
         {{-- @include('posts._form') --}}
-         <p>
+        <br><br>
+        <p>
             <label>รหัสรายวิชา</label>
-            <input type="text" name="subjectid" />
+            <input type="text" name="subjectid" class="form-control" />
         </p>
+
         <p>
             <label>ชื่อรายวิชา(อังกฤษ)</label>
-            <input type="text" name="subjectnameen" />
+            <input type="text" name="subjectnameen" class="form-control" />
         </p>
+        
         <p>
             <label>ชื่อรายวิชา(ไทย)</label>
-            <input type="text" name="subjectnameth" />
+            <input type="text" name="subjectnameth" class="form-control" />
         </p>        
+
         <p>
-            <label>คณะ</label>
-            <input type="text" name="subjectfac" />
-        </p>        
+            <label>สังกัด</label>
+            <input type="text" name="subjectfac" class="form-control" />
+        </p>   
+
         <p>
             <label>หน่วยกิต</label>
-            <input type="text" name="credit" />
+            <input type="text" name="credit" class="form-control" /> 
+        </p>
+
+        <p>
+            <label>เงื่อนไขรายวิชา</label>
+            <input type="text" name="subjectbefore" class="form-control" /> z
+        </p>
+
+        <p>
+            <label>คำอธิบายรายวิชา(ไทย)</label>
+            {{-- <input type="text" name="descriptionth" /> --}}
+            <textarea name='descriptionth' rows="5" cols="4" class="form-control"></textarea><br>
+        </p>
+
+        <p>
+            <label>คำอธิบายรายวิชา(อังกฤษ)</label>
+            {{-- <input type="text" name="descriptionen" /> --}}
+            <textarea name='descriptionen' rows="5" cols="4" class="form-control"></textarea><br>
         </p>
 
         <div class="form-group">

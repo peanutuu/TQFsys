@@ -35,7 +35,7 @@ class CreateCoursesTable extends Migration
             $table->string('course3');
             $table->string('course4');
             $table->string('course5');
-            $table->string('coursesum');
+            $table->string('coursesum')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });

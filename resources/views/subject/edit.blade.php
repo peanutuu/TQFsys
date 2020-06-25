@@ -5,47 +5,60 @@
         @csrf
         @method('PUT')
 
+        <br><br>
         <p>
-            <label>รหัสวิชา</label>
-            <input type="text" name="subjectid" value="{{ old('subjectid', $subject->subjectid) }}" />
+            <label>รหัสรายวิชา</label>
+            <input type="text" name="subjectid" class="form-control" value="{{ old('subjectid', $subject->subjectid) }}" />
         </p>
+
         <p>
             <label>ชื่อรายวิชา(อังกฤษ)</label>
-            <input type="text" name="subjectnameen" value="{{ old('subjectnameen', $subject->subjectnameen) }}" />
+            <input type="text" name="subjectnameen" class="form-control" value="{{ old('subjectnameen', $subject->subjectnameen) }}" />
         </p>
+        
         <p>
             <label>ชื่อรายวิชา(ไทย)</label>
-            <input type="text" name="subjectnameth" value="{{ old('subjectnameth', $subject->subjectnameth) }}" />
-        </p>
+            <input type="text" name="subjectnameth" class="form-control" value="{{ old('subjectnameth', $subject->subjectnameth) }}" />
+        </p>        
+
         <p>
-            <label>คณะ</label>
-            <input type="text" name="subjectfac" value="{{ old('subjectfac', $subject->subjectfac) }}" />
-        </p>
+            <label>สังกัด</label>
+            <input type="text" name="subjectfac" class="form-control" value="{{ old('subjectfac', $subject->subjectfac) }}" />
+        </p>   
+
         <p>
             <label>หน่วยกิต</label>
-            <input type="text" name="credit" value="{{ old('credit', $subject->credit) }}" />
+            <input type="text" name="credit" class="form-control" value="{{ old('credit', $subject->credit) }}" /> 
         </p>
+
         <p>
-            <label>สถานะรายวิชา</label>
-            <select type="text" name="avalible">
-                <option value="{{ old('avalible', $subject->avalible) }}">{{ old('avalible', $subject->avalible) }}</option>
-                <option >---------</option>
-                <option value="ใช้งาน">ใช้งาน</option>
-                <option value="ไม่ใช้งาน">ไม่ใช้งาน</option>
-            </select>
+            <label>เงื่อนไขรายวิชา</label>
+            <input type="text" name="subjectbefore" class="form-control" value="{{ old('subjectbefore', $subject->subjectbefore) }}" /> 
         </p>
-        {{-- <p>
-            <label>หลักสูตร</label>
-            <select class="form-control" name="course_id">
-                    @foreach($courses as $course)
-                        <option value="{{ old('course_id', $course->id) }}"
-                            @if($course->id == $subject->category_id)
-                            selected
-                            @endif
-                            >{{ old('course_id', $course->coursename) }}</option>
-                    @endforeach
+
+        <p>
+            <label>คำอธิบายรายวิชา(ไทย)</label>
+            <textarea name='descriptionth' rows="5" cols="4" class="form-control">{{ old('descriptionth', $subject->descriptionth) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>คำอธิบายรายวิชา(อังกฤษ)</label>
+            <textarea name='descriptionen' rows="5" cols="4" class="form-control">{{ old('descriptionen', $subject->descriptionen) }}</textarea><br>
+        </p>
+
+        <div class="form-group">
+            <label>สถานะรายวิชา</label>
+            <select class="form-control" name="avalible">
+                <option value="{{ old('avalible', $subject->avalible) }}"     
+                    selected   
+                >{{ old('avalible', $subject->avalible) }}</option>
+                @if($subject->avalible == "ใช้งาน")
+                    <option value="ไม่ใช้งาน">ไม่ใช้งาน</option>
+                @else
+                     <option value="ใช้งาน">ใช้งาน</option>
+                @endif
             </select>
-        </p> --}}
+        </div>
 
         @if ($errors->any())
             <div>

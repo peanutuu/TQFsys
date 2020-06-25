@@ -10,100 +10,140 @@
 
         <p>
             <label>รหัสหลักสูตร</label>
-            <input type="text" name="courseid" /> z
+            <input type="text" name="courseid" class="form-control" placeholder="รหัสหลักสูตร" />
         </p>
 
         <p>
             <label>ชื่อหลักสูตร</label>
-            <input type="text" name="coursename" />
+            <input type="text" name="coursename" class="form-control" placeholder="ชื่อหลักสูตร" />
         </p>
 
         <p>
             <label>คณะ</label>
-            <input type="text" name="coursefac" />
+            {{-- <input type="text" name="coursefac" class="form-control" /> --}}
+            <select class="form-control" name="coursefac" >
+                <option>เลือกคณะ</option>
+                <option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>
+                <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
+                <option value="คณะวิศวกรรมศาสตร์">คณะวิศวกรรมศาสตร์</option>
+                <option value="คณะพยาบาลศาสตร์">คณะพยาบาลศาสตร์</option>
+                <option value="คณะศึกษาศาสตร์">คณะศึกษาศาสตร์</option>
+                <option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>
+                <option value="คณะเภสัชศาสตร์">คณะเภสัชศาสตร์</option>
+                <option value="คณะเทคโนโลยี">คณะเทคโนโลยี</option>
+                <option value="คณะการบัญชีและการจัดการ">คณะการบัญชีและการจัดการ</option>
+                <option value="คณะการท่องเที่ยวและการโรงแรม">คณะการท่องเที่ยวและการโรงแรม</option>
+                <option value="คณะสถาปัตยกรรมศาสตร์ ผังเมืองและนฤมิตศิลป์">คณะสถาปัตยกรรมศาสตร์ ผังเมืองและนฤมิตศิลป์</option>
+                <option value="คณะวิทยาการสารสนเทศ">คณะวิทยาการสารสนเทศ</option>
+                <option value="วิทยาลัยการเมืองการปกครอง">วิทยาลัยการเมืองการปกครอง</option>
+                <option value="คณะสาธารณสุขศาสตร์">คณะสาธารณสุขศาสตร์</option>
+                <option value="คณะแพทยศาสตร์">คณะแพทยศาสตร์</option>
+                <option value="คณะสิ่งแวดล้อมและทรัพยากรศาสตร์">คณะสิ่งแวดล้อมและทรัพยากรศาสตร์</option>
+                <option value="คณะสัตวแพทยศาสตร์และสัตวศาสตร์">คณะสัตวแพทยศาสตร์และสัตวศาสตร์</option>
+                <option value="วิทยาลัยดุริยางคศิลป์">วิทยาลัยดุริยางคศิลป์</option>
+                <option value="คณะวัฒนธรรมศาสตร์">คณะวัฒนธรรมศาสตร์</option>
+            </select>
         </p>
 
         <p>
             <label>อักษรย่อ</label>
-            <input type="text" name="coursefac2" /> z
+            <input type="text" name="coursefac2" class="form-control" placeholder="อักษรย่อ"/>
         </p> 
         
         <p>
             <label>ระดับการศึกษา</label>
-            <input type="text" name="courselv" /> z
+            {{-- <input type="text" name="courselv" class="form-control" /> --}}
+            <select class="form-control" name="courselv" >
+                <option>เลือกระดับการศึกษา</option>
+                <option value="ปริญญาตรี ระบบปกติ">ปริญญาตรี ระบบปกติ</option>
+                <option value="ปริญญาตรี ระบบพิเศษ">ปริญญาตรี ระบบพิเศษ</option>
+                <option value="ปริญญาตรีต่อเนื่อง ระบบปกติ">ปริญญาตรีต่อเนื่อง ระบบปกติ</option>
+                <option value="ปริญญาตรีต่อเนื่อง ระบบพิเศษ">ปริญญาตรีต่อเนื่อง ระบบพิเศษ</option>
+                <option value="ปริญญาตรี (เทียบเข้า) ระบบพิเศษ">ปริญญาตรี (เทียบเข้า) ระบบพิเศษ</option>
+                <option value="ปริญญาโท ระบบในเวลาราชการ">ปริญญาโท ระบบในเวลาราชการ</option>
+                <option value="ปริญญาโท ระบบนอกเวลาราชการ">ปริญญาโท ระบบนอกเวลาราชการ</option>
+                <option value="ปริญญาเอก ระบบในเวลาราชการ">ปริญญาเอก ระบบในเวลาราชการ</option>
+                <option value="ปริญญาเอก ระบบนอกเวลาราชการ">ปริญญาเอก ระบบนอกเวลาราชการ</option>
+            </select>
         </p>
 
         <p>
             <label>หน่วยกิต</label>
-            <input type="text" name="coursecredit" /> z
+            <input type="text" name="coursecredit" class="form-control" placeholder="จำนวนหน่วยกิตทั้งหมด" />
         </p>
 
         <p>
             <label>ปีการศึกษา</label>
-            <input type="text" name="courseyear" /> z
+            {{-- <input type="text" name="courseyear" class="form-control" /> --}}
+            <select class="form-control" name="courseyear" >
+                <option>เลือกจำนวนปีการศึกษา</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
         </p>
 
         <p>
             <label>เกรดต่ำสุด</label>
-            <input type="text" name="courselowcredit" /> z
+            <input type="text" name="courselowcredit" class="form-control" placeholder="จำนวนเกรดต่ำสุด" />
         </p>
 
         <p>
             <label>1. หมวดวิชาศึกษาทั่วไป</label>
-            <input type="text" name="course1" /> z
-            {{-- <input type="text" name="course2_1" placeholder="ระบบพิเศษ"/> --}}
+            <input type="text" name="course1" class="form-control" placeholder="จำนวนหน่วยกิต" />
         </p>      
 
         <p>
             <label>2. หมวดวิชาศึกษาเฉพาะ</label>
-            <input type="text" name="course2" />z <br>
-            {{-- <input type="text" name="course2_2" placeholder="ระบบพิเศษ"/> --}}
+            <input type="text" name="course2" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
             <label>2.1 วิชาแกน</label>
-            <input type="text" name="course21" />z <br>
+            <input type="text" name="course21" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
             <label>2.2 วิชาเฉพาะด้าน</label>
-            <input type="text" name="course22" />z <br>
+            <input type="text" name="course22" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
                 <label>2.2.1 กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ</label>
-                <input type="text" name="course221" />z <br>
+                <input type="text" name="course221" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
                 <label>2.2.2 กลุ่มเทคโนโลยีเพื่องานประยุกต์</label>
-                <input type="text" name="course222" />z <br>
+                <input type="text" name="course222" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
                 <label>2.2.3 กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์</label>
-                <input type="text" name="course223" />z <br>
+                <input type="text" name="course223" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
                 <label>2.2.4 กลุ่มโครงสร้างพื้นฐานของระบบ</label>
-                <input type="text" name="course224" />z <br>
+                <input type="text" name="course224" class="form-control" placeholder="จำนวนหน่วยกิต" /> <br>
 
                 <label>2.2.5 กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ</label>
-                <input type="text" name="course225" />z
+                <input type="text" name="course225" class="form-control" placeholder="จำนวนหน่วยกิต" />
         </p>   
 
         <p>
             <label>3. หมวดประสบการณ์วิชาชีพ</label>
-            <input type="text" name="course3" />z
+            <input type="text" name="course3" class="form-control" placeholder="จำนวนหน่วยกิต" />
             {{-- <input type="text" name="course2_3" placeholder="ระบบพิเศษ"/> --}}
         </p>
 
         <p>
             <label>4. หมวดวิชาเลือกเสรี</label>
-            <input type="text" name="course4" />z
+            <input type="text" name="course4" class="form-control" placeholder="จำนวนหน่วยกิต" />
             {{-- <input type="text" name="course2_4" placeholder="ระบบพิเศษ"/> --}}
         </p>
 
         <p>
             <label>5. หมวดประสบการณ์วิชาชีพ</label>
-            <input type="text" name="course5" />z
+            <input type="text" name="course5" class="form-control" placeholder="จำนวนหน่วยกิต" />
             {{-- <input type="text" name="course2_4" placeholder="ระบบพิเศษ"/> --}}
         </p>
 
-        <p>
+        {{-- <p>
             <label>รวม</label>
-            <input type="text" name="coursesum"/>z
-            {{-- <input type="text" name="course2_5" placeholder="ระบบพิเศษ"/> --}}
-        </p>
+            <input type="text" name="coursesum" class="form-control"/>
+        </p> --}}
 
         @if ($errors->any())
             <div>

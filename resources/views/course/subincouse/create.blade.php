@@ -4,6 +4,16 @@
 
     <form method="POST" action="{{ route('subincourse.store')}}" enctype="multipart/form-data" >
         @csrf
+
+        {{-- <div class="form-group">
+            <label>หลักสูตร</label>
+            <select class="form-control" name="course_id">
+                @foreach($courses as $course)
+                    <option value="{{$course->id}}">{{$course->coursename}}</option>
+                @endforeach
+            </select>
+        </div> --}}
+
         <div class="form-group">
             <label>หลักสูตร</label>
             <select class="form-control" name="course_id">
@@ -12,6 +22,20 @@
                 @endforeach
             </select>
         </div>
+
+        {{-- <div class="form-group">
+            <label>หลักสูตร</label>
+            <select class="form-control" name="course_id" disabled="true">
+                    @foreach($course as $course)
+                        <option value="{{ old('course_id', $course->id) }}"
+                            @if($course->id == $sic->course_id)
+                            selected
+                            @endif    
+                        >{{ old('course_id', $course->coursename) }}</option>
+                    @endforeach
+            </select>
+            <input type="hidden" name="course_id" value="{{ old('course_id', $sic->course_id) }}"/>
+        </div> --}}
 
         <div class="form-group">
             <label>รายวิชา</label>
@@ -25,10 +49,15 @@
         <div class="form-group">
             <label>หมวดหมู่</label>
             <select class="form-control" name="tag">
-                <option value="วิชาแกน">วิชาแกน</option>
-                <option value="วิชาเฉพาะด้าน">วิชาเฉพาะด้าน</option>
-                <option value="วิชาเอกเลือก">วิชาเอกเลือก</option>
-                <option value="วิชาประสบการณ์วิชาชีพ">วิชาประสบการณ์วิชาชีพ</option>
+                <option value="1">วิชาแกน</option>
+                <option value="2">กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ</option>
+                <option value="3">กลุ่มเทคโนโลยีเพื่องานประยุกต์</option>
+                <option value="4">กลุ่มเทคโนโลยีและวิธีการทางซอฟท์แวร์</option>
+                <option value="5">กลุ่มภาษาสำหรับเทคโนโลยีสารสนเทศ</option>
+                <option value="6">วิชาเลือก</option>
+                <option value="7">ประสบการณ์วิชาชีพ</option>
+                <option value="8">วิชาเลือกเสรี</option>
+                <option value="9">วิชาประสบการณ์วิชาชีพ</option>
             </select>
         </div>
 
@@ -40,49 +69,49 @@
                 1.1 ตระหนักในคุณค่าและคุณธรรม จริยธรรม เสียสระ และซื่อสัตว์สุจริต<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp11" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp11" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp11" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp11" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp12" class="form-group"> 
                 1.2 มีวินัย ตรงต่อเวลา และความรับผิดชอบต่อตนเองและสังคม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp12" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp12" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp12" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp12" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp13" class="form-group"> 
                 1.3 มีภาวะความเป็นผู้นำและผู้ตาม สามารถทำงานเป็นทีมและสามารถแก้ไขข้อขัดแย้งและลำดับความสำคัญ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp13" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp13" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp13" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp13" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp14" class="form-group"> 
                 1.4 เคารพสิทธิและรับฟังความคิดเห็นของผู้อื่น รวมทั้งเคารพในคุณค่าและศักดิ์ศรีของความเป็นมนุษย์<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp14" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp14" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp14" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp14" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp15" class="form-group"> 
                 1.5 เคารพกฎระเบียบและข้อบังคับต่าง ๆ ขององค์กรและสังคม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp15" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp15" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp15" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp15" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp16" class="form-group"> 
                 1.6 สามารถวิเคราะห์ผลกระทบจากการใช้คอมพิวเตอร์ต่อบุคคลองค์กรและสังคม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp16" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp16" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp16" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp16" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp17" class="form-group"> 
                 1.7 มีจรรยาบรรณทางวิชาการและวิชาชีพ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp17" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp17" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp17" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp17" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <br> <h5> 2. ความรู้ </h5>
@@ -91,56 +120,56 @@
                 2.1 มีความรู้และความเช้าใจเกี่ยวกับหลักการและทฤษฏีที่สำคัญในเนื้อหาที่สาขาวิชาเทคโนโลยีสารสนเทศ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp21" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp21" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp21" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp21" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp22" class="form-group"> 
                 2.2 สามารถวิเคราะห์ปัญหา เข้าใจและอธิบายความต้องการทางคอมพิวเตอร์ รวมทั้งประยุกต์ความรู้ ทักษะ และการใช้เครื่องมือที่เหมาะสมกับการแก้ไขปัญหา<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp22" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp22" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp22" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp22" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp23" class="form-group"> 
                 2.3 สามารถวิเคราะห์ ออกแบบ ติดตั้ง ปรับปรุงและ/หรือประเมินระบบองค์ประกอบต่างๆของระบบเทคโนโลยีสารสนเทศให้ตรงตามข้อกำหนด<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp23" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp23" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp23" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp23" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp24" class="form-group"> 
                 2.4 สามารถติดตามความก้าวหน้าทางวิชาการและวิวัฒนาการคอมพิวเตอร์<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp24" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp24" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp24" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp24" value="3"  checked> ไม่มี</h5></label>
             </div> 
 
             <div id="resp25" class="form-group"> 
                 2.5 รู้ เข้าใจและสนใจพัฒนาความรู้ ความชำนาญทางคอมพิวเคอร์อย่างต่อเนื่อง<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp25" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp25" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp25" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp25" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp26" class="form-group"> 
                 2.6 มีความรู้ในแนวกว้างของสาขาวิชาที่ศึกษาเพื่อให้เล็งเห็นการเปลี่ยนแปลง และเข้าใจผลกระทบของเทคโนโลยีใหม่ๆ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp26" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp26" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp26" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp26" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp27" class="form-group"> 
                 2.7 มีประสบการณ์ในการพัฒนาและ/หรือประยุกต์ซอฟด์แวร์ที่ใช้งานได้จริง<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp27" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp27" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp27" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp27" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp28" class="form-group"> 
                 2.8 สามารภบูรณาการความรู้ในสาขาวิชาเทคโนโลยีสารสนเทศกับความรู้ในศาสตร์อื่น ๆ ที่เกี่ยวข้อง<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp28" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp28" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp28" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp28" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <br> <h3> 3. ทักษะทางปัญญา </h3>
@@ -149,28 +178,28 @@
                 3.1 คิดอย่างมีวิจารณญาณและอย่างเป็นระบบ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp31" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp31" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp31" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp31" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp32" class="form-group"> 
                 3.2 สามารถสือค้น ตีความ และประเมินสารสนเทศ เพื่อใช้ในการแก้ไขปัญหาอย่างสร้างสรรค์<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp32" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp32" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp32" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp32" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp33" class="form-group"> 
                 3.3 สามารถรวบรวม ศึกษา วิเตาระห์ และสรุปประเด็นปัญหาและความต้องการ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp33" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp33" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp33" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp33" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp34" class="form-group"> 
                 3.4 สามารถประยุกต์ความรู้และทักษาะกับการแก้ไขทางคอมพิวเตอร์ได้อย่างเหมาะสม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp34" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp34" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp34" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp34" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <br> <h3> 4. ทักษะความสัมพันธ์ระหว่างบุคคลและความรับผิดชอบ </h3>
@@ -179,42 +208,42 @@
                 4.1 สามาถสื่อสารทั้งภาษาไทยและภาษาต่างประเทศกับกลุ่มคนหลากหลายได้อย่างมีประสิทธิภาพ<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp41" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp41" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp41" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp41" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp42" class="form-group"> 
                 4.2 สามารถให้ความช่วยเหลือและอำนวยความสะดวกในการแก้ปัญหาสภานการณ์ต่าง ๆ ทั้งในบทบาทผู้นำ หรือในบทบาทของผู้ร่วมทีมทำงาน<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp42" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp42" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp42" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp42" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp43" class="form-group"> 
                 4.3 สามารถใช้ความรู้ในศาสตร์มาชี้นำสังคมในประเด็นที่เหมาะสม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp43" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp43" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp43" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp43" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp44" class="form-group"> 
                 4.4 มีความรับผิดชอบในการกระทำของตนเองและรับผิดชอบงานในกลุ่ม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp44" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp44" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp44" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp44" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp45" class="form-group"> 
                 4.5 สามารถเป็นผู้ริเริ่มแสดงประเด็นในการแก้ไขสถานการณ์ทั้งส่วนตัวและส่วนรวม พร้อมทั้งแสดงจุดยืนอย่างพอเหมาะทั้งของตนเองและของกลุ่ม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp45" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp45" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp45" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp45" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp46" class="form-group"> 
                 4.6 มีความรับผิดชอบการพัฒนาการเรียนรู้ทั้งของตนเองและทางวิชาชีพอย่างต่อเนื่อง<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp46" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp46" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp46" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp46" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <br> <h3> 5. ทักษะการวิเคราะห์เชิงตัวเลข การสื่อสาร และการใช้เทคโนโลยีสารสนเทศ </h3>
@@ -223,28 +252,28 @@
                 5.1 มีทักษะในการใช้เครื่องมือที่จำเป็นที่มีอยู่ในปัจจุบันต่อการทำงานที่เกี่ยวกับคอมพิวเตอร์<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp51" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp51" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp51" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp51" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp52" class="form-group"> 
                 5.2 สามารถแนะนำประเด็นการแก้ไขโดยใช้สารสนเทศทางคณิตศาสตร์หรือการแสดงสถิติประยุกต์ต่อปัญหาที่เกี่ยวข้องอย่างสร้างสรรค์<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp52" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp52" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp52" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp52" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp53" class="form-group"> 
                 5.3 สามารถสื่อสารอย่างมีประสิทธิภาพทั้งปากเปล่าและการเขียน พร้อมทั้งลือกใช้รูปแบบของสื่อการนำเสนอได้อย่างเหมาะสม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp53" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp53" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp53" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp53" value="3"  checked> ไม่มี</h5></label>
             </div>
 
             <div id="resp54" class="form-group"> 
                 5.4 สามารภใช้เทคโนโลยีสารสนเทศได้อย่างเหมาะสม<br>
                 <label class="radio-inline"><h5><input type="radio" name="resp54" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp54" value="2"> ความรับผิดชอบรอง</h5></label>
-                <label class="radio-inline"><h5><input type="radio" name="resp54" value="3"> ไม่มี</h5></label>
+                <label class="radio-inline"><h5><input type="radio" name="resp54" value="3"  checked> ไม่มี</h5></label>
             </div>
 
         @if ($errors->any())
