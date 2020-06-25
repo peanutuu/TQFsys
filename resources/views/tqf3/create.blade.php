@@ -9,7 +9,7 @@
 
         <p>
             <label>ชื่อเอกสาร</label>
-            <input name='name' type="text" />
+            <input name='name' class="form-control" type="text" />
         </p>
 
         <p>
@@ -100,7 +100,8 @@
         <input type="hidden" name="tqf3740" value="ไม่มี"/>
         <input type="hidden" name="tqf3750" value="ไม่มี"/> 
 
-        <button type="submit" class="btn btn-primary btn-block">Create!</button>
+        <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด สร้าง!!! </h4></li><br>
+        <button type="submit" class="btn btn-primary btn-block">สร้าง!</button>
     </form>
 
 @endsection

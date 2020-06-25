@@ -1,18 +1,21 @@
 @extends('layout')
-
+@section('title','แก้ไขเอกสารมคอ.3')
 @section('content')
+
+<br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
+
     <form method="POST" action="{{ route('tqf3.update',['tqf3' => $tqf3->id])}}">
         @csrf
         @method('PUT')
 
         <p>
             <label>ชื่อเอกสาร</label>
-            <input type="text" name="name" value="{{ old('name', $tqf3->name) }}" />
+            <input type="text" class="form-control" name="name" value="{{ old('name', $tqf3->name) }}" />
         </p>
 
         <p>
             <label>ปีการศึกษา</label>
-            <select name="year" disabled="true">
+            <select name="year" class="form-control" disabled="true">
                 <option value="{{ old('year', $tqf3->year) }}">{{ old('year', $tqf3->year) }}</option>
                 <option value="2563">2563</option>
                 <option value="2564">2564</option>
@@ -23,12 +26,12 @@
                 <option value="2569">2569</option>
                 <option value="2570">2570</option>
             </select>
-            <input type="hidden" name="year" value="{{ old('year', $tqf3->year) }}"/>
+            <input type="hidden" class="form-control" name="year" value="{{ old('year', $tqf3->year) }}"/>
         </p>
 
         <p>
             <label>ภาคเรียนการศึกษา</label>
-            <select name="term" disabled="true">
+            <select name="term" class="form-control" disabled="true">
                 <option value="{{ old('term', $tqf3->term) }}">{{ old('term', $tqf3->term) }}</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -49,43 +52,43 @@
                     @endforeach
             </select>
             <input type="hidden" name="subject_id" value="{{ old('subject_id', $subject->id) }}"/>
-        </p>
-
+        </p> <br>
+        <hr>
         <h1><label>หมวดที่ 1 ข้อมูลโดยทั่วไป</label></h1>
         <p>
             <label>1. รหัสวิชาและชื่อรายวิชา</label>
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectid) }}"      />
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameth) }}"  />
-            <input type="text" value=" {{ old('name', $tqf3->subject->subjectnameen) }}"  />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectid) }}"      />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectnameth) }}"  />
+            <input type="text" class="form-control" value=" {{ old('name', $tqf3->subject->subjectnameen) }}"  />
         </p>
 
         <p>
             <label>2. จำนวนหน่วยกิต</label>
-            <input name='tqf3121' type="text" value=" {{ old('name', $tqf3->subject->credit) }}" />
+            <input name='tqf3121' class="form-control" type="text" value=" {{ old('name', $tqf3->subject->credit) }}" />
         </p>
 
         <p>
             <label>3. หลักสูตรและประเภทวิชา</label><br>
             <label>หลักสูตร</label>
-            <input name='tqf3131' type="text" value="{{ old('tqf3131', $tqf3->tqf3131) }}"/><br>
+            <input name='tqf3131' class="form-control" type="text" value="{{ old('tqf3131', $tqf3->tqf3131) }}"/><br>
 
             <label>สาขาวิชา</label>
-            <input name='tqf3132' type="text" value="{{ old('tqf3132', $tqf3->tqf3132) }}"/><br>
+            <input name='tqf3132' class="form-control" type="text" value="{{ old('tqf3132', $tqf3->tqf3132) }}"/><br>
 
             <label>ประเภทกลุ่มรายวิชา</label>
-            <input name='tqf3133' type="text" value="{{ old('tqf3133', $tqf3->tqf3133) }}"/>
+            <input name='tqf3133' class="form-control" type="text" value="{{ old('tqf3133', $tqf3->tqf3133) }}"/>
         </p>
 
         <p>
             <label>4. อาจารย์ผู้ประสานรายวิชา</label>
-            {{-- <input name='tqf3141' type="text" /> --}}
-            <textarea name='tqf3141' rows="5" cols="4" class="form-control" >{{ old('tqf3141', $tqf3->tqf3141) }}</textarea><br>
-
-            {{-- <label>สถานที่ติดต่ออาจารย์ ห้อง IT-302 โทร</label>
-            <input name='tqf3142' type="text" />
-            
-            <label>E-mail</label>
-            <input name='tqf3143' type="text" /> --}}
+            {{-- <textarea name='tqf3141' rows="5" cols="4" class="form-control" >{{ old('tqf3141', $tqf3->tqf3141) }}</textarea><br> --}}
+            <select class="form-control" name="tqf3141">
+                @foreach($users as $user)
+                    @if($user->role == "teacher")
+                        <option value="{{ old('tqf3141', $user->name) }}" selected>{{ old('tqf3141', $user->name) }}</option>
+                    @endif
+                @endforeach
+            </select>
         </p>
 
         <p>
@@ -93,38 +96,193 @@
             <input name='tqf3151' type="text" value="{{ old('term', $tqf3->term) }}/{{ old('year', $tqf3->year) }}" readonly/>
 
             <label>ชั้นปีที่</label>
-            <input name='tqf3152' type="text" value="{{ old('tqf3152', $tqf3->tqf3152) }}"/>
+            {{-- <input name='tqf3152' type="text" value="{{ old('tqf3152', $tqf3->tqf3152) }}"/> --}}
+            <select name="tqf3152">
+                <option value="{{ old('tqf3152', $tqf3->tqf3152) }}" selected>{{ old('tqf3152', $tqf3->tqf3152) }}</option>
+                @if ($tqf3->tqf3152 == "ไม่มี")
+                    <option value="ปี 1">ปี 1</option>
+                    <option value="ปี 2">ปี 2</option>
+                    <option value="ปี 3">ปี 3</option>
+                    <option value="ปี 4">ปี 4</option>
+                    <option value="สูงกว่าปี 4">สูงกว่าปี 4</option>
+                @endif
+                @if ($tqf3->tqf3152 == "ปี 1")
+                    <option value="ปี 2">ปี 2</option>
+                    <option value="ปี 3">ปี 3</option>
+                    <option value="ปี 4">ปี 4</option>
+                    <option value="สูงกว่าปี 4">สูงกว่าปี 4</option>
+                @endif
+                @if ($tqf3->tqf3152 == "ปี 2")
+                    <option value="ปี 1">ปี 1</option>
+                    <option value="ปี 3">ปี 3</option>
+                    <option value="ปี 4">ปี 4</option>
+                    <option value="สูงกว่าปี 4">สูงกว่าปี 4</option>
+                @endif
+                @if ($tqf3->tqf3152 == "ปี 3")
+                    <option value="ปี 1">ปี 1</option>
+                    <option value="ปี 2">ปี 2</option>
+                    <option value="ปี 4">ปี 4</option>
+                    <option value="สูงกว่าปี 4">สูงกว่าปี 4</option>
+                @endif
+                @if ($tqf3->tqf3152 == "ปี 4")
+                    <option value="ปี 1">ปี 1</option>
+                    <option value="ปี 2">ปี 2</option>
+                    <option value="ปี 3">ปี 3</option>
+                    <option value="สูงกว่าปี 4">สูงกว่าปี 4</option>
+                @endif
+                @if ($tqf3->tqf3152 == "สูงกว่าปี 4")
+                    <option value="ปี 1">ปี 1</option>
+                    <option value="ปี 2">ปี 2</option>
+                    <option value="ปี 3">ปี 3</option>
+                    <option value="ปี 4">ปี 4</option>
+                @endif
+            </select>
         </p>
 
         <p>
             <label>6. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisite) (ถ้ามี) ไม่มี</label>
-            <input name='tqf3161' type="text" value="{{ old('tqf3161', $tqf3->tqf3161) }}"/>
+            <input name='tqf3161' class="form-control" type="text" value="{{ old('tqf3161', $tqf3->tqf3161) }}"/>
         </p>
 
         <p>
             <label>7. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisite) (ถ้ามี) ไม่มี</label>
-            <input name='tqf3171' type="text" value="{{ old('tqf3171', $tqf3->tqf3171) }}"/>
+            <input name='tqf3171' class="form-control" type="text" value="{{ old('tqf3171', $tqf3->tqf3171) }}"/>
         </p>
 
         <p>
-            <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label>
+            <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label> <br>
 
-            <label>ห้อง</label>
-            <input name='tqf3181' type="text" value="{{ old('tqf3181', $tqf3->tqf3181) }}"/>
+            <label>ห้อง</label> 
+            {{-- <input name='tqf3181' type="text" value="{{ old('tqf3181', $tqf3->tqf3181) }}"/> --}}
+            <select name="tqf3181">
+                <option value="{{ old('tqf3181', $tqf3->tqf3181) }}" selected>{{ old('tqf3181', $tqf3->tqf3181) }}</option>
+                @if ($tqf3->tqf3181 == "ไม่มี")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-401")
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-402")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-403")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-404")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-405")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-406")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-407">IT-407</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-407")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-408">IT-408</option>
+                @endif
+                @if ($tqf3->tqf3181 == "IT-408")
+                    <option value="IT-401">IT-401</option>
+                    <option value="IT-402">IT-402</option>
+                    <option value="IT-403">IT-403</option>
+                    <option value="IT-404">IT-404</option>
+                    <option value="IT-405">IT-405</option>
+                    <option value="IT-406">IT-406</option>
+                    <option value="IT-407">IT-407</option>
+                @endif
+            </select>
 
             <label>วัน</label>
-            <input name='tqf3182' type="text" value="{{ old('tqf3182', $tqf3->tqf3182) }}"/>
+            {{-- <input name='tqf3182' type="text" value="{{ old('tqf3182', $tqf3->tqf3182) }}"/> --}}
+            <select name="tqf3182">
+                <option value="{{ old('tqf3182', $tqf3->tqf3182) }}" selected>{{ old('tqf3182', $tqf3->tqf3182) }}</option>
+                <option value="อาทิตย์"  >อาทิตย์</option>
+                <option value="จันทร์"  >จันทร์</option>
+                <option value="อังคาร"  >อังคาร</option>
+                <option value="พุธ"  >พุธ</option>
+                <option value="พฤหัส"  >พฤหัส</option>
+                <option value="ศุกร์"  >ศุกร์</option>
+                <option value="เสาร์"  >เสาร์</option>
+            </select>
 
             <label>เวลา</label>
-            <input name='tqf3183' type="text" value="{{ old('tqf3183', $tqf3->tqf3183) }}"/>
+            {{-- <input name='tqf3183' type="text" value="{{ old('tqf3183', $tqf3->tqf3183) }}"/> --}}
+            <select name="tqf3183">
+                <option value="{{ old('tqf3183', $tqf3->tqf3183) }}" selected>{{ old('tqf3183', $tqf3->tqf3183) }}</option>
+                <option value="06.00"  >06.00 น.</option>
+                <option value="07.00"  >07.00 น.</option>
+                <option value="08.00"  >08.00 น.</option>
+                <option value="09.00"  >09.00 น.</option>
+                <option value="10.00"  >10.00 น.</option>
+                <option value="11.00"  >11.00 น.</option>
+                <option value="12.00"  >12.00 น.</option>
+                <option value="13.00"  >13.00 น.</option>
+                <option value="14.00"  >14.00 น.</option>
+                <option value="15.00"  >15.00 น.</option>
+                <option value="16.00"  >16.00 น.</option>
+                <option value="17.00"  >17.00 น.</option>
+                <option value="18.00"  >18.00 น.</option>
+                <option value="19.00"  >19.00 น.</option>
+                <option value="20.00"  >20.00 น.</option>
+                <option value="21.00"  >21.00 น.</option>
+                <option value="22.00"  >22.00 น.</option>
+            </select>
         </p>
 
         <p>
-            <label>9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด</label>
+            <label>9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด</label> <br>
             <label>วันที่</label>
-            <input name='tqf3191' type="text" value="{{ old('tqf3191', $tqf3->tqf3191) }}"/>
-        </p>
-
+            <input name='tqf3191' type="date" value="{{ old('tqf3191', $tqf3->tqf3191) }}"/>
+        </p> <br>
+        <hr>
         <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
             <label>1.จุดมุ่งหมายของรายวิชา</label><br>
@@ -143,8 +301,8 @@
 
             <label>2.2</label>
             <input name='tqf3222' type="text" /> --}}
-        </p>
-
+        </p> <br>
+        <hr>
         <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
@@ -152,7 +310,7 @@
         </p>
 
         <p>
-            <label>2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา</label><br>
+            <label>2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา (หน่วยเป็นชั่วโมง)</label><br>
             <label>บรรยาย</label>
             <input name='tqf3321' type="text" value="{{ old('tqf3321', $tqf3->tqf3321) }}"/>
 
@@ -178,8 +336,8 @@
             {{-- <input name='tqf3341' type="text" /> --}}
             <textarea name='tqf3341' rows="5" cols="4" class="form-control" >{{ old('tqf3341', $tqf3->tqf3341) }}</textarea><br>
 
-        </p>
-
+        </p> 
+        <br><hr>
         <h1>หมวดที่ 4 การพัฒนาการเรียนรู้ของนิสิต</h1>
         <p>
             <label>1.คุณธรรม จริยธรรม</label><br>
@@ -503,16 +661,78 @@
             {{-- <input name='tqf3453' type="text" /> --}}
             <textarea name='tqf3453' rows="5" cols="4" class="form-control" >{{ old('tqf3453', $tqf3->tqf3453) }}</textarea><br>
         </p>
-
+        <br><hr>
         <h1>หมวดที่ 5 แผนการสอนและการประเมินผล</h1>
         <p>
             <label>1.แผนการสอน</label><br>
-            {{-- <input name='tqf3511' type="text" /> --}}
+            <div class="table-responsive">
+                <form >
+                        @if($tqf3->dynamicfields->count()>0)
+                            <table class="table table-bordered table-striped" id="user_table">
+                                <thead>
+                                    <tr>
+                                        <th width="10%"  rowspan="2"> สัปดาห์ที่ </th>
+                                        <th width="50%" rowspan="2"> หัวข้อ/รายละเอียด </th>
+                                        <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
+                                        <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
+                                        <th width="10%" rowspan="2"> สื่อการสอน </th>
+                                        <th width="10%" rowspan="2"> อาจารย์ผู้สอน </th>
+                                    </tr>
+                                    <tr>
+                                        <td >ทฤษฎี</td>
+                                        <td >ปฏิบัติ</td>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                            @foreach ($tqf3->dynamicfields as $dynamicfield)
+                                            <tr>
+                                            <td>{{ $dynamicfield->tqf3511 }} </td>
+                                            <td>{{ $dynamicfield->tqf3512 }}</td>
+                                            <td>{{ $dynamicfield->tqf3513 }}</td>
+                                            <td>{{ $dynamicfield->tqf3514 }}</td>
+                                            <td>{{ $dynamicfield->tqf3515 }}</td>
+                                            <td>{{ $dynamicfield->tqf3516 }}</td>
+                                            <td>{{ $dynamicfield->tqf3517 }}</td>
+                                            </tr>
+                                            @endforeach
+                                    </tbody>
+                            </table> 
+                        @else
+                            <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
+                        @endif
+            </div>
         </p>
 
         <p>
             <label>2.แผนการประเมินผลการเรียนรู้</label><br>
             <label>2.1 วิธีการ</label><br>
+
+            <div class="table-responsive">
+                @if($tqf3->dynamic2fields->count()>0)
+                        <table class="table table-bordered table-striped" id="user_table">
+                            <thead>
+                                <tr>
+                                    <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
+                                    <th width="25%" rowspan="2"> วิธีการประเมิน </th>
+                                    <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
+                                    <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
+                                </tr>
+                            </thead>
+                                <tbody>
+                                        @foreach ($tqf3->dynamic2fields as $dynamic2field)
+                                        <tr>
+                                        <td>{{ $dynamic2field->tqf3521 }} </td>
+                                        <td>{{ $dynamic2field->tqf3522 }}</td>
+                                        <td>{{ $dynamic2field->tqf3523 }}</td>
+                                        <td>{{ $dynamic2field->tqf3524 }}</td>
+                                        </tr>
+                                        @endforeach
+                                </tbody>
+                        </table> 
+                @else
+                    <br><br><h3 class="text text-center">ยังไม่ได้สร้างแผนการประเมินการเรียนรู้</h3>
+                @endif
+        </div>
 
             <label>2.2 เกณฑ์ผ่านรายวิชา ผู้ที่จะผ่านรายวิชานี้จะต้อง</label><br>
             {{-- <input name='tqf3521' type="text" /><br> --}}
@@ -522,7 +742,7 @@
             {{-- <input name='tqf3522' type="text" /> --}}
             <textarea name='tqf3522' rows="5" cols="4" class="form-control" >{{ old('tqf3522', $tqf3->tqf3522) }}</textarea><br>
         </p>
-
+        <br><hr>
         <h1>หมวดที่ 6 ทรัพยากรประกอบการเรียนการสอน</h1>
         <p>
             <label>1.เอกสารและตำราหลัก</label><br>
@@ -541,7 +761,7 @@
             {{-- <input name='tqf3630' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/> --}}
             <textarea name='tqf3630' rows="5" cols="4" class="form-control" >{{ old('tqf3630', $tqf3->tqf3630) }}</textarea><br>
         </p>
-
+        <br><hr>
         <h1>หมวดที่ 7 การประเมินและปรับปรุงการดำเนินการของรายวิชา</h1>
         <p>
             <label>1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต</label><br>
@@ -575,6 +795,6 @@
 
 
 
-        <button type="submit" class="btn btn-primary btn-block">Update!</button>
+        <button type="submit" class="btn btn-primary btn-block">แก้ไขเสร็จสิ้น!</button>
     </form>
 @endsection

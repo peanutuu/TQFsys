@@ -456,7 +456,36 @@
     </tr>
     <tr>
       <th colspan="4"> 1.แผนการสอน <br>
-
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th width="10%"  rowspan="2"> สัปดาห์ที่ </th>
+                    <th width="20%" rowspan="2"> หัวข้อ/รายละเอียด </th>
+                    <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
+                    <th width="20%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
+                    <th width="20%" rowspan="2"> สื่อการสอน </th>
+                    <th width="20%" rowspan="2"> อาจารย์ผู้สอน </th>
+                  
+                </tr>
+                <tr>
+                    <td >ทฤษฎี</td>
+                    <td >ปฏิบัติ</td>
+                </tr>
+            </thead>
+                <tbody>
+                        @foreach ($tqf3->dynamicfields as $dynamicfield)
+                        <tr>
+                        <td>{{ $dynamicfield->tqf3511 }} </td>
+                        <td>{{ $dynamicfield->tqf3512 }}</td>
+                        <td>{{ $dynamicfield->tqf3513 }}</td>
+                        <td>{{ $dynamicfield->tqf3514 }}</td>
+                        <td>{{ $dynamicfield->tqf3515 }}</td>
+                        <td>{{ $dynamicfield->tqf3516 }}</td>
+                        <td>{{ $dynamicfield->tqf3517 }}</td>
+                        </tr>
+                        @endforeach
+                </tbody>
+        </table> 
       </th>
     </tr>
     <tr>
@@ -465,8 +494,27 @@
         </th>
     </tr>
     <tr>
-        <th colspan="4"> 2.1 วิธีการ 
-
+        <th colspan="4"> 2.1 วิธีการ <br>
+            <table class="table table-bordered table-striped" >
+                <thead>
+                    <tr>
+                        <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
+                        <th width="25%" rowspan="2"> วิธีการประเมิน </th>
+                        <th width="25%" rowspan="2"> สัปดาร์ที่ประเมิน </th>
+                        <th width="25%" rowspan="2"> สัดส่วนของการประเมิน </th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        @foreach ($tqf3->dynamic2fields as $dynamic2field)
+                        <tr>
+                        <td>{{ $dynamic2field->tqf3521 }} </td>
+                        <td>{{ $dynamic2field->tqf3522 }}</td>
+                        <td>{{ $dynamic2field->tqf3523 }}</td>
+                        <td>{{ $dynamic2field->tqf3524 }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+            </table>
         </th>
     </tr>
     <tr>

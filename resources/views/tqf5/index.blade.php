@@ -75,7 +75,7 @@
                 <td> {{ $tqf5->year }}/{{ $tqf5->term }} </td>
 
                 @if (Auth::user()->id == $tqf5->user_id)
-                <td><a href="{{ route('tqf5.edit', ['tqf5' => $tqf5->id]) }}" class="btn btn-primary"> edit </a></td>
+                <td><a href="{{ route('tqf5.edit', ['tqf5' => $tqf5->id]) }}" class="btn btn-warning"> edit </a></td>
                 <td>
                     <form method="POST" class="fm-inline" action="{{ route('tqf5.destroy',['tqf5' => $tqf5->id])}}">
                         @csrf

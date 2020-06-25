@@ -2,7 +2,13 @@
 @section('title','เพิ่มเอกสารมคอ3')
 @section('content')
    
-<br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
+<br><a href="{{ route('tqf3.create1',['tqf3' => $tqf3->id])}}" class="btn btn-danger"> ย้อนกลับไปก่อนหน้า </a><br>
+<br><form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">
+    @csrf
+    @method('DELETE')
+    <input type="submit" value="ยกเลิกสร้างเอกสาร" class="btn btn-danger"/>
+</form>
+<br><br>
 
 <h1>เพิ่มเอกสารมคอ3.</h1><br>
 
@@ -89,7 +95,21 @@
             </div>
         @endif 
 
-        <button type="submit" class="btn btn-primary btn-block">Create!</button>
+        <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
+        <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>
     </form>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function(){
+                  $('.fm-inline').on('submit',function(){
+                        if(confirm("คุณต้องการยกเลิกการสร้างเอกสารหรือไม่")){
+                              return true;
+                        }else{
+                              return false;
+                        }
+
+                  });
+            });
+    </script>
 @endsection

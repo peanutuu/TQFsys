@@ -4,10 +4,14 @@
     <br><br><a href="{{ route('tqf3.index') }}" class="btn btn-danger"> ย้อนกลับ </a><br><br>
     {{-- <h1> {{ $tqf3->id }} </h1> --}}
 
-    <p>Added {{ $tqf3->created_at->diffForHumans() }}</p>
+    {{-- <p>สร้างขึ้น {{ $tqf3->created_at->diffForHumans() }}</p>
+    @if ((new Carbon\Carbon())->diffInMinutes($tqf3->created_at) <5)
+        <strong> New Post!!! </strong>
+    @endif --}}
+
     <h1>ชื่อเอกสาร {{ $tqf3->name }} </h1>
     <h1>เอกสารเป็นของรายวิชา <a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}">{{ $tqf3->subject->subjectid }}</a></h1>
-    <h1>ปีการศึกษา {{ $tqf3->year }} / {{ $tqf3->term }}</h1>
+    <h1>ปีการศึกษา {{ $tqf3->year }} / {{ $tqf3->term }}</h1> <br>
 
     {{-- <h1> {{ $subject->subjectnameen }} </h1>
     <h1> {{ $subject->subjectnameth }} </h1>
@@ -16,13 +20,10 @@
     <h1> {{ $subject->avalible }} </h1> --}}
     {{-- {{ (new Carbon\Carbon())->diffInMinutes($post->created_at) }} --}}
 
-     @if ((new Carbon\Carbon())->diffInMinutes($tqf3->created_at) <5)
-        <strong> New Post!!! </strong>
-    @endif
-
     <div>
+
         <div>
-            <h1>รายละเอียดของรายวิชา</h1>
+            <h1><center>รายละเอียดของรายวิชา</center></h1>
         </div>
         <table style="width:100%">
                 <tr>
@@ -487,7 +488,7 @@
             <table style="width:100%">
                 <tr>
                     <th colspan="4"> 1.แผนการสอน <br>
-                        <table class="table table-bordered table-striped" id="user_table">
+                        <table class="table table-bordered table-striped" >
                             <thead>
                                 <tr>
                                     <th width="5%"  rowspan="2"> สัปดาห์ที่ </th>
@@ -526,7 +527,7 @@
                 </tr>
                 <tr>
                     <th colspan="4"> 2.1 วิธีการ 
-                        <table class="table table-bordered table-striped" id="user_table">
+                        <table class="table table-bordered table-striped" >
                             <thead>
                                 <tr>
                                     <th width="25%" rowspan="2"> ผมการเรียนรู้ </th>
@@ -545,14 +546,6 @@
                                     </tr>
                                     @endforeach
                                 </tbody>
-                            <tfoot>
-                                <tr>
-                                    
-                                </tr>
-                                <tr>
-                                    
-                                </tr>
-                            </tfoot>
                         </table> 
                     </th>
                 </tr>
