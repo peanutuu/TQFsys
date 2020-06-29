@@ -55,9 +55,15 @@ class SubjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('subject.create')->with('courses',Course::all());
-        
+    { 
+        $courses = Course::all();
+
+        $subjects = Subject::all();
+
+        // return view('subject.create')->with('courses',Course::all());
+
+        return view('subject.create',compact('courses','subjects'));
+
     }
 
     /**
@@ -80,6 +86,8 @@ class SubjectController extends Controller
             'subjectbefore'=>$request->subjectbefore,
             'descriptionth'=>$request->descriptionth,
             'descriptionen'=>$request->descriptionen,
+            'pointofsubject'=>$request->pointofsubject,
+            'subjectwith'=>$request->subjectwith,
             'user_id'=>auth()->user()->id
         ]);
 
@@ -113,10 +121,11 @@ class SubjectController extends Controller
      */
     public function edit($id)
     {
+        $subjects = Subject::all();
         $courses = Course::all();
         $subject = Subject::findOrFail($id);
         // return view('subject.edit',['subject' => $subject]);
-        return view('subject.edit', compact('courses','subject'));
+        return view('subject.edit', compact('courses','subject','subjects'));
     }
 
     /**

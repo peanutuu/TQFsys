@@ -16,11 +16,13 @@ use App\Http\Requests\StoreTqf5;
 use App\Http\Requests\Store2Tqf5;
 use Illuminate\Http\Request;
 use PDF;
+use App\Subava;
 
 class TQF5Controller extends Controller
 {
     public function index()
     {
+        // $a = Subava::all();
         $subjects = Subject::all();
         // $catagorytqfs = Catagorytqf::all();
 
@@ -38,7 +40,9 @@ class TQF5Controller extends Controller
 
     public function create()
     {
-        return view('tqf5.create')->with('subjects',Subject::all());
+        $subjects = Subject::all();
+        // return view('tqf5.create')->with('subjects',Subject::all());
+        return view('tqf5.create',compact('subjects'));
     }
 
     public function create1($id)

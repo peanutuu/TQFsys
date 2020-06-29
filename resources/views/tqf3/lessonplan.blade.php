@@ -24,17 +24,10 @@
                             <th width="20%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
                             <th width="20%" rowspan="2"> สื่อการสอน </th>
                             <th width="25%" rowspan="2"> อาจารย์ผู้สอน </th>
-                            {{-- <th width="5%"  colspan="2"> เพื่มจำนวนเแถว 
-                                <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
-                                <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button>
-                            </th> --}}
-    
                         </tr>
                         <tr>
                             <td >ทฤษฎี</td>
                             <td >ปฏิบัติ</td>
-                            {{-- <td width="10%" rowspan="2"><button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
-                                <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button></td> --}}
                         </tr>
                     </thead>
                         <tbody id="t1">
@@ -60,7 +53,7 @@
 
   {{-- <a href="{{ route('tqf3.create5',['tqf3' => $tqf3->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a><br><br> --}}
 
-  @if ($errors->any())
+  {{-- @if ($errors->any())
         <div>
             <ul>
                 @foreach ($errors->all() as $error)
@@ -68,7 +61,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
 
  </body>

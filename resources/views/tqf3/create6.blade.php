@@ -26,19 +26,19 @@
         <p>
             <label>1.เอกสารและตำราหลัก</label><br>
             {{-- <input name='tqf3610' type="text" placeholder="ระบุตำราและเอกสารหลักที่ใช้ในการเรียนการสอน" size="150"/> --}}
-            <textarea name='tqf3610' rows="5" cols="4" class="form-control" >{{ old('tqf3610', $tqf3->tqf3610 ?? null) }}</textarea><br>
+            <textarea name='tqf3610' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>2.เอกสารและข้อมูลสำคัญ</label><br>
             {{-- <input name='tqf3620' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาจำเป็นต้องศึกษาเพิ่มเติม" size="150"/> --}}
-            <textarea name='tqf3620' rows="5" cols="4" class="form-control" >{{ old('tqf3620', $tqf3->tqf3620 ?? null) }}</textarea><br>
+            <textarea name='tqf3620' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>3.เอกสารและข้อมูลแนะนำ</label><br>
             {{-- <input name='tqf3630' type="text" placeholder="ระบุหนังสือ วารสาร รายงาน สื่ออิเล็กทรอนิกส์ เว็บไซต์ กฎระเบียบต่างๆ โปรแกรมคอมพิวเตอร์และแหล่งอ้างอิงที่สำคัญอื่นๆ ซึ่งนักศึกษาควรศึกษาเพิ่มเติม" size="150"/> --}}
-            <textarea name='tqf3630' rows="5" cols="4" class="form-control" >{{ old('tqf3630', $tqf3->tqf3630 ?? null) }}</textarea><br>
+            <textarea name='tqf3630' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
@@ -83,7 +83,7 @@
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -91,7 +91,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
 

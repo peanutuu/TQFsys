@@ -91,10 +91,10 @@
 
 
             <label>1.2 วิธีการสอน</label><br>
-            <textarea name='tqf3412' rows="5" cols="4" class="form-control">{{ old('tqf3412', $tqf3->tqf3412 ?? null) }}</textarea><br>
+            <textarea name='tqf3412' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>1.3 วิธีการประเมินผล</label><br>
-            <textarea name='tqf3413' rows="5" cols="4" class="form-control">{{ old('tqf3413', $tqf3->tqf3413 ?? null) }}</textarea><br>
+            <textarea name='tqf3413' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
@@ -171,11 +171,11 @@
 
             <label>2.2 วิธีการสอน</label><br>
             {{-- <input name='tqf3422' type="text" /><br> --}}
-            <textarea name='tqf3422' rows="5" cols="4" class="form-control">{{ old('tqf3422', $tqf3->tqf3422 ?? null) }}</textarea><br>
+            <textarea name='tqf3422' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>2.3 วิธีการประเมินผล</label><br>
             {{-- <input name='tqf3423' type="text" /> --}}
-            <textarea name='tqf3423' rows="5" cols="4" class="form-control">{{ old('tqf3423', $tqf3->tqf3423 ?? null) }}</textarea><br>
+            <textarea name='tqf3423' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
@@ -222,11 +222,11 @@
 
             <label>3.2 วิธีการสอน</label><br>
             {{-- <input name='tqf3432' type="text" /><br> --}}
-            <textarea name='tqf3432' rows="5" cols="4" class="form-control">{{ old('tqf3432', $tqf3->tqf3432 ?? null) }}</textarea><br>
+            <textarea name='tqf3432' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>3.3 วิธีการประเมินผล</label><br>
             {{-- <input name='tqf3433' type="text" /> --}}
-            <textarea name='tqf3433' rows="5" cols="4" class="form-control">{{ old('tqf3433', $tqf3->tqf3433 ?? null) }}</textarea><br>
+            <textarea name='tqf3433' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
@@ -289,11 +289,11 @@
 
             <label>4.2 วิธีการสอน</label><br>
             {{-- <input name='tqf3442' type="text" /><br> --}}
-            <textarea name='tqf3442' rows="5" cols="4" class="form-control">{{ old('tqf3442', $tqf3->tqf3442 ?? null) }}</textarea><br>
+            <textarea name='tqf3442' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>4.3 วิธีการประเมินผล</label><br>
             {{-- <input name='tqf3443' type="text" /> --}}
-            <textarea name='tqf3443' rows="5" cols="4" class="form-control">{{ old('tqf3443', $tqf3->tqf3443 ?? null) }}</textarea><br>
+            <textarea name='tqf3443' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
@@ -339,11 +339,11 @@
 
             <label>5.2 วิธีการสอน</label><br>
             {{-- <input name='tqf3452' type="text" /><br> --}}
-            <textarea name='tqf3452' rows="5" cols="4" class="form-control">{{ old('tqf3452', $tqf3->tqf3452 ?? null) }}</textarea><br>
+            <textarea name='tqf3452' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>5.3 วิธีการประเมินผล</label><br>
             {{-- <input name='tqf3453' type="text" /> --}}
-            <textarea name='tqf3453' rows="5" cols="4" class="form-control">{{ old('tqf3453', $tqf3->tqf3453 ?? null) }}</textarea><br>
+            <textarea name='tqf3453' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
@@ -381,7 +381,7 @@
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -389,7 +389,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
         <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>

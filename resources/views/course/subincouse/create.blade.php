@@ -5,6 +5,9 @@
     <form method="POST" action="{{ route('subincourse.store')}}" enctype="multipart/form-data" >
         @csrf
 
+        <br> <br>
+        <h1>เพิ่มรายวิชาลงในหลักสูตร</h1> <hr> <br>
+
         {{-- <div class="form-group">
             <label>หลักสูตร</label>
             <select class="form-control" name="course_id">
@@ -16,7 +19,7 @@
 
         <div class="form-group">
             <label>หลักสูตร</label>
-            <select class="form-control" name="course_id">
+            <select class="form-control" name="course_id" required>
                 @foreach($courses as $course)
                     <option value="{{$course->id}}">{{$course->coursename}}</option>
                 @endforeach
@@ -39,7 +42,7 @@
 
         <div class="form-group">
             <label>รายวิชา</label>
-            <select class="form-control" name="subject_id">
+            <select class="form-control" name="subject_id" required>
                 @foreach($subjects as $subject)
                     <option value="{{$subject->id}}">{{$subject->subjectnameth}}</option>
                 @endforeach
@@ -48,7 +51,8 @@
 
         <div class="form-group">
             <label>หมวดหมู่</label>
-            <select class="form-control" name="tag">
+            <select class="form-control" name="tag" required>
+                <option value="">เลือกหมวดหมู่วิชา</option>
                 <option value="วิชาแกน">วิชาแกน</option>
                 <option value="กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ">กลุ่มประเด็นด้านองค์การและระบบสารสนเทศ</option>
                 <option value="กลุ่มเทคโนโลยีเพื่องานประยุกต์">กลุ่มเทคโนโลยีเพื่องานประยุกต์</option>
@@ -277,9 +281,9 @@
                 <label class="radio-inline"><h5><input type="radio" name="resp54" value="1"> ความรับผิดชอบหลัก</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp54" value="2"> ความรับผิดชอบรอง</h5></label>
                 <label class="radio-inline"><h5><input type="radio" name="resp54" value="3"  checked> ไม่มี</h5></label>
-            </div>
+            </div> <br> <hr>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -287,7 +291,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <br><button type="submit" class="btn btn-primary btn-block">Create!</button>
     </form>

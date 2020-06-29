@@ -7,15 +7,16 @@
         @csrf 
 
         {{-- @include('posts._form') --}}
+
         
         <p>
             <label>ชื่อเอกสาร</label>
-            <input type="text" name="name" />
+            <input type="text" name="name" required/>
         </p>
 
         <p>
             <label>ปีการศึกษา</label>
-            <select name="year">
+            <select name="year" required>
                 <option value="" disabled selected>เลือกปีการศึกษา</option>
                 <option value="2563">2563</option>
                 <option value="2564">2564</option>
@@ -30,7 +31,7 @@
 
         <p>
             <label>ภาคเรียนการศึกษา</label>
-            <select name="term" >
+            <select name="term" required>
                 <option disabled selected>เลือกภาคเรียนการศึกษา</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -40,15 +41,15 @@
 
         <div class="form-group">
             <label>รายวิชา</label>
-            <select class="form-control" name="subject_id">
+            <select class="form-control" name="subject_id" required>
                 <option value="" disabled selected>เลือกรายวิชา</option>
                     @foreach($subjects as $subject)
-                        <option value="{{$subject->id}}">{{$subject->subjectid}}</option>
+                        <option value="{{$subject->id}}">{{$subject->subjectid}} {{$subject->subjectnameen}} {{$subject->subjectnameth}}</option>
                     @endforeach
             </select>
         </div>
         
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div> 
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -56,7 +57,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <input type="hidden" name="tqf5121" value="ไม่มี"/>
         <input type="hidden" name="tqf5131" value="ไม่มี"/>

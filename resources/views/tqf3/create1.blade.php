@@ -34,25 +34,25 @@
 
         <p>
             <label>2. จำนวนหน่วยกิต</label>
-            <input name='tqf3121' type="text" class="form-control" value=" {{ $tqf3->subject->credit }}" />
+            <input name='tqf3121' type="text" class="form-control" value=" {{ $tqf3->subject->credit }}" required/>
         </p>
 
         <p>
             <label>3. หลักสูตรและประเภทวิชา</label><br>
             <label>หลักสูตร</label>
-            <input name='tqf3131' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{  $sic->course->coursename }} @endforeach"/><br>
+            <input name='tqf3131' type="text" class="form-control" value="วิทยาศาสตร์บัณฑิต" required/><br>
 
             <label>สาขาวิชา</label>
-            <input name='tqf3132' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{ $sic->course->coursename }} @endforeach"/><br>
+            <input name='tqf3132' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{ $sic->course->coursename }} @endforeach" required/><br>
 
             <label>ประเภทกลุ่มรายวิชา</label>
-            <input name='tqf3133' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{  $sic->tag }} @endforeach"/>
+            <input name='tqf3133' type="text" class="form-control" value="@foreach ($tqf3->subject->sics as $sic){{  $sic->tag }} @endforeach" required/>
         </p>
 
         <p>
             <label>4. อาจารย์ผู้ประสานรายวิชา</label>
-            <select class="form-control" name="tqf3141">
-                <option>เลือกอาจารย์ผู้ประสานงานวิชา</option>
+            <select class="form-control" name="tqf3141" required>
+                <option value=""> เลือกอาจารย์ผู้ประสานงานวิชา</option>
                 @foreach($users as $user)
                     @if($user->role == "teacher")
                         <option value="{{$user->name}}">{{$user->name}}</option>
@@ -66,8 +66,8 @@
             <input name='tqf3151' type="text" value="{{ $tqf3->term }}/{{ $tqf3->year }}" readonly/>
 
             <label>ชั้นปีที่</label>
-            <select name="tqf3152">
-                <option>เลือกชั้นปี</option>
+            <select name="tqf3152" required>
+                <option value="">เลือกชั้นปี</option>
                 <option value="ปี 1">ปี 1</option>
                 <option value="ปี 2">ปี 2</option>
                 <option value="ปี 3">ปี 3</option>
@@ -78,20 +78,20 @@
 
         <p>
             <label>6. รายวิชาที่ต้องเรียนมาก่อน (Pre-requisite) (ถ้ามี) {{$tqf3->tqf3121}}</label>
-            <input name='tqf3161' type="text" class="form-control" value=" {{ $tqf3->subject->subjectbefore }}"/>
+            <input name='tqf3161' type="text" class="form-control" value=" {{ $tqf3->subject->subjectbefore }} " required/>
         </p>
 
         <p>
             <label>7. รายวิชาที่ต้องเรียนพร้อมกัน (Co-requisite) (ถ้ามี) {{$tqf3->tqf3121}}</label>
-            <input name='tqf3171' type="text" class="form-control" value="{{  $tqf3->tqf3171 }}"/>
+            <input name='tqf3171' type="text" class="form-control" value=" {{ $tqf3->subject->subjectwith }} " required/>
         </p>
 
         <p>
             <label>8. สถาที่เรียน คณะวิทยาการสารสนเทศ มหาวิทยาลัยมหาสารคาม</label> <br>
 
             <label>ห้อง</label>
-            <select name="tqf3181">
-                <option>เลือกห้องเรียน</option>
+            <select name="tqf3181" required>
+                <option value="">เลือกห้องเรียน</option>
                 <option value="IT-401">IT-401</option>
                 <option value="IT-402">IT-402</option>
                 <option value="IT-403">IT-403</option>
@@ -103,8 +103,8 @@
             </select>
 
             <label>วัน</label>
-            <select name="tqf3182">
-                        <option>เลือกวัน</option>
+            <select name="tqf3182" required>
+                        <option value="">เลือกวัน</option>
                         <option value="อาทิตย์"  >อาทิตย์</option>
                         <option value="จันทร์"  >จันทร์</option>
                         <option value="อังคาร"  >อังคาร</option>
@@ -115,8 +115,8 @@
             </select>
 
             <label>เวลา</label>
-            <select name="tqf3183">
-                <option>เลือกเวลา</option>
+            <select name="tqf3183" required>
+                <option value="">เลือกเวลา</option>
                 <option value="06.00"  >06.00 น.</option>
                 <option value="07.00"  >07.00 น.</option>
                 <option value="08.00"  >08.00 น.</option>
@@ -140,7 +140,7 @@
         <p>
             <label>9. วันที่จัดทำหรือปรับปรุงรายละเอียดของวิชาครั้งล่าสุด</label> <br>
             <label>วันที่</label>
-            <input name='tqf3191' type="date" value=" "/>
+            <input name='tqf3191' type="date" value=" " required/>
         </p>
 
         <input type="hidden" name="tqf3211" value="{{$tqf3->tqf3211}}"/>
@@ -173,7 +173,7 @@
         <input type="hidden" name="tqf3740" value="{{$tqf3->tqf3740}}"/>
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/> 
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -181,7 +181,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
         <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>

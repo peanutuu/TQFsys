@@ -58,7 +58,7 @@ class Dynamic3FieldController extends Controller
 
         }
 
-        Dynamic2Field::insert($insert_data);
+        Dynamic3Field::insert($insert_data);
 
         return response()->json(['success'  => 'สร้างตารางเสร็จเรียบร้อยสามารถกลับไปหน้าก่อนเพื่อดูข้อมูลได้']);
 

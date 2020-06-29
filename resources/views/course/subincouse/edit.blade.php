@@ -4,6 +4,9 @@
     <form method="POST" action="{{ route('subincourse.update',['subincourse' => $sic->id])}}">
         @csrf
         @method('PUT')
+        
+        <br> <br>
+        <h1>แก้ไขการเพิ่มรายวิชาในหลักสูตร</h1> <hr> <br>
 
         <div class="form-group">
             <label>หลักสูตร</label>

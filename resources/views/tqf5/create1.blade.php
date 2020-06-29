@@ -31,17 +31,17 @@
 
         <p>
             <label>2. รายวิชาที่ต้องเรียนก่อนรายวิชานี้  (ถ้ามี)</label>
-            <input name='tqf5121' type="text" class="form-control" value="{{ $tqf5->subject->subjectbefore }}" />
+            <input name='tqf5121' type="text" class="form-control" value="{{ $tqf5->subject->subjectbefore }}" required/>
         </p>
 
         <p>
             <label>3. อาจารย์ผู้รับผิดชอบ อาจารย์ผู้สอนและกลุ่มเรียน  (Section)</label><br>
             กลุ่มเรียนที่
-            <input name='tqf5131' type="text"/>
+            <input name='tqf5131' type="text" required/>
 
             อาจารย์ผู้สอน
-            <select  name="tqf5132">
-            <option>เลือกอาจารย์ผู้สอน</option>
+            <select  name="tqf5132" required>
+            <option value="" disabled selected>เลือกอาจารย์ผู้สอน</option>
                 @foreach($users as $user)
                     @if($user->role == "teacher")
                         <option value="{{$user->name}}">{{$user->name}}</option>
@@ -54,30 +54,30 @@
             <label>4. ภาคการศึกษา/ปีการศึกษาที่เปิดสอนรายวิชา</label> <br>
 
             สำหรับนิสิตระดับ 
-            <select name="tqf5141">
-                <option>เลือกระดับ</option>
+            <select name="tqf5141" required>
+                <option value="" disabled selected>เลือกระดับ</option>
                 <option value="ปริญญาตรี">ปริญญาตรี</option>
                 <option value="ปริญญาเอก">ปริญญาเอก</option>
                 <option value="ปริญญาโท">ปริญญาโท</option>
             </select>
 
             ชั้นปีที 
-            <select name="tqf5142">
-                <option>เลือกระดับ</option>
+            <select name="tqf5142" required>
+                <option value="" disabled selected>เลือกระดับ</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
             
-            ภาคการศึกษา <input name='tqf5143' type="text" value="{{$tqf5->term}}/{{$tqf5->year}}"/>
+            ภาคการศึกษา <input name='tqf5143' type="text" value="{{$tqf5->term}}/{{$tqf5->year}}" required/>
         </p>
 
         <p>
             <label>5. สถานที่เรียน</label>
             <label>ห้อง</label>
-            <select name="tqf5151">
-                <option>เลือกห้องเรียน</option>
+            <select name="tqf5151" required>
+                <option value="" disabled selected>เลือกห้องเรียน</option>
                 <option value="IT-401">IT-401</option>
                 <option value="IT-402">IT-402</option>
                 <option value="IT-403">IT-403</option>
@@ -88,7 +88,7 @@
                 <option value="IT-408">IT-408</option>
             </select>
  
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -96,7 +96,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <input type="hidden" name="tqf5241" value="{{$tqf5->tqf5241}}"/>
 

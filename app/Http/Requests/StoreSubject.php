@@ -32,7 +32,9 @@ class StoreSubject extends FormRequest
             'avalible' => 'bail|required',
             'subjectbefore' => 'bail|required',
             'descriptionth' => 'bail|required',
-            'descriptionen' => 'bail|required'
+            'descriptionen' => 'bail|required',
+            'pointofsubject' => 'bail|required',
+            'subjectwith' => 'bail|required'
             // 'course_id' => 'required'
         ];
     }

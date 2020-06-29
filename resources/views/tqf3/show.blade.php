@@ -10,7 +10,7 @@
     @endif --}}
 
     <h1>ชื่อเอกสาร {{ $tqf3->name }} </h1>
-    <h1>เอกสารเป็นของรายวิชา <a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}">{{ $tqf3->subject->subjectid }}</a></h1>
+    <h1>เอกสารเป็นของรายวิชา <a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}">{{ $tqf3->subject->subjectid }}</a> <br>{{ $tqf3->subject->subjectnameen }} <br> {{ $tqf3->subject->subjectnameth }}</h1>
     <h1>ปีการศึกษา {{ $tqf3->year }} / {{ $tqf3->term }}</h1> <br>
 
     {{-- <h1> {{ $subject->subjectnameen }} </h1>

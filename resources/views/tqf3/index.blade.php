@@ -39,7 +39,7 @@
                     <td><a href="{{ route('subject.show', ['subject' => $tqf3->subject->id]) }}"> {{$tqf3->subject->subjectid}} </a></td>
                     <td> {{ $tqf3->year }}/{{ $tqf3->term }} </td>
                     <td> {{ $tqf3->user->name  }} </td>
-                    @if (Auth::user()->id == $tqf3->user_id)
+                    @if (Auth::user()->id == $tqf3->user_id ||auth()->user()->isAdmin() )
                         <td><a href="{{ route('tqf3.edit', ['tqf3' => $tqf3->id]) }}" class="btn btn-warning"> edit </a></td>
                         <td>
                             <form method="POST" class="fm-inline" action="{{ route('tqf3.destroy',['tqf3' => $tqf3->id])}}">

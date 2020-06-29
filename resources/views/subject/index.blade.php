@@ -22,7 +22,7 @@
                       <tr>
                         <th scope="col">รหัสวิชา</th>
                         <th scope="col">ชื่อรายวิชา</th>
-                        <th scope="col">ผู้จัดทำ</th>
+                        {{-- <th scope="col">ผู้จัดทำ</th> --}}
                         <th scope="col">หน่วยกิต</th>
                         <th scope="col">สถานะรายวิชา</th>
                             {{-- <th scope="col">รหัสหลักสูตร</th> --}}
@@ -35,13 +35,13 @@
                         <tr>
                         <th scope="row"><a href="{{ route('subject.show', ['subject' => $subject->id]) }}">{{$subject->subjectid}}</a></th>
                         <th scope="row"><a href="{{ route('subject.show', ['subject' => $subject->id]) }}">{{$subject->subjectnameen}}<br>{{$subject->subjectnameth}}</a></th>
-                        <th scope="row">{{ $subject->user->name  }}</th>
+                        {{-- <th scope="row">{{ $subject->user->name  }}</th> --}}
                         <td>{{$subject->credit}}</td>
                         <td>{{$subject->avalible }}</td>
     
                         {{-- <td><a href="{{ route('course.show', ['course' => $subject->course->id]) }}" >{{$subject->course->coursename}}</a></td> --}}
     
-                        @if (Auth::user()->id == $subject->user_id)
+                        @if (Auth::user()->id == $subject->user_id ||auth()->user()->isAdmin() )
                             <td><a href="{{ route('subject.edit', ['subject' => $subject->id]) }}" class="btn btn-primary"> edit </a></td>
                             <td>
                                 <form method="POST" class="fm-inline" action="{{ route('subject.destroy',['subject' => $subject->id])}}">

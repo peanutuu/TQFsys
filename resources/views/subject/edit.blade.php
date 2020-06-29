@@ -33,7 +33,24 @@
 
         <p>
             <label>เงื่อนไขรายวิชา</label>
-            <input type="text" name="subjectbefore" class="form-control" value="{{ old('subjectbefore', $subject->subjectbefore) }}" /> 
+            {{-- <input type="text" name="subjectbefore" class="form-control" value="{{ old('subjectbefore', $subject->subjectbefore) }}" />  --}}
+            <label>รายวิชาที่ต้องเรียนมาก่อน</label>
+            <select class="form-control" name="subjectbefore" required>
+                    <option value="{{ old('subjectbefore', $subject->subjectbefore) }}" selected>{{ $subject->subjectbefore }}</option>
+                    <option value="ไม่มี">ไม่มี</option>
+                @foreach($subjects as $subject)
+                    <option value="{{$subject->subjectid}} {{$subject->subjectnameen}} {{$subject->subjectnameth}}">{{$subject->subjectid}} {{$subject->subjectnameen}} {{$subject->subjectnameth}}</option>
+                @endforeach
+            </select>
+            <label>รายวิชาที่เรียนพร้อมกัน</label>
+            <select class="form-control" name="subjectwith" required>
+                    <option value="{{ old('subjectwith', $subject->subjectwith) }}" selected>{{ $subject->subjectwith }}</option>\
+                    <option value="" disabled selected>เลือกรายวิชา</option>
+                    <option value="ไม่มี">ไม่มี</option>
+                @foreach($subjects as $subject)
+                    <option value="{{$subject->subjectid}} {{$subject->subjectnameen}} {{$subject->subjectnameth}}">{{$subject->subjectid}} {{$subject->subjectnameen}} {{$subject->subjectnameth}}</option>
+                @endforeach
+            </select>
         </p>
 
         <p>
@@ -44,6 +61,11 @@
         <p>
             <label>คำอธิบายรายวิชา(อังกฤษ)</label>
             <textarea name='descriptionen' rows="5" cols="4" class="form-control">{{ old('descriptionen', $subject->descriptionen) }}</textarea><br>
+        </p>
+
+        <p>
+            <label>จุดมุ่งหมายของรายวิชา</label>
+            <textarea name='pointofsubject' rows="5" cols="4" class="form-control">{{ old('pointofsubject', $subject->pointofsubject) }}</textarea><br>
         </p>
 
         <div class="form-group">
@@ -60,7 +82,7 @@
             </select>
         </div>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -68,7 +90,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
         <button type="submit" class="btn btn-primary btn-block">Update!</button>
     </form>

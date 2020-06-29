@@ -25,35 +25,35 @@
         <h1><label>หมวดที่ 3 ลักษณะและการดำเนินการ</label></h1>
         <p>
             <label>1.คำอธิบายรายวิชา</label>
-            <textarea name='tqf3311' rows="5" cols="4" class="form-control">{{ old('tqf3311', $tqf3->subject->descriptionth) }}</textarea><br>
+            <textarea name='tqf3311' rows="5" cols="4" class="form-control" required>{{ old('tqf3311', $tqf3->subject->descriptionth) }}</textarea><br>
         </p>
 
         <p>
             <label>2.จำนวนชั่วโมงที่ใช้ต่อภาคการศึกษา (หน่วยเป็นชั่วโมง)</label><br>
             <label>บรรยาย</label>
-            <input name='tqf3321' type="text" value="{{ old('tqf3321', $tqf3->tqf3321 ?? null) }}"/> 
+            <input name='tqf3321' type="text" value="" required/> <br>
 
             <label>สอนเสริม</label>
-            <input name='tqf3322' type="text" value="{{ old('tqf3322', $tqf3->tqf3322 ?? null) }}"/> 
+            <input name='tqf3322' type="text" value="" required/> <br>
 
             <label>การฝึกปฏิบัติ</label>
-            <input name='tqf3323' type="text" value="{{ old('tqf3323', $tqf3->tqf3323 ?? null) }}"/> 
+            <input name='tqf3323' type="text" value="" required/> <br>
 
             <label>การศึกษาด้วยตนเอง</label>
-            <input name='tqf3324' type="text" value="{{ old('tqf3324', $tqf3->tqf3324 ?? null) }}"/> 
+            <input name='tqf3324' type="text" value="" required/> <br>
         </p>
 
         <p>
             <label>3.จำนวนชั่วโมงต่อสัปดาร์ที่อาจารย์ให้คำปรึกษาแนะนำทางวิชาการแก่นิสิตเป็นรายงานบุคคล</label>
             {{-- <input name='tqf3331' type="text" placeholder="ระบุจำนวนชั่วโมงต่อสัปดาห์ที่จะให้คำปรึกษาและแนะนำทางวิชาการแก่นักศึกษานอกชั้นเรียนและระบุวิธีการสื่อสารให้นักศึกษาได้ทราบกำหนดเวลาล่วงหน้า"  
             size="150"/> --}}
-            <textarea name='tqf3331' rows="5" cols="4" class="form-control" >{{ old('tqf3331', $tqf3->tqf3331 ?? null) }}</textarea><br>
+            <textarea name='tqf3331' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>4.การบูรณาการเรียนการสอนกับงานวิจัย / งานบริการวิชาการ / ทำนุบำรุงศิลปะ (ถ้ามี)</label>
             {{-- <input name='tqf3341' type="text" /> --}}
-            <textarea name='tqf3341' rows="5" cols="4" class="form-control">{{ old('tqf3341', $tqf3->tqf3341 ?? null) }}</textarea><br>
+            <textarea name='tqf3341' rows="5" cols="4" class="form-control" required></textarea><br>
 
         </p>
 
@@ -95,7 +95,7 @@
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -103,7 +103,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
         <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>

@@ -5,13 +5,15 @@
     {{-- <a href="{{ route('sic.add', ['course' => $course->id]) }}" class="btn btn-primary"> เพิ่มรายวิชา </a> --}}
     <br><br><a href="{{ route('course.index') }}" class="btn btn-danger"> กลับ </a>
 
-    @if(auth()->user()->isAdmin())    
+    {{-- @if(auth()->user()->isAdmin())    
         <a href="{{ route('subincourse.create') }}" class="btn btn-primary"> เพิ่มรายวิชาลงในหลักสูตร </a>
-    @endif
+    @endif --}}
 
-    <br><br><br>
-    หลักสูตร <br><br>
+    <br><br>
+    <h1>รายละเอียดหลักสูตร</h1> 
+    <hr> <br>
 
+    รหัสหลักสูตร : {{ $course->courseid }} <br>
     ระดับการศึกษา  :  {{$course->courselv}} <br>
     คณะ         : {{$course->coursefac}} <br>
     หลักสูตร : {{$course->coursename}} <br><br><br>
@@ -44,7 +46,6 @@
                     <td width="5%" colspan="2"> - </td>
                 </tr>
                 @endforelse
-                
             </tbody> 
         </table>
         @else
@@ -157,7 +158,7 @@
                         <tr>
                             <td width="8%" ><a href="{{ route('subject.show', ['subject' => $sic->subject_id]) }}">{{$sic->subject->subjectid}}</a></td>
                             <td width="25%" colspan="2" >{{$sic->subject->subjectnameen}} <br> {{$sic->subject->subjectnameth}}</td>
-                            <td width="5%" colspan="2" align="center">{{$sic->subject->credit}}</td>
+                            <td width="5%" colspan="2">{{$sic->subject->credit}}</td>
                         </tr>
             </tbody>
                     @else

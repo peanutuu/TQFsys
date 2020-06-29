@@ -4,6 +4,8 @@
     <form method="POST" action="{{ route('course.update',['course' => $course->id])}}">
         @csrf
         @method('PUT')
+        <br> <br>
+        <h1>แก้ไขหลักสูตร</h1> <hr> <br>
 
         <p>
             <label>รหัสหลักสูตร</label>
@@ -191,7 +193,7 @@
             <input type="text" name="course5" class="form-control" value="{{ old('course5', $course->course5) }}" />
         </p>
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -199,7 +201,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
 
         <button type="submit" class="btn btn-primary btn-block">Update!</button>
     </form>

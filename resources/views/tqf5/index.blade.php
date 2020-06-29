@@ -11,36 +11,6 @@
             {{-- <a href="#" class="btn btn-primary"> เพิ่มมคอ.2 </a> --}}
             <a href="{{ route('tqf5.create') }}" class="btn btn-primary"> เพิ่มมคอ.5 </a>
             
-            {{-- <div>
-                <table class="table table-striped">
-                    <thead class="thead-dark">
-                    <br>TQF2
-                    <tr>
-                        <th scope="col">เลขที่</th>
-                        <th scope="col">ชื่อเอกสาร</th>
-                        <th scope="col">รายวิชา</th>
-                        <th scope="col">แก้ไข</th>
-                        <th scope="col">ลบ</th>
-                        <th scope="col">คัดลอก</th>
-                    </tr>
-                    </thead>
-                <tbody>
-                <tr>
-                    <th>no</th>
-                    <th>name</th>
-                    <th>course</th>
-                    <td><a href="#" class="btn btn-primary"> edit </a></td>
-                    <td>
-                        <form method="POST" class="fm-inline" action="#">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="Delete" class="btn btn-danger"/>
-                        </form>
-                    </td>
-                    <td><a href="#" class="btn btn-primary"> copy </a></td>
-                </tr>   
-            </div> --}}
-            
             <br><br>
             <form class="input-group" action="{{route('tqf5.index')}}" method="GET">
                 <input type="text" class="form-control" name="search" placeholder="Search" value="{{request()->query('search')}}">
@@ -60,6 +30,7 @@
                         <th scope="col">ชื่อเอกสาร</th>
                         <th scope="col">รายวิชา</th>
                         <th scope="col">ปีการศึกษา/ภาคเรียน</th>
+                        <th scope="col">ผู้จัดทำเอกสาร</th>
                         <th scope="col">แก้ไข</th>
                         <th scope="col">ลบ</th>
                         <th scope="col">คัดลอก</th>
@@ -73,8 +44,9 @@
                 <td><a href="{{ route('tqf5.show', ['tqf5' => $tqf5->id]) }}"> {{ $tqf5->name }} </a></td>
                 <td><a href="{{ route('subject.show', ['subject' => $tqf5->subject->id]) }}"> {{$tqf5->subject->subjectid}} </a></td>
                 <td> {{ $tqf5->year }}/{{ $tqf5->term }} </td>
+                    <td>{{ $tqf5->user->name}}</td>
 
-                @if (Auth::user()->id == $tqf5->user_id)
+                @if (Auth::user()->id == $tqf5->user_id || auth()->user()->isAdmin())
                 <td><a href="{{ route('tqf5.edit', ['tqf5' => $tqf5->id]) }}" class="btn btn-warning"> edit </a></td>
                 <td>
                     <form method="POST" class="fm-inline" action="{{ route('tqf5.destroy',['tqf5' => $tqf5->id])}}">

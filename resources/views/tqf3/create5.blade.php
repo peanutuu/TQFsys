@@ -50,11 +50,11 @@
                                 <thead>
                                     <tr>
                                         <th width="10%" rowspan="2"> สัปดาห์ที่ </th>
-                                        <th width="50%" rowspan="2"> หัวข้อ/รายละเอียด </th>
+                                        <th width="30%" rowspan="2"> หัวข้อ/รายละเอียด </th>
                                         <th width="10%" colspan="2"> จำนวนชั่วโมง </th>
-                                        <th width="10%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
-                                        <th width="10%" rowspan="2"> สื่อการสอน </th>
-                                        <th width="10%" rowspan="2"> อาจารย์ผู้สอน </th>
+                                        <th width="20%" rowspan="2"> กิจกรรมการเรียนการสอน </th>
+                                        <th width="15%" rowspan="2"> สื่อการสอน </th>
+                                        <th width="15%" rowspan="2"> อาจารย์ผู้สอน </th>
                                         {{-- <th width="5%"  colspan="2"> เพื่มจำนวนเแถว
                                             <button type="button" name="add1" id="add1" class="btn btn-success">Add1</button>
                                             <button type="button" name="add3" id="add3" class="btn btn-success">Add3</button>
@@ -132,11 +132,11 @@
             
             <label>2.2 เกณฑ์ผ่านรายวิชา ผู้ที่จะผ่านรายวิชานี้จะต้อง</label><br>
             {{-- <input name='tqf3521' type="text" /><br> --}}
-            <textarea name='tqf3521' rows="5" cols="4" class="form-control">{{ old('tqf3521', $tqf3->tqf3521 ?? null) }}</textarea><br>
+            <textarea name='tqf3521' rows="5" cols="4" class="form-control" required></textarea><br>
 
             <label>2.3 เกณฑ์ค่าระดับคะแนน</label><br>
             {{-- <input name='tqf3522' type="text" /> --}}
-            <textarea name='tqf3522' rows="5" cols="4" class="form-control">{{ old('tqf3522', $tqf3->tqf3522 ?? null) }}</textarea><br>
+            <textarea name='tqf3522' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
@@ -182,7 +182,7 @@
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -190,7 +190,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
         <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>

@@ -29,31 +29,31 @@
         <p>
             <label>1.กลยุทธ์การประเมินประสิทธิผลของรายวิชาโดยนิสิต</label><br>
             {{-- <input name='tqf3710' type="text" /> --}}
-            <textarea name='tqf3710' rows="5" cols="4" class="form-control">{{ old('tqf3710', $tqf3->tqf3710 ?? null) }}</textarea><br>
+            <textarea name='tqf3710' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>2.กลยุทธ์การประเมินการสอน</label><br>
             {{-- <input name='tqf3720' type="text" placeholder="ระบุวิธีการประเมินที่จะได้ข้อมูลการสอน เช่น จากผู้สังเกตการณ์ หรือทีมผู้สอน หรือผลการเรียนของนักศึกษา เป็นต้น" size="150" /> --}}
-            <textarea name='tqf3720' rows="5" cols="4" class="form-control" >{{ old('tqf3720', $tqf3->tqf3720 ?? null) }}</textarea><br>
+            <textarea name='tqf3720' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>3.การปรับปรุงการสอน</label><br>
             {{-- <input name='tqf3730' type="text" placeholder="อธิบายการปรับปรุงการสอน เช่น การวิจัยในชั้นเรียน การประชุมเชิงปฏิบัติการเพื่อพัฒนาการเรียนการสอน เป็นต้น" size="150" /> --}}
-            <textarea name='tqf3730' rows="5" cols="4" class="form-control" >{{ old('tqf3730', $tqf3->tqf3730 ?? null) }}</textarea><br>
+            <textarea name='tqf3730' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>4.การทวนสอบมาตรฐานผลสัมฤทธิ์ของนิสิตในรายวิชา</label><br>
             {{-- <input name='tqf3740' type="text" placeholder="อธิบายกระบวนการที่ใช้ในการทวนสอบมาตรฐานผลสัมฤทธิ์ของนักศึกษาตามมาตรฐานผลการเรียนรู้ของรายวิชา เช่น ทวนสอบจากคะแนนข้อสอบ หรืองานที่มอบหมาย กระบวนการอาจแตกต่างกันไปสำหรับรายวิชาที่แตกต่างกัน หรือสำหรับมาตรฐานผลการเรียนรู้แต่ละด้าน" size="200" /> --}}
-            <textarea name='tqf3740' rows="5" cols="4" class="form-control" >{{ old('tqf3740', $tqf3->tqf3740 ?? null) }}</textarea><br>
+            <textarea name='tqf3740' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <p>
             <label>5.การดำเนินการทบทวนและการวางแผนปรับปรุงประสิทธิผลของรายวิชา</label><br>
             {{-- <input name='tqf3750' type="text" placeholder="อธิบายกระบวนการในการนำข้อมูลที่ได้จากการประเมินจากข้อ 1 และ 2 มาวางแผนเพื่อปรับปรุงคุณภาพ" size="100"/> --}}
-            <textarea name='tqf3750' rows="5" cols="4" class="form-control" >{{ old('tqf3750', $tqf3->tqf3750 ?? null) }}</textarea><br>
+            <textarea name='tqf3750' rows="5" cols="4" class="form-control" required></textarea><br>
         </p>
 
         <input type="hidden" name="tqf3121" value="{{$tqf3->tqf3121}}"/>
@@ -96,7 +96,7 @@
 
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -104,7 +104,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด เสร็จสิ้น!!! </h4></li><br>
 

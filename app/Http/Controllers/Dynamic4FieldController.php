@@ -56,7 +56,7 @@ class Dynamic4FieldController extends Controller
 
         }
 
-        Dynamic2Field::insert($insert_data);
+        Dynamic4Field::insert($insert_data);
 
         return response()->json(['success'  => 'สร้างตารางเสร็จเรียบร้อยสามารถกลับไปหน้าก่อนเพื่อดูข้อมูลได้']);
 

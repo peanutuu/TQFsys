@@ -34,10 +34,6 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/tqf3/{tqf3}/createtqf352', 'Dynamic2FieldController@index')->name('tqf3.createtqf352');
     Route::post('/tqf352/insert', 'Dynamic2FieldController@insert')->name('createtqf352.insert');
 
-    // Route::put('/tqf3/update', 'DynamicFieldController@update')->name('tqf3.updatelessonplan');
-
-    // Route::post('/tqf3/{tqf3}/lessonplan/insert', 'DynamicFieldController@insert')->name('lessonplan.insert');
-
     Route::put('/tqf3/1/{tqf3}','TQF3Controller@update1')->name('tqf3.update1');
     Route::put('/tqf3/2/{tqf3}','TQF3Controller@update2')->name('tqf3.update2');
     Route::put('/tqf3/3/{tqf3}','TQF3Controller@update3')->name('tqf3.update3');

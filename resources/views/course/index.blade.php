@@ -26,7 +26,8 @@
             <tr>
                 {{-- <th scope="col">เลขที่</th> --}}
                 <th scope="col">รหัสหลักสูตร</th>
-                <th scope="col">ผู้จัดทำ</th>
+                <th scope="col">ชื่อหลักสูตร</th>
+                <th scope="col">หน่วยกิต</th>
                 <th scope="col">คณะ</th>
                 @if(auth()->user()->isAdmin()) 
                     <th scope="col">แก้ไข</th>
@@ -38,8 +39,9 @@
             @foreach($courses as $course)
             <tr>
                 {{-- <th scope="row"><a href="{{ route('course.show', ['course' => $course->id]) }}">{{$course->id}}</a></th> --}}
+                <td scope="row"><a href="{{ route('course.show', ['course' => $course->id]) }}">{{$course->courseid}}</a></td>
                 <td scope="row"><a href="{{ route('course.show', ['course' => $course->id]) }}">{{$course->coursename}}</a></td>
-                <td scope="row">{{ $course->user->name  }}</td>
+                <td scope="row">{{ $course->coursecredit }}</td>
                 <td scope="row">{{$course->coursefac}}</td>
 
                 @if(auth()->user()->isAdmin()) 

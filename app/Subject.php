@@ -10,7 +10,7 @@ class Subject extends Model
 
     protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac'
                             ,'credit','avalible','user_id','subjectbefore'
-                            ,'descriptionth','descriptionen'];
+                            ,'descriptionth','pointofsubject','subjectwith','descriptionen'];
 
     // protected $fillable = ['subjectid','subjectnameen','subjectnameth','subjectfac','credit','avalible','course_id'];
 

@@ -43,8 +43,8 @@
 
                 <div class="table-responsive">
                     <form >
-                            {{-- @if($tqf5->dynamic3fields->count()>0) --}}
-                                {{-- <table class="table table-bordered table-striped" id="user_table">
+                            @if($tqf5->dynamic3fields->count()>0)
+                                <table class="table table-bordered table-striped" id="user_table">
                                     <thead>
                                         <tr>
                                             <th width="25%" rowspan="2"> หัวข้อ </th>
@@ -53,17 +53,20 @@
                                             <th width="25%" rowspan="2"> ระบุสาเหตุที่การสอนจริงต่างจากแผนการสอนหากมีความแตกต่าง </th>
                                         </tr>
                                     </thead>
-                                        <tbody> --}}
-                                                {{-- @foreach ($tqf5->dynamicfields as $dynamicfield) --}}
-                                                {{-- <tr>
-
-                                                </tr> --}}
-                                                {{-- @endforeach --}}
-                                        {{-- </tbody>
-                                </table>  --}}
-                            {{-- @else --}}
+                                        <tbody>
+                                                @foreach ($tqf5->dynamic3fields as $dynamic3field)
+                                                <tr>
+                                                    <td>{{ $dynamic3field->tqf5211 }} </td>
+                                                    <td>{{ $dynamic3field->tqf5212 }}</td>
+                                                    <td>{{ $dynamic3field->tqf5213 }}</td>
+                                                    <td>{{ $dynamic3field->tqf5214 }}</td>
+                                                </tr>
+                                                @endforeach
+                                        </tbody>
+                                </table> 
+                            @else
                                 <h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
-                            {{-- @endif --}}
+                            @endif
                 </div> <br>
 
             <label>2. หัวข้อที่สอนไม่ครอบคลุมตามแผน</label><br>
@@ -72,8 +75,8 @@
 
                 <div class="table-responsive">
                     <form >
-                            {{-- @if($tqf5->dynamic3fields->count()>0) --}}
-                                {{-- <table class="table table-bordered table-striped" id="user_table">
+                            @if($tqf5->dynamic4fields->count()>0)
+                                <table class="table table-bordered table-striped" id="user_table">
                                     <thead>
                                         <tr>
                                             <th width="33%" rowspan="2"> หัวข้อที่สอนไม่ครอบคลุมตามแผน (ถ้ามี) </th>
@@ -81,17 +84,19 @@
                                             <th width="33%" rowspan="2"> แนวทางชดเชย </th>
                                         </tr>
                                     </thead>
-                                        <tbody> --}}
-                                                {{-- @foreach ($tqf5->dynamicfields as $dynamicfield) --}}
-                                                {{-- <tr>
-
-                                                </tr> --}}
-                                                {{-- @endforeach --}}
-                                        {{-- </tbody>
-                                </table>  --}}
-                            {{-- @else --}}
+                                        <tbody>
+                                                @foreach ($tqf5->dynamic4fields as $dynamic4field)
+                                                <tr>
+                                                    <td>{{ $dynamic4field->tqf5221 }} </td>
+                                                    <td>{{ $dynamic4field->tqf5222 }}</td>
+                                                    <td>{{ $dynamic4field->tqf5223 }}</td>
+                                                </tr>
+                                                @endforeach
+                                        </tbody>
+                                </table> 
+                            @else
                                 <h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
-                            {{-- @endif --}}
+                            @endif
                 </div> <br>
 
             <label>3. ประสิทธิผลของวิธีสอนที่ทำให้เกิดผลการเรียนรู้ตามที่ระบุในรายละเอียดของรายวิชา</label><br>
@@ -100,39 +105,38 @@
 
             <div class="table-responsive">
                 <form >
-                        {{-- @if($tqf5->dynamic3fields->count()>0) --}}
-                            {{-- <table class="table table-bordered table-striped" id="user_table">
+                        @if($tqf5->dynamic5fields->count()>0)
+                            <table class="table table-bordered table-striped" id="user_table">
                                 <thead>
                                     <tr>
                                         <th width="30%" rowspan="2"> ผลการเรียนรู้ </th>
                                         <th width="30%" rowspan="2"> วิธีสอนที่ระบุในรายละเอียด รายวิชา </th>
-                                        <th width="10%" colspan="2"> ประสิทธิผล </th>
+                                        <th width="10%" rowspan="2"> ประสิทธิผล </th>
                                         <th width="30%" rowspan="2"> ปัญหาของการใช้วิธีสอน (ถ้ามี) พร้อมข้อเสนอแนะในการแก้ไข</th>
                                     </tr>
-                                    <tr>
-                                        <td >มี</td>
-                                        <td >ไม่มี</td>
-                                    </tr>
                                 </thead>
-                                    <tbody> --}}
-                                            {{-- @foreach ($tqf5->dynamicfields as $dynamicfield) --}}
-                                            {{-- <tr>
-
-                                            </tr> --}}
-                                            {{-- @endforeach --}}
-                                    {{-- </tbody>
-                            </table>  --}}
-                        {{-- @else --}}
+                                    <tbody>
+                                            @foreach ($tqf5->dynamic5fields as $dynamic5field)
+                                            <tr>
+                                                <td>{{ $dynamic5field->tqf5231 }} </td>
+                                                <td>{{ $dynamic5field->tqf5232 }}</td>
+                                                <td>{{ $dynamic5field->tqf5233 }}</td>
+                                                <td>{{ $dynamic5field->tqf5234 }}</td>
+                                            </tr>
+                                            @endforeach
+                                    </tbody>
+                            </table> 
+                        @else
                             <h3 class="text text-center">ยังไม่ได้สร้างแผนการสอน</h3>
-                        {{-- @endif --}}
+                        @endif
             </div> <br>
 
             <label>4. ข้อเสนอการดำเนินการเพื่อปรับปรุงวิธีสอน</label><br>
             <textarea name='tqf5241' rows="5" cols="4" 
-            class="form-control"></textarea><br>
+            class="form-control" required></textarea><br>
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -140,7 +144,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <input type="hidden" name="tqf5121" value="{{$tqf5->tqf5121}}"/>
         <input type="hidden" name="tqf5131" value="{{$tqf5->tqf5131}}"/>

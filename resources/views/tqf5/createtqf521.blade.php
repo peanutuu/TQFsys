@@ -9,43 +9,42 @@
  <body>
   <div>    
 
-     <br />
-     <h3 align="center">สร้างตารางรายงานชั่วโมงการสอนจริงเทียบกับแผนการสอน มคอ.5ของรายวิชา {{$tqf5->subject->subjectid}}</h3>
-     <br />
-     <div class="table-responsive">
-        <form method="post" id="dynamic_form">
-            <span id="result"></span>
-                <table class="table table-bordered table-striped" id="user_table">
-                    <thead>
-                        <tr>
-                            <th width="25%" rowspan="2"> หัวข้อ </th>
-                            <th width="25%" rowspan="2"> จำนวนชั่วโมงตามแผนการสอน </th>
-                            <th width="25%" rowspan="2"> จำนวนชั่วโมงที่สอนจริง </th>
-                            <th width="25%" rowspan="2"> ระบุสาเหตุที่การสอนจริงต่างจากแผนการสอนหากมีความแตกต่าง </th>
-                        </tr>
-                    </thead>
-                        <tbody id="t1">
-                            
-                        </tbody>
-                    <tfoot>
-                        <tr>
-                            <td> <a href="{{ route('tqf5.create2',['tqf5' => $tqf5->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a></td>
-                            <td colspan="3" align="right">&nbsp;</td>
-                            <td>
-                                @csrf
-                                <input type="submit" name="save" id="save" class="btn btn-primary" value="บันทึก" />
-                            </td>
-                        </tr>
-                        <tr>
-                            
-                        </tr>
-                    </tfoot>
-                </table>
+    <br />
+    <h3 align="center">สร้างตารางรายงานชั่วโมงการสอนจริงเทียบกับแผนการสอน มคอ.5ของรายวิชา {{$tqf5->subject->subjectid}}</h3>
+    <br />
+    <div class="table-responsive">
+    <form method="post" id="dynamic_form">
+        <span id="result"></span>
+            <table class="table table-bordered table-striped" id="user_table">
+                <thead>
+                    <tr>
+                        <th width="25%" rowspan="2"> หัวข้อ </th>
+                        <th width="25%" rowspan="2"> จำนวนชั่วโมงตามแผนการสอน </th>
+                        <th width="25%" rowspan="2"> จำนวนชั่วโมงที่สอนจริง </th>
+                        <th width="25%" rowspan="2"> ระบุสาเหตุที่การสอนจริงต่างจากแผนการสอนหากมีความแตกต่าง </th>
+                    </tr>
+                </thead>
+                    <tbody id="t1">
+                        
+                    </tbody>
+                <tfoot>
+                    <tr>
+                        <td> <a href="{{ route('tqf5.create2',['tqf5' => $tqf5->id]) }}" class="btn btn-danger"> กลับไปหน้าก่อน </a></td>
+                        <td colspan="3" align="right">&nbsp;</td>
+                        <td>
+                            @csrf
+                            <input type="submit" name="save" id="save" class="btn btn-primary" value="บันทึก" />
+                        </td>
+                    </tr>
+                    <tr>
+                        
+                    </tr>
+                </tfoot>
+            </table>
         </form>
     </div>
-  </div>
-
- </body>
+</div>
+</body>
 </html>
 
 <script>

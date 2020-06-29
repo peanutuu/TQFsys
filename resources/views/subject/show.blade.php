@@ -14,7 +14,10 @@
         สังกัด {{ $subject->subjectfac }} <br>
         หน่วยกิต {{ $subject->credit }} <br>
         สถานะรายวิชา {{ $subject->avalible }} <br>
-        เงื่อนไขรายวิชา {{ $subject->subjectbefore }} <br>
+        <hr>
+        เงื่อนไขรายวิชา <br>
+        รายวิชาที่ต้องเรียนมาก่อน {{ $subject->subjectbefore }} <br>
+        รายวิชาที่ต้องเรียนพร้อมกัน {{ $subject->subjectwith }} <br>
         </div>
         
         <hr>
@@ -22,6 +25,10 @@
         {{ $subject->descriptionth }} <br>
         <hr>
         {{ $subject->descriptionen }}
+        <hr>
+
+        <h4> จุดมุ่งหมายของรายวิชา </h4>
+        {{ $subject->pointofsubject }}
         <hr>
 
 
@@ -52,9 +59,9 @@
     </div>
 
     <div> 
-        เอกสารที่เกี่ยวข้อง
+        <h4>เอกสารที่เกี่ยวข้อง</h4>
         <div>
-            <h4>มคอ3</h4>
+            <h5>มคอ3</h5>
             @foreach ($subject->tqf3s as $tqf3)
                 <li><a href="{{ route('tqf3.show', ['tqf3' => $tqf3->id]) }}">{{$tqf3->name}}</a> {{$tqf3->year}}/{{$tqf3->term}} มคอ.3</li>
             @endforeach
@@ -62,7 +69,7 @@
         </div>
         
         <div>
-            <h4>มคอ5</h4>
+            <h5>มคอ5</h5>
             @foreach ($subject->tqf5s as $tqf5)
                 <li><a href="{{ route('tqf5.show', ['tqf5' => $tqf5->id]) }}">{{$tqf5->name}}</a> {{$tqf5->year}}/{{$tqf5->term}} มคอ.5</li>
             @endforeach

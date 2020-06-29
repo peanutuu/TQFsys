@@ -25,7 +25,7 @@
         <h1><label>หมวดที่ 2 จุดมุ่งหมายและวัตถุประสงค์</label></h1>
         <p>
             <label>1.จุดมุ่งหมายของรายวิชา</label><br>
-            <textarea name='tqf3211' rows="5" cols="4" class="form-control"></textarea><br>
+            <textarea name='tqf3211' rows="5" cols="4" class="form-control" required> {{ $tqf3->subject->pointofsubject }}</textarea><br>
 
             {{-- <label>1.2</label>
             <input name='tqf3212' type="text" /> --}}
@@ -35,7 +35,7 @@
             <label>2.วัตถุประสงค์ในการพัฒนาปรับปรุงรายวิชา</label><br>
             <label>อธิบายโดยย่อเกี่ยวกับวัตถุประสงค์ในการพัฒนารายวิชานี้หรือการเปลี่ยนแปลงสำคัญๆที่เกิดขึ้น เช่น เพิ่มการใช้เทคโนโลยีสารสนเทศ หรือ web based การเปลี่ยนแปลงเนื้อหาของรายวิชาซึ่งเป็นผลจากงานวิจัย ใหม่ๆ ในสาขา</label><br>
             {{-- <label>2.1</label> --}}
-            <textarea name='tqf3221' rows="5" cols="4" class="form-control" ></textarea><br>
+            <textarea name='tqf3221' rows="5" cols="4" class="form-control" required></textarea><br>
             {{-- <input name='tqf3221' type="text" /><br>
 
             <label>2.2</label>
@@ -85,7 +85,7 @@
         <input type="hidden" name="tqf3750" value="{{$tqf3->tqf3750}}"/>  
         
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div>
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -93,7 +93,7 @@
                     @endforeach
                 </ul>
             </div>
-        @endif 
+        @endif  --}}
 
         <li><h4> กรุณาตรวจสอบการทำรายการอีกครั้งก่อนกด ทำรายการต่อไป!!! </h4></li><br>
         <button type="submit" class="btn btn-primary btn-block">ทำรายการต่อไป</button>
