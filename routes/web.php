@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/course', 'CourseController');
     Route::resource('/tqf3', 'TQF3Controller')->only('index','create','store','edit','update','destroy','show');   
     Route::get('/tqf3/{tqf3}/copy','TQF3Controller@copy')->name('tqf3.copy');
+    Route::get('/tqf3/{tqf3}/copy2', 'TQF3Controller@storeTwo')->name('tqf3.storeTwo');
 
     Route::get('/tqf3/{tqf3}/create1', 'TQF3Controller@create1')->name('tqf3.create1');
     Route::get('/tqf3/{tqf3}/create2', 'TQF3Controller@create2')->name('tqf3.create2');
